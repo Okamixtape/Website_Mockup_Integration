@@ -44,7 +44,7 @@ nav ul {
     list-style-type: none;
     margin-top: 0;
     margin-right: 20px;
-/* Rendre plus visible */
+    /* Rendre plus visible */
     font-weight: 500;
 }
 
@@ -242,3 +242,114 @@ Arrondi bordure top et bottom right / Curseur devient pointeur */
     padding: 3.5px 6.5px;
 }
 
+
+/* CSS / MAIN / FLEX HEBERGEMENTS */
+
+
+/* Alignement horizontal box containerhébergements et box asidepopulaires */
+/* Séparation de section filtres et alignement marge gauche*/
+main {
+    display: flex;
+    /* Attention si inf à 2px : main pas aligné avec section du haut */
+    margin-top: 2px;
+    margin-left: 52px;
+}
+
+/* Alignement horizontal 6 photos hébergements */
+.principal {
+    display: flex;
+    /* Si ça dépasse ça va à la ligne */
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 25px;
+    padding-top: 19px;
+}
+
+/* Conteneur hébergements fond gris / bordures arrondies */
+.container {
+    background-color: #f2f2f2;
+    border-radius: 25px;
+    margin-top: 33px;
+    /* à travailler */
+    padding-bottom: 25px;
+    width: 91%;
+    /* Séparer conteneur hébergements et conteneur populaires */
+    margin-right: 40px;
+}
+
+/* Réduction taille photo hébergements et arrondi top left et right*/
+.imagehebergements {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    width: 100%;
+    height: 60%;
+    /* Maintenir ratio d'affichage imagehebergements*/
+    object-fit: cover;
+}
+
+/* Création des 6 box hébergements couleur de fond blanche / Ombre grise */
+.boxhebergements {
+    width: 193px;
+    height: 155px;
+    background-color: white;
+    border-radius: 18px;
+    padding: 5px;
+    margin: 10px 0 25px 0;
+    box-shadow: 4px 2px 20px rgb(217, 217, 217);
+}
+
+/* Agrandissement au survol */
+.boxhebergements:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+
+/* Taille police Activités à Marseille */
+h2 {
+    font-size: 18px;
+    margin: 37px 0 0px 41px;
+}
+
+/* Taille police Noms d'hôtels */
+h4 {
+    font-size: 14px;
+    margin-left: 6px;
+}
+
+/* Taille police Nuits */
+p {
+    font-size: 12.5px;
+    margin: 6px 0px 6px 0px;
+}
+
+.boxhebergements p {
+    margin: 6px 0px 6px 6px;
+}
+
+/* Taille police Afficher plus */
+.plusderesultats {
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 41px;
+}
+
+
+/* Étoiles hébergements / changement taille 
+couleur bleu / Déplacées à droite */
+.etoiles {
+    color: #0065fc;
+    font-size: 10px;
+    margin-left: 6px;
+}
+
+/* Étoile grise */
+.etoilegrise {
+    color: rgb(217, 217, 217);
+    font-size: 10px;
+}
+
+/* Enlever décoration des ancres */
+a {
+    text-decoration: none;
+    color: black;
+}
