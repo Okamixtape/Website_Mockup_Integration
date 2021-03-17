@@ -1,3 +1,18 @@
+/* CSS / TOUTE LA PAGE */ 
+
+
+/* Pas de marge de base pour tous les éléments */
+* {
+  margin: 0;
+}
+
+
+
+/* Police Raleway / Pas de marge / Largeur max de page : 100% */
 body {
-    font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  max-width: 100%;
+/* Supprimer scrollbar horizontale */
+  overflow-x: hidden;
 }
