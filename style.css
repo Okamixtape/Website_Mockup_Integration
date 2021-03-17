@@ -1,18 +1,77 @@
 /* CSS / TOUTE LA PAGE */ 
 
-
 /* Pas de marge de base pour tous les éléments */
 * {
-  margin: 0;
+    margin: 0;
 }
-
-
 
 /* Police Raleway / Pas de marge / Largeur max de page : 100% */
 body {
-  font-family: "Raleway", sans-serif;
-  margin: 0;
-  max-width: 100%;
-/* Supprimer scrollbar horizontale */
-  overflow-x: hidden;
+    font-family: "Raleway", sans-serif;
+    margin: 0;
+    max-width: 100%;
+    /* Supprimer scrollbar horizontale */
+    overflow-x: hidden;
+}
+
+
+/* CSS / HEADER */ 
+
+
+/* Alignement horizontal et 
+Espacer de façon égale entre logo et nav sur axe principal */
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Recadrage logo / Calcul photopea*/
+.logo {
+    margin: 46px 52px 26px 52px;
+    width: 100px;
+    height: auto;
+}
+
+/* Alignement horizontal bloc "2 menuitems" et sinscrire */
+.navigation {
+    display: flex;
+}
+
+/* Alignement horizontal Hébergements et Activités
+et déplacé bloc nav à gauche de sinscrire / enlever puce */
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin-top: 0;
+    margin-right: 20px;
+  /* Rendre plus visible */
+    font-weight: 500;
+}
+
+/* Abaisser nav et bordure noire transparente */
+nav ul li {
+    border-top: solid 3px transparent;
+    padding: 46px 30px 0 30px;
+}
+
+/* Nav Bordure supérieure / Survol bleu foncé */
+nav ul li:hover {
+    border-top: solid 2.5px #0065fc;
+    transition-duration: 0.2s;
+}
+
+/* Nav menuitem / Survol bleu foncé */
+.menuitem a:hover {
+    color: #0065fc;
+}
+
+/* p sinscrire / Mise en gras bleu foncé / Flottement à droite
+Alignement avec Nav */
+.sinscrire {
+    font-weight: bolder;
+    font-size: 16px;
+    color: #0065fc;
+    float: right;
+    margin-right: 52px;
+    padding-top: 43px;
 }
