@@ -550,3 +550,56 @@ figcaption {
     margin: 0 10px;
 }
 
+/* CSS / FOOTER */ 
+
+
+/* Mise en forme Flex / Couleur de fond gris */
+footer {
+    display: flex;
+    background-color: #f2f2f2;
+    margin-top: 60px;
+    padding-bottom: 30px;
+    padding-top: 40px;
+}
+
+footer h5 {
+    font-size: 15px;
+    margin-bottom: 27px;
+    padding: 0;
+}
+
+footer ul {
+    padding: 0;
+}
+
+footer ul li {
+    list-style-type: none;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.apropos {
+    margin-left: 52px;
+}
+
+.hebergementsfooter {
+    margin-left: 20vw;
+}
+
+.assistance {
+    margin-left: 22vw;
+}
+
+.apropos a:hover{
+    color: #0065fc;
+}
+
+.hebergementsfooter a:hover{
+    color: #0065fc;
+}
+
+.assistance a:hover {
+    color: #0065fc;
+}
+
+
