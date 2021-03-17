@@ -1117,3 +1117,300 @@ footer ul li {
         border-radius: 13px;
     }
 }
+
+@media screen and (max-width: 506px) {
+    .sinscrire {
+    font-size: 17px;
+    padding-top: 39px;
+    }
+
+    nav ul {
+    font-size: 3.9vw;
+    }
+
+    .search {
+    margin-bottom: 15px;
+    height: 50px;
+    }
+
+    .searchfield {
+    font-size: 3.8vw;
+    width: 73%;
+    }
+
+    .filterstitle {
+    width: 100%;
+    padding-top: 0px;
+    margin-bottom: 3vw;
+    font-size: 3.6vw;
+    }
+
+    .filter p {
+    margin-top: 22.5px;
+    font-size: 2.7vw;
+    }
+
+    .filtericoneconomique {
+    padding: 16.5px 14px 16.7px 17.2px;
+    }
+
+    .filtericonfamilial {
+    padding: 16.5px 17px 16.7px 20px;
+    }
+
+    .filtericon {
+    padding: 16.3px 13.6px 16.3px 18.8px;
+    }
+
+    .recherche h1 {
+    font-size: 6vw;
+    margin-top: 13px;
+    }
+
+    .recherche p {
+    font-size: 4vw;
+    margin-top: 14px;
+    }
+
+    main {
+    width: 100%;
+    margin: 0;
+    }
+
+    .boxpopulaires {
+    width: 89.8vw;
+    height: 21vw;
+    }
+
+    .populaires h2 {
+    font-size: 4vw;
+    }
+
+    .charticon {
+    left: 91.4vw;
+    font-size: 4vw;
+    position: relative;
+    bottom: 4.2vw;
+    }
+
+    .populaires h4 {
+    font-size: 3.5vw;
+    margin-top: 0.8vw;
+    }
+
+    .boxpopulaires p {
+    font-size: 2.9vw;
+    }
+
+    .etoilespopulaires {
+    font-size: 2.7vw;
+    }
+
+    .asidepopulaires .etoilegrise {
+    font-size: 2.7vw;
+    }
+
+    #Activites h2 {
+    margin-bottom: 5vw;
+    font-size: 4vw;
+    }
+
+    .sectionactivites {
+    justify-content: space-evenly;
+    height: 100%;
+    }
+
+    .boxactivites_1 {
+    width: 84vw;
+    height: auto;
+    padding-left: 0vw;
+    margin: 0vw 0vw;
+    }
+
+    .boxactivites_2 {
+    flex-direction: column;
+    width: 84vw;
+    margin: 0.5vw 0vw 0.5vw;
+    }
+
+    .boxactivites_a, .boxactivites_b, .boxactivites_c {
+    width: 84vw;
+    height: 40vw;
+    margin: 0px;
+    margin-bottom: 25px;
+    }
+
+    .imageactivites_a, .imageactivites_b, .imageactivites_c {
+    width: 84vw;
+    height: 33vw;
+    padding-bottom: 0.4vw;
+    }
+
+    figcaption {
+    font-weight: bold;
+    font-size: 3vw;
+    margin-left: 2vw;
+    margin-top: 0.5vw;
+    }
+
+    footer {
+    flex-direction: column;
+    padding-top: 6vw;
+    padding-bottom: 3vw;
+    text-align: center;
+    }
+
+    footer h5 {
+    font-size: 4.5vw;
+    margin-bottom: 20px;
+    }
+
+    footer ul li {
+    font-size: 3.2vw;
+    }
+
+    .apropos {
+    margin-bottom: 3vw;
+    }
+
+    .hebergementsfooter {
+    margin-left: 0vw;
+    margin-bottom: 3vw;
+    }
+
+    .assistance {
+    margin-left: 0vw;
+    }
+}
+@media screen and (max-width: 450px) {
+    .filter p {
+    margin-top: 5vw;
+    font-size: 3vw;
+    }
+}
+@media screen and (max-width: 400px) {
+    .recherche h1 {
+    text-align: center;
+    }
+
+    .recherche p {
+    text-align: center;
+    }
+
+    .searchfield {
+    font-size: 4.4vw;
+    }
+
+    .filtres {
+    text-align: center;
+    }
+
+    .filterstitle {
+    padding-left: 0;
+    text-align: center;
+    font-size: 4.6vw;
+    margin-bottom: 3.7vw;
+    }
+
+    .icontextfilters {
+    margin-right: 0;
+    }
+
+    .filtericoneconomique {
+    margin-right: 10px;
+    }
+
+    .filtericonfamilial {
+    margin-right: 10px;
+    }
+
+    .filtericon {
+    margin-right: 10px;
+    }
+
+
+    .filter p {
+    margin-top: 24px;
+    font-size: 3vw;
+    }
+
+    h2 {
+    font-size: 5vw;
+    text-align: center;
+    margin-left: 0;
+    }
+
+    .boxhebergements h4 {
+    margin-top: 1vw;
+    font-size: 4vw;
+    }
+
+    .boxhebergements p {
+    font-size: 3.4vw;
+    margin-bottom: 8px;
+    }
+
+    .etoiles, .etoilegrise {
+    font-size: 2.9vw;
+    }
+
+    .plusderesultats {
+    font-size: 3.3vw;
+    }
+
+    .populaires h2 {
+    font-size: 5.5vw;
+    margin-left: 19vw;
+    text-align: start;
+    }
+
+    .charticon {
+    font-size: 5vw;
+    position: relative;
+    left: 77vw;
+    bottom: 6.1vw;
+    }
+
+    .populaires h4 {
+    font-size: 3.8vw;
+    margin-top: 0vw;
+    }
+
+    .boxpopulaires p {
+    font-size: 3.1vw;
+    }
+
+    .etoilespopulaires {
+    font-size: 2.9vw;
+    }
+
+    .asidepopulaires .etoilegrise {
+    font-size: 2.9vw;
+    }
+
+    #Activites {
+    width: 100vw;
+    margin: 0;
+    }
+
+    #Activites h2 {
+    font-size: 6.2vw;
+    margin-left: 0vw;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    }
+
+    .boxactivites_a, .boxactivites_b, .boxactivites_c {
+    width: 84vw;
+    height: 41vw;
+    margin: 0px;
+    margin-bottom: 25px;
+    }
+
+    figcaption {
+    font-weight: bold;
+    font-size: 3.7vw;
+    margin-left: 2vw;
+    margin-top: 0.3vw;
+    }
+}
