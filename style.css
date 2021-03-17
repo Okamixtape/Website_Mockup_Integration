@@ -925,3 +925,195 @@ footer ul li {
         font-size: 1.9vw;
     }
 }
+
+@media screen and (max-width: 726px) {
+    .filter p {
+        margin-top: 23px;
+        font-size: 2vw;
+    }
+}
+    @media screen and (max-width: 690px) {
+    .logo {
+    margin-top: 31px;
+    position: absolute;
+    margin-left: 7.5vw;
+    }
+
+    .sinscrire {
+        margin-right: 7.5vw;
+    }
+
+    .navigation {
+        width: 100vw;
+        position: relative;
+        flex-direction: column-reverse;
+    }
+    .navigation p {
+        margin-bottom: 1.2vw;
+    }
+    .menuitem {
+        text-align: center;
+        width: 100%;
+        padding-bottom: 15px;
+        padding-top: 25px;
+    }
+    nav ul {
+        width: 100%;
+        padding-left: 0;
+        margin-right: 0;
+    }
+    nav ul li {
+        border-bottom: solid 2.5px #f2f2f2;
+        padding-bottom: 15px;
+    }
+    nav ul li:hover {
+        border-bottom: solid 2.5px #0065fc;
+        border-top: solid 2.5px transparent;
+        padding-bottom: 10px;
+    }
+
+    .searchbutton {
+        display: none;
+    }
+    #searchbutton {
+        display: initial;
+        color: white;
+        background-color: #0065fc;
+        width: 49px;
+        height: 50px;
+        background-color: #0065fc;
+        font-family: "Raleway", sans-serif;
+        font-weight: bold;
+        font-size: initial;
+        color: white;
+        border-radius: 15px;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        right: 15px;
+    }
+
+    .searchfield {
+        width: 77%;
+    }
+
+    .recherche,
+    .filter {
+        margin-left: 7vw;
+    }
+    .recherche h1 {
+        font-size: 3vw;
+        margin-top: 13px;
+    }
+    .recherche p {
+        font-size: 2.4vw;
+    }
+
+    h2 {
+        font-size: 4vw;
+    }
+
+    .boxhebergements {
+        width: 87vw;
+        height: 55vw;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+    .boxhebergements h4 {
+        margin-top: 2vw;
+        font-size: 3.6vw;
+    }
+    .boxhebergements p {
+        font-size: 3vw;
+        margin-bottom: 8px;
+    }
+
+    .etoiles, .etoilegrise {
+        font-size: 2.5vw;
+    }
+
+    .plusderesultats {
+        font-size: 3vw;
+    }
+
+    .populaires h2 {
+        font-size: 3.3vw;
+    }
+
+    .charticon {
+        font-size: 3vw;
+        position: relative;
+        left: 82vw;
+        bottom: 3.2vw;
+    }
+
+    #Activites {
+        width: 100vw;
+        margin: 0;
+    }
+
+    #Activites h2 {
+        font-size: 3vw;
+        margin-left: 5.3vw;
+        margin-bottom: 10px;
+    }
+
+    .sectionactivites {
+        flex-wrap: wrap;
+        height: auto;
+        justify-content: unset;
+    }
+
+    .boxactivites_1 {
+        width: 26.13%;
+        height: auto;
+        margin: 0.5vw 0vw;
+        padding-left: 1.5vw;
+    }
+    .boxactivites_2 {
+        flex-direction: row;
+        width: 61%;
+        height: auto;
+        margin: 0.5vw 5vw;
+    }
+
+    .boxactivites_a,
+    .boxactivites_b,
+    .boxactivites_c {
+        width: 26vw;
+        height: 20vw;
+        margin-bottom: 20px;
+    }
+    .boxactivites_b,
+    .boxactivites_c {
+        flex-direction: row;
+    }
+    .imageactivites_a,
+    .imageactivites_b,
+    .imageactivites_c {
+        height: 15vw;
+        padding-bottom: 0.4vw;
+    }
+
+    /* Dimension 3 types images / Bordure top arrondie */ 
+    /* Vieux port et Parc national Calanques */ 
+    .imageactivites_a {
+        width: 26vw
+    }
+    /* Fort de Pomègues et Parc Longchamp */ 
+    .imageactivites_b {
+        width: 26vw
+    }
+
+    /* Iles du Frioul et ND de la Garde*/ 
+    .imageactivites_c {
+        width: 26vw
+    }
+
+    figure {
+        border-radius: 13px;
+    }
+}
