@@ -602,4 +602,75 @@ footer ul li {
     color: #0065fc;
 }
 
+/* CSS / RESPONSIVE DESIGN */ 
 
+
+
+@media screen and (max-width: 1188px) {
+    main {
+        flex-direction: column;
+        margin: 0 5.2vw;
+    }
+    .container {
+        width: 100%;
+    }
+    .boxhebergements {
+        width: 25vw;
+        height: 20vw;
+    }
+    h4 {
+        margin-top: 0.5vw;
+        font-size: 1.4vw;
+    }
+    .populaires h2 {
+        margin-left: 41px;
+    }
+    .populaires {
+        width: 100%;
+        margin-top: 2.7vw;
+    }
+    h2 {
+        font-size: 1.9vw;
+    }
+    .charticon {
+        font-size: 1.6vw;
+        position: relative;
+        left: 84vw;
+        bottom: 1.7vw;
+    }
+    .asidepopulaires {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .boxpopulaires {
+        width: 26vw;
+        height: 12.2vw;
+    }
+    .populaires h4{
+        margin-top: 1.4vw;
+    }
+    .boxhebergements p,
+    .boxpopulaires p {
+        font-size: 1.4vw;
+    }
+    .etoiles,
+    .etoilegrise {
+        font-size: 1.3vw;
+    }
+    .etoilespopulaires {
+        font-size: 1.3vw;
+    }
+    /* Taille police Afficher plus */
+    .plusderesultats {
+        font-weight: bold;
+        font-size: 1.5vw;
+        margin-left: 4vw;
+    }
+    /* Création bloc flex activités */ 
+    .sectionactivites {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 2.6vw 0 4.5vw;
+        height: 450px;
+    }
+}
