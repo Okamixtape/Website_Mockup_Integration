@@ -44,7 +44,7 @@ nav ul {
     list-style-type: none;
     margin-top: 0;
     margin-right: 20px;
-  /* Rendre plus visible */
+/* Rendre plus visible */
     font-weight: 500;
 }
 
@@ -74,4 +74,83 @@ Alignement avec Nav */
     float: right;
     margin-right: 52px;
     padding-top: 43px;
+}
+
+/* CSS / BARRE DE RECHERCHE */ 
+
+/* Faire apparaître la loupe qu'à 506px */
+#searchbutton{
+    display: none;
+}
+
+/* Alignement vertical avec logo de la section recherche */
+.recherche {
+    margin-left: 52px;
+}
+
+/* Taille police h1  */
+.recherche h1 {
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+/* Réduction taille police p et espace avec h1 et barre de recherche  */
+.recherche p {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+/* Alignement horizontal et étirer barre de recherche et espacer avec filtres */
+.search {
+    display: flex;
+    height: 50px;
+    margin-bottom: 30px;
+}
+
+/* Searchbar icon : Couleur de fond grise / centré vertical et horizontal l'icône ici
+  Arrondir bord top left et bottom left */
+.mapmarker {
+    background-color: #f2f2f2;
+    font-size: 18px;
+    min-width: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+/* Searchfield : Taille et couleur police / haut et bas grisé 
+enlever bord gauche et droite déplacer à gauche de mapmarker*/
+.searchfield {
+    width: 234px;
+    border-top: solid #f2f2f2 1px;
+    border-bottom: solid #f2f2f2 1px;
+    border-left: none;
+    border-right: none;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    font-size: initial;
+    padding-left: 17px;
+}
+
+/* Passer de police transparente à noire */
+::placeholder {
+    color:black;
+}
+
+/* Searchbutton : Police blanche sur fond bleu foncé 
+Arrondi bordure top et bottom right / Curseur devient pointeur */
+.searchbutton {
+    width: 135px;
+    background-color: #0065fc;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    font-size: initial;
+    color: white;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: none;
+    cursor: pointer;
 }
