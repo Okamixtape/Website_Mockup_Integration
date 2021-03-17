@@ -1,0 +1,1416 @@
+/* CSS / TOUTE LA PAGE */ 
+
+/* Pas de marge de base pour tous les éléments */
+* {
+    margin: 0;
+}
+
+/* Police Raleway / Pas de marge / Largeur max de page : 100% */
+body {
+    font-family: "Raleway", sans-serif;
+    margin: 0;
+    max-width: 100%;
+    /* Supprimer scrollbar horizontale */
+    overflow-x: hidden;
+}
+
+
+/* CSS / HEADER */ 
+
+
+/* Alignement horizontal et 
+Espacer de façon égale entre logo et nav sur axe principal */
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Recadrage logo / Calcul photopea*/
+.logo {
+    margin: 46px 52px 26px 52px;
+    width: 100px;
+    height: auto;
+}
+
+/* Alignement horizontal bloc "2 menuitems" et sinscrire */
+.navigation {
+    display: flex;
+}
+
+/* Alignement horizontal Hébergements et Activités
+et déplacé bloc nav à gauche de sinscrire / enlever puce */
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin-top: 0;
+    margin-right: 20px;
+    /* Rendre plus visible */
+    font-weight: 500;
+}
+
+/* Abaisser nav et bordure noire transparente */
+nav ul li {
+    border-top: solid 3px transparent;
+    padding: 46px 30px 0 30px;
+}
+
+/* Nav Bordure supérieure / Survol bleu foncé */
+nav ul li:hover {
+    border-top: solid 2.5px #0065fc;
+    transition-duration: 0.2s;
+}
+
+/* Nav menuitem / Survol bleu foncé */
+.menuitem a:hover {
+    color: #0065fc;
+}
+
+/* p sinscrire / Mise en gras bleu foncé / Flottement à droite
+Alignement avec Nav */
+.sinscrire {
+    font-weight: bolder;
+    font-size: 16px;
+    color: #0065fc;
+    float: right;
+    margin-right: 52px;
+    padding-top: 43px;
+}
+
+/* CSS / BARRE DE RECHERCHE */ 
+
+/* Faire apparaître la loupe qu'à 506px */
+#searchbutton{
+    display: none;
+}
+
+/* Alignement vertical avec logo de la section recherche */
+.recherche {
+    margin-left: 52px;
+}
+
+/* Taille police h1  */
+.recherche h1 {
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+/* Réduction taille police p et espace avec h1 et barre de recherche  */
+.recherche p {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+/* Alignement horizontal et étirer barre de recherche et espacer avec filtres */
+.search {
+    display: flex;
+    height: 50px;
+    margin-bottom: 30px;
+}
+
+/* Searchbar icon : Couleur de fond grise / centré vertical et horizontal l'icône ici
+  Arrondir bord top left et bottom left */
+.mapmarker {
+    background-color: #f2f2f2;
+    font-size: 18px;
+    min-width: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+/* Searchfield : Taille et couleur police / haut et bas grisé 
+enlever bord gauche et droite déplacer à gauche de mapmarker*/
+.searchfield {
+    width: 234px;
+    border-top: solid #f2f2f2 1px;
+    border-bottom: solid #f2f2f2 1px;
+    border-left: none;
+    border-right: none;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    font-size: initial;
+    padding-left: 17px;
+}
+
+/* Passer de police transparente à noire */
+::placeholder {
+    color:black;
+}
+
+/* Searchbutton : Police blanche sur fond bleu foncé 
+Arrondi bordure top et bottom right / Curseur devient pointeur */
+.searchbutton {
+    width: 135px;
+    background-color: #0065fc;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    font-size: initial;
+    color: white;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* CSS / FILTRES */
+
+
+/* Aligner Filtres avec logo et section recherche */
+.filter {
+    margin-left: 52px;
+}
+.filtres {
+    margin-bottom: 20px;
+}
+/* Faire flotter mot Filtres à gauche puis alignement horizontal avec icones */
+.filterstitle {
+    font-size: 16px;
+    float: left;
+    margin-right: 32px;
+    padding-top: 16px;
+    padding-left: 9px;
+}
+
+/* Redimmensionner et Arrondir boutons filtres / Bordure grise */
+.icontextfilters {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-right: 24px;
+    border-top: solid #e0e0e0 2px;
+    border-right: solid #e0e0e0 2px;
+    border-bottom: solid #e0e0e0 2px;
+    border-left: none;
+    border-radius: 60px;
+    padding: 14.4px;
+    padding-left: 0;
+}
+
+/* Survol boutons filtres bleu clair et temps de transition */
+.icontextfilters:hover {
+    background-color: #f1f7ff;
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+
+/* Couleur de fonc bleu clair pour filtres et Arrondi romantique et animaux */
+.filtericon {
+    background-color: #deebff;
+    padding: 16.7px 14px 16.1px 18.7px;
+    margin-right: 15px;
+    border-radius: 100%;
+    color: #0065fc;
+}
+
+/* Couleur de fonc bleu clair pour filtres familial */
+.filtericonfamilial {
+    background-color: #deebff;
+    padding: 16.7px 17px 16.7px 20px;
+    margin-right: 15px;
+    border-radius: 100%;
+    color: #0065fc;
+}
+
+/* Couleur de fonc bleu clair pour filtres economique */
+.filtericoneconomique {
+    background-color: #deebff;
+    padding: 16.7px 14px 16.7px 17.2px;
+    margin-right: 16px;
+    border-radius: 100%;
+    color: #0065fc;
+}
+
+/* Redimensionner filtres */
+.filter p {
+    margin-top: 21px;
+    font-size: 16px;
+}
+
+/* Faire flotter icone à gauche, déplacer à droite et cercle gris */
+.infoicon {
+    float: left;
+    margin-left: 0px;
+    margin-right: 12px;
+    font-size: 10px;
+    border: solid #f2f2f2 1.5px;
+    border-radius: 100%;
+    color: #0065fc;
+    padding: 3.5px 6.5px;
+}
+
+
+/* CSS / MAIN / FLEX HEBERGEMENTS */
+
+
+/* Alignement horizontal box containerhébergements et box asidepopulaires */
+/* Séparation de section filtres et alignement marge gauche*/
+main {
+    display: flex;
+    /* Attention si inf à 2px : main pas aligné avec section du haut */
+    margin-top: 2px;
+    margin-left: 52px;
+}
+
+/* Alignement horizontal 6 photos hébergements */
+.principal {
+    display: flex;
+    /* Si ça dépasse ça va à la ligne */
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 25px;
+    padding-top: 19px;
+}
+
+/* Conteneur hébergements fond gris / bordures arrondies */
+.container {
+    background-color: #f2f2f2;
+    border-radius: 25px;
+    margin-top: 33px;
+    /* à travailler */
+    padding-bottom: 25px;
+    width: 91%;
+    /* Séparer conteneur hébergements et conteneur populaires */
+    margin-right: 40px;
+}
+
+/* Réduction taille photo hébergements et arrondi top left et right*/
+.imagehebergements {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    width: 100%;
+    height: 60%;
+    /* Maintenir ratio d'affichage imagehebergements*/
+    object-fit: cover;
+}
+
+/* Création des 6 box hébergements couleur de fond blanche / Ombre grise */
+.boxhebergements {
+    width: 193px;
+    height: 155px;
+    background-color: white;
+    border-radius: 18px;
+    padding: 5px;
+    margin: 10px 0 25px 0;
+    box-shadow: 4px 2px 20px rgb(217, 217, 217);
+}
+
+/* Agrandissement au survol */
+.boxhebergements:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+
+/* Taille police Activités à Marseille */
+h2 {
+    font-size: 18px;
+    margin: 37px 0 0px 41px;
+}
+
+/* Taille police Noms d'hôtels */
+h4 {
+    font-size: 14px;
+    margin-left: 6px;
+}
+
+/* Taille police Nuits */
+p {
+    font-size: 12.5px;
+    margin: 6px 0px 6px 0px;
+}
+
+.boxhebergements p {
+    margin: 6px 0px 6px 6px;
+}
+
+/* Taille police Afficher plus */
+.plusderesultats {
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 41px;
+}
+
+
+/* Étoiles hébergements / changement taille 
+couleur bleu / Déplacées à droite */
+.etoiles {
+    color: #0065fc;
+    font-size: 10px;
+    margin-left: 6px;
+}
+
+/* Étoile grise */
+.etoilegrise {
+    color: rgb(217, 217, 217);
+    font-size: 10px;
+}
+
+/* Enlever décoration des ancres */
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* CSS / ASIDE / FLEX POPULAIRES */
+
+
+/* Alignement flex en colonne*/
+.asidepopulaires {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px 20px 20px;
+} 
+
+/* Taille photo populaires ajusté à cadre et arrondi bordure left */
+.imagepopulaires {
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    width: 38%;
+    height: 100%;
+    /* Maintenir ratio d'affichage imagepopulaires */
+    object-fit: cover;
+    /* imagepopulaires flotte à gauche */
+    float: left;
+    margin-right: 12px;
+}
+
+/* Conteneur populaires fond gris / bordures arrondies
+  aligné avec conteneur hébergements/ occupe 1/3 de la page */
+.populaires {
+    background-color: #f2f2f2;
+    border-radius: 25px;
+    margin-top: 33px;
+    margin-right: 52px;
+    width: 33%;
+}
+
+/* Création des boites blanches / Ombre grise */
+.boxpopulaires {
+    display: inline-block;
+    padding: 5px;
+    width: 291px;
+    max-width: 100%;
+    height: 122px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 4px 2px 20px rgb(217, 217, 217);
+}
+
+/* Agrandissement au survol */
+.boxpopulaires:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+
+/* Étoiles aside populaires */
+.etoilespopulaires {
+    margin-top: 10px;
+    color: #0065fc;
+    font-size: 10px;
+    margin-left: 10px;
+}
+
+/* Mesure d'appoint en attendant solution */
+.container{
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.populaires{
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+
+/* Déplacer Charticon à droite "Les plus populaires" */
+.charticon{
+    position: relative;
+    left: 295px;
+    bottom: 19px;
+}
+
+/* Les plus populaires avec boxes*/
+.populaires h2{
+    margin-left: 28px;
+}
+
+.populaires h4{
+    margin-top: 25px;
+}
+
+/* CSS / SECTION ACTIVITES */ 
+
+
+/* avant c'était width: 273px /*
+
+/* Dimension 3 types images / Bordure top arrondie */ 
+/* Vieux port et Parc national Calanques */ 
+.imageactivites_a {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    width: 220px;
+    height: 90.5%;
+    padding-bottom: 10px;
+    object-fit: cover;
+}
+
+  /* Fort de Pomègues et Parc Longchamp */ 
+.imageactivites_b {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    width: 220px;
+    height: 79%;
+    padding-bottom: 10px;
+    object-fit: cover;
+}
+
+/* Iles du Frioul et ND de la Garde*/ 
+.imageactivites_c {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    width: 220px;
+    height: 75%;
+    padding-bottom: 10px;
+    object-fit: cover;
+}
+
+/* Création bloc flex activités */ 
+.sectionactivites {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 42px;
+    height: 450px;
+}
+
+#Activites h2{
+    margin-left: 52px;
+    margin-bottom: 22px;
+}
+
+/* 1er type Flex Simple / Vieux Port et Calanques */ 
+.boxactivites_1 {
+    display: flex;
+    padding: 0;
+    height: 450px;
+}
+
+/* 2eme type Flex Double / Colonne Pomègues et Frioul 
+et colonne ND de la Garde et Longchamp */ 
+.boxactivites_2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+/* Création des ombres */ 
+figure {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 2px 2px 20px rgb(217, 217, 217);
+}
+
+/* Agrandissement au survol */ 
+figure:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+
+/* Taille police et Mise en gras et alignement dans boite */ 
+figcaption {
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+/* Adapter 3 types images à box*/ 
+/* Vieux port et Parc national Calanques */ 
+.boxactivites_a {
+    height: 315px;
+    height: initial;
+    padding: 0;
+    margin: 0 10px ;
+}
+/* Fort de Pomègues et Parc Longchamp */ 
+.boxactivites_b {
+    height: 214px;
+    padding: 0;
+    margin: 0 10px;
+}
+/* Iles du Frioul et ND de la Garde*/ 
+.boxactivites_c {
+    height: 175px;
+    padding: 0;
+    margin: 0 10px;
+}
+
+/* CSS / FOOTER */ 
+
+
+/* Mise en forme Flex / Couleur de fond gris */
+footer {
+    display: flex;
+    background-color: #f2f2f2;
+    margin-top: 60px;
+    padding-bottom: 30px;
+    padding-top: 40px;
+}
+
+footer h5 {
+    font-size: 15px;
+    margin-bottom: 27px;
+    padding: 0;
+}
+
+footer ul {
+    padding: 0;
+}
+
+footer ul li {
+    list-style-type: none;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.apropos {
+    margin-left: 52px;
+}
+
+.hebergementsfooter {
+    margin-left: 20vw;
+}
+
+.assistance {
+    margin-left: 22vw;
+}
+
+.apropos a:hover{
+    color: #0065fc;
+}
+
+.hebergementsfooter a:hover{
+    color: #0065fc;
+}
+
+.assistance a:hover {
+    color: #0065fc;
+}
+
+/* CSS / RESPONSIVE DESIGN */ 
+
+
+
+@media screen and (max-width: 1188px) {
+    main {
+        flex-direction: column;
+        margin: 0 5.2vw;
+    }
+    .container {
+        width: 100%;
+    }
+    .boxhebergements {
+        width: 25vw;
+        height: 20vw;
+    }
+    h4 {
+        margin-top: 0.5vw;
+        font-size: 1.4vw;
+    }
+    .populaires h2 {
+        margin-left: 41px;
+    }
+    .populaires {
+        width: 100%;
+        margin-top: 2.7vw;
+    }
+    h2 {
+        font-size: 1.9vw;
+    }
+    .charticon {
+        font-size: 1.6vw;
+        position: relative;
+        left: 84vw;
+        bottom: 1.7vw;
+    }
+    .asidepopulaires {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .boxpopulaires {
+        width: 26vw;
+        height: 12.2vw;
+    }
+    .populaires h4{
+        margin-top: 1.4vw;
+    }
+    .boxhebergements p,
+    .boxpopulaires p {
+        font-size: 1.4vw;
+    }
+    .etoiles,
+    .etoilegrise {
+        font-size: 1.3vw;
+    }
+    .etoilespopulaires {
+        font-size: 1.3vw;
+    }
+    /* Taille police Afficher plus */
+    .plusderesultats {
+        font-weight: bold;
+        font-size: 1.5vw;
+        margin-left: 4vw;
+    }
+    /* Création bloc flex activités */ 
+    .sectionactivites {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 2.6vw 0 4.5vw;
+        height: 450px;
+    }
+}
+@media screen and (max-width: 1068px) {
+    /* Faire flotter mot Filtres à gauche puis alignement horizontal avec icones */
+    .filterstitle {
+        font-size: 16px;
+        float: left;
+        margin-right: 32px;
+        padding-top: 16px;
+        padding-left: 9px;
+    }
+
+    /* Redimmensionner et Arrondir boutons filtres / Bordure grise */
+    .icontextfilters {
+        font-weight: bold;
+        display: inline-block;
+        margin-bottom: 10px;
+        margin-right: 24px;
+        border-top: solid #e0e0e0 2px;
+        border-right: solid #e0e0e0 2px;
+        border-bottom: solid #e0e0e0 2px;
+        border-left: none;
+        border-radius: 60px;
+        padding: 14.4px;
+        padding-left: 0;
+    }
+
+    /* Taille police Afficher plus */
+    .plusderesultats {
+        font-weight: bold;
+        font-size: 1.6vw;
+        margin-left: 41px;
+    }
+
+    /* Création bloc flex activités */ 
+    .sectionactivites {
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        height: 100%;
+    }
+
+    /* 1er type Flex Simple / Vieux Port et Calanques */ 
+    .boxactivites_1 {
+        display: flex;
+        padding: 0;
+        height: 450px;
+        margin: 3.2vw 3vw;
+    }
+
+    /* 2eme type Flex Double / Colonne Pomègues et Frioul 
+    et colonne ND de la Garde et Longchamp */ 
+    .boxactivites_2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: stretch;
+        margin: 3.2vw 5vw;
+    }
+
+    /* Adapter 3 types images à box*/ 
+    /* Vieux port et Parc national Calanques */ 
+    .boxactivites_a {
+        height: 315px;
+        height: initial;
+        padding: 0;
+        margin: 0 10px ;
+        width: 30vw
+    }
+    /* Fort de Pomègues et Parc Longchamp */ 
+    .boxactivites_b {
+        height: 214px;
+        padding: 0;
+        margin: 0 10px;
+        width: 30vw
+    }
+    /* Iles du Frioul et ND de la Garde*/ 
+    .boxactivites_c {
+        height: 175px;
+        padding: 0;
+        margin: 0 10px;
+        width: 30vw
+    }
+
+    /* Dimension 3 types images / Bordure top arrondie */ 
+    /* Vieux port et Parc national Calanques */ 
+    .imageactivites_a {
+        border-top-left-radius: 13px;
+        border-top-right-radius: 13px;
+        height: 90.5%;
+        padding-bottom: 7px;
+        object-fit: cover;
+        width: 30vw
+    }
+    /* Fort de Pomègues et Parc Longchamp */ 
+    .imageactivites_b {
+        border-top-left-radius: 13px;
+        border-top-right-radius: 13px;
+        height: 79%;
+        padding-bottom: 9px;
+        object-fit: cover;
+        width: 30vw
+    }
+
+    /* Iles du Frioul et ND de la Garde*/ 
+    .imageactivites_c {
+        border-top-left-radius: 13px;
+        border-top-right-radius: 13px;
+        height: 75%;
+        padding-bottom: 10px;
+        object-fit: cover;
+        width: 30vw
+    }
+
+    #Activites h2 {
+        margin-left: 12.9vw;
+        margin-bottom: 2.2vw;
+    }
+
+    /* Mise en forme Flex / Couleur de fond gris */
+    footer {
+        display: flex;
+        justify-content: center;
+        margin-top: 3vw;
+    }
+    .apropos {
+        margin-left: 0px;
+    }
+    .hebergementsfooter {
+        margin-left: 13vw;
+    }
+    .assistance {
+        margin-left: 17vw;
+    }
+
+    /* Taille police et Mise en gras et alignement dans boite */ 
+    figcaption {
+        font-weight: bold;
+        font-size: 1.7vw;
+        margin-left: 1vw;
+    }
+}
+@media screen and (max-width: 982px) {
+    /* Redimmensionner filtres */
+    .icontextfilters {
+    }
+    
+    footer h5 {
+        font-size: 1.8vw;
+    }
+    
+    footer ul li {
+    font-size: 1.5vw;
+    }
+}
+@media screen and (max-width: 800px) {
+    .recherche h1 {
+    font-size: 2.6vw;
+    }
+    .recherche p {
+    font-size: 2vw;
+    }
+    h4 {
+        margin-top: 0.5vw;
+        font-size: 1.5vw;
+    }
+    .boxhebergements p,
+    .boxpopulaires p {
+        font-size: 1.5vw;
+    }
+    .boxpopulaires {
+        width: 26vw;
+        height: 14vw;
+    }
+}
+    @media screen and (max-width: 768px) {
+    .filter p {
+        margin-top: 22px;
+        font-size: 2vw;
+    }
+    .populaires h2 {
+        margin-left: 5vw;
+        font-size: 3.3vw;
+    }
+    .charticon {
+        font-size: 2.6vw;
+        position: relative;
+        left: 82.5vw;
+        bottom: 3.3vw;
+    }
+    h2 {
+        font-size: 2.8vw;
+        margin-left: 5vw;
+    }
+    
+    .asidepopulaires {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 0px 4.1vw 2vw;
+    }
+    
+    .boxpopulaires {
+        width: 80vw;
+        height: 19vw;
+    }
+    
+    .boxhebergements {
+        width: 37.5vw;
+        height: 27vw;
+    }
+    
+    .boxhebergements h4 {
+        margin-top: 0.6vw;
+        font-size: 1.9vw;
+    }
+    
+    .boxhebergements p {
+        font-size: 1.7vw;
+    }
+    
+    .plusderesultats {
+        font-size: 2vw;
+    }
+    
+    .etoiles, .etoilegrise {
+        font-size: 1.6vw;
+    }
+    
+    .imagehebergements {
+        height: 64%;
+    }
+    
+    h4 {
+        font-size: 2.5vw;
+    }
+    
+    .imagepopulaires {
+        margin-right: 3vw;
+    }
+    
+    .boxpopulaires p {
+        font-size: 2.1vw;
+    }
+    
+    .etoilespopulaires {
+        font-size: 1.9vw;
+    }
+    
+    .asidepopulaires .etoilegrise {
+        font-size: 1.9vw;
+    }
+}
+
+@media screen and (max-width: 726px) {
+    .filter p {
+        margin-top: 23px;
+        font-size: 2vw;
+    }
+}
+    @media screen and (max-width: 690px) {
+    .logo {
+    margin-top: 31px;
+    position: absolute;
+    margin-left: 7.5vw;
+    }
+
+    .sinscrire {
+        margin-right: 7.5vw;
+    }
+
+    .navigation {
+        width: 100vw;
+        position: relative;
+        flex-direction: column-reverse;
+    }
+    .navigation p {
+        margin-bottom: 1.2vw;
+    }
+    .menuitem {
+        text-align: center;
+        width: 100%;
+        padding-bottom: 15px;
+        padding-top: 25px;
+    }
+    nav ul {
+        width: 100%;
+        padding-left: 0;
+        margin-right: 0;
+    }
+    nav ul li {
+        border-bottom: solid 2.5px #f2f2f2;
+        padding-bottom: 15px;
+    }
+    nav ul li:hover {
+        border-bottom: solid 2.5px #0065fc;
+        border-top: solid 2.5px transparent;
+        padding-bottom: 10px;
+    }
+
+    .searchbutton {
+        display: none;
+    }
+    #searchbutton {
+        display: initial;
+        color: white;
+        background-color: #0065fc;
+        width: 49px;
+        height: 50px;
+        background-color: #0065fc;
+        font-family: "Raleway", sans-serif;
+        font-weight: bold;
+        font-size: initial;
+        color: white;
+        border-radius: 15px;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        right: 15px;
+    }
+
+    .searchfield {
+        width: 77%;
+    }
+
+    .recherche,
+    .filter {
+        margin-left: 7vw;
+    }
+    .recherche h1 {
+        font-size: 3vw;
+        margin-top: 13px;
+    }
+    .recherche p {
+        font-size: 2.4vw;
+    }
+
+    h2 {
+        font-size: 4vw;
+    }
+
+    .boxhebergements {
+        width: 87vw;
+        height: 55vw;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+    .boxhebergements h4 {
+        margin-top: 2vw;
+        font-size: 3.6vw;
+    }
+    .boxhebergements p {
+        font-size: 3vw;
+        margin-bottom: 8px;
+    }
+
+    .etoiles, .etoilegrise {
+        font-size: 2.5vw;
+    }
+
+    .plusderesultats {
+        font-size: 3vw;
+    }
+
+    .populaires h2 {
+        font-size: 3.3vw;
+    }
+
+    .charticon {
+        font-size: 3vw;
+        position: relative;
+        left: 82vw;
+        bottom: 3.2vw;
+    }
+
+    #Activites {
+        width: 100vw;
+        margin: 0;
+    }
+
+    #Activites h2 {
+        font-size: 3vw;
+        margin-left: 5.3vw;
+        margin-bottom: 10px;
+    }
+
+    .sectionactivites {
+        flex-wrap: wrap;
+        height: auto;
+        justify-content: unset;
+    }
+
+    .boxactivites_1 {
+        width: 26.13%;
+        height: auto;
+        margin: 0.5vw 0vw;
+        padding-left: 1.5vw;
+    }
+    .boxactivites_2 {
+        flex-direction: row;
+        width: 61%;
+        height: auto;
+        margin: 0.5vw 5vw;
+    }
+
+    .boxactivites_a,
+    .boxactivites_b,
+    .boxactivites_c {
+        width: 26vw;
+        height: 20vw;
+        margin-bottom: 20px;
+    }
+    .boxactivites_b,
+    .boxactivites_c {
+        flex-direction: row;
+    }
+    .imageactivites_a,
+    .imageactivites_b,
+    .imageactivites_c {
+        height: 15vw;
+        padding-bottom: 0.4vw;
+    }
+
+    /* Dimension 3 types images / Bordure top arrondie */ 
+    /* Vieux port et Parc national Calanques */ 
+    .imageactivites_a {
+        width: 26vw
+    }
+    /* Fort de Pomègues et Parc Longchamp */ 
+    .imageactivites_b {
+        width: 26vw
+    }
+
+    /* Iles du Frioul et ND de la Garde*/ 
+    .imageactivites_c {
+        width: 26vw
+    }
+
+    figure {
+        border-radius: 13px;
+    }
+}
+
+@media screen and (max-width: 506px) {
+    .sinscrire {
+    font-size: 17px;
+    padding-top: 39px;
+    }
+
+    nav ul {
+    font-size: 3.9vw;
+    }
+
+    .search {
+    margin-bottom: 15px;
+    height: 50px;
+    }
+
+    .searchfield {
+    font-size: 3.8vw;
+    width: 73%;
+    }
+
+    .filterstitle {
+    width: 100%;
+    padding-top: 0px;
+    margin-bottom: 3vw;
+    font-size: 3.6vw;
+    }
+
+    .filter p {
+    margin-top: 22.5px;
+    font-size: 2.7vw;
+    }
+
+    .filtericoneconomique {
+    padding: 16.5px 14px 16.7px 17.2px;
+    }
+
+    .filtericonfamilial {
+    padding: 16.5px 17px 16.7px 20px;
+    }
+
+    .filtericon {
+    padding: 16.3px 13.6px 16.3px 18.8px;
+    }
+
+    .recherche h1 {
+    font-size: 6vw;
+    margin-top: 13px;
+    }
+
+    .recherche p {
+    font-size: 4vw;
+    margin-top: 14px;
+    }
+
+    main {
+    width: 100%;
+    margin: 0;
+    }
+
+    .boxpopulaires {
+    width: 89.8vw;
+    height: 21vw;
+    }
+
+    .populaires h2 {
+    font-size: 4vw;
+    }
+
+    .charticon {
+    left: 91.4vw;
+    font-size: 4vw;
+    position: relative;
+    bottom: 4.2vw;
+    }
+
+    .populaires h4 {
+    font-size: 3.5vw;
+    margin-top: 0.8vw;
+    }
+
+    .boxpopulaires p {
+    font-size: 2.9vw;
+    }
+
+    .etoilespopulaires {
+    font-size: 2.7vw;
+    }
+
+    .asidepopulaires .etoilegrise {
+    font-size: 2.7vw;
+    }
+
+    #Activites h2 {
+    margin-bottom: 5vw;
+    font-size: 4vw;
+    }
+
+    .sectionactivites {
+    justify-content: space-evenly;
+    height: 100%;
+    }
+
+    .boxactivites_1 {
+    width: 84vw;
+    height: auto;
+    padding-left: 0vw;
+    margin: 0vw 0vw;
+    }
+
+    .boxactivites_2 {
+    flex-direction: column;
+    width: 84vw;
+    margin: 0.5vw 0vw 0.5vw;
+    }
+
+    .boxactivites_a, .boxactivites_b, .boxactivites_c {
+    width: 84vw;
+    height: 40vw;
+    margin: 0px;
+    margin-bottom: 25px;
+    }
+
+    .imageactivites_a, .imageactivites_b, .imageactivites_c {
+    width: 84vw;
+    height: 33vw;
+    padding-bottom: 0.4vw;
+    }
+
+    figcaption {
+    font-weight: bold;
+    font-size: 3vw;
+    margin-left: 2vw;
+    margin-top: 0.5vw;
+    }
+
+    footer {
+    flex-direction: column;
+    padding-top: 6vw;
+    padding-bottom: 3vw;
+    text-align: center;
+    }
+
+    footer h5 {
+    font-size: 4.5vw;
+    margin-bottom: 20px;
+    }
+
+    footer ul li {
+    font-size: 3.2vw;
+    }
+
+    .apropos {
+    margin-bottom: 3vw;
+    }
+
+    .hebergementsfooter {
+    margin-left: 0vw;
+    margin-bottom: 3vw;
+    }
+
+    .assistance {
+    margin-left: 0vw;
+    }
+}
+@media screen and (max-width: 450px) {
+    .filter p {
+    margin-top: 5vw;
+    font-size: 3vw;
+    }
+}
+@media screen and (max-width: 400px) {
+    .recherche h1 {
+    text-align: center;
+    }
+
+    .recherche p {
+    text-align: center;
+    }
+
+    .searchfield {
+    font-size: 4.4vw;
+    }
+
+    .filtres {
+    text-align: center;
+    }
+
+    .filterstitle {
+    padding-left: 0;
+    text-align: center;
+    font-size: 4.6vw;
+    margin-bottom: 3.7vw;
+    }
+
+    .icontextfilters {
+    margin-right: 0;
+    }
+
+    .filtericoneconomique {
+    margin-right: 10px;
+    }
+
+    .filtericonfamilial {
+    margin-right: 10px;
+    }
+
+    .filtericon {
+    margin-right: 10px;
+    }
+
+
+    .filter p {
+    margin-top: 24px;
+    font-size: 3vw;
+    }
+
+    h2 {
+    font-size: 5vw;
+    text-align: center;
+    margin-left: 0;
+    }
+
+    .boxhebergements h4 {
+    margin-top: 1vw;
+    font-size: 4vw;
+    }
+
+    .boxhebergements p {
+    font-size: 3.4vw;
+    margin-bottom: 8px;
+    }
+
+    .etoiles, .etoilegrise {
+    font-size: 2.9vw;
+    }
+
+    .plusderesultats {
+    font-size: 3.3vw;
+    }
+
+    .populaires h2 {
+    font-size: 5.5vw;
+    margin-left: 19vw;
+    text-align: start;
+    }
+
+    .charticon {
+    font-size: 5vw;
+    position: relative;
+    left: 77vw;
+    bottom: 6.1vw;
+    }
+
+    .populaires h4 {
+    font-size: 3.8vw;
+    margin-top: 0vw;
+    }
+
+    .boxpopulaires p {
+    font-size: 3.1vw;
+    }
+
+    .etoilespopulaires {
+    font-size: 2.9vw;
+    }
+
+    .asidepopulaires .etoilegrise {
+    font-size: 2.9vw;
+    }
+
+    #Activites {
+    width: 100vw;
+    margin: 0;
+    }
+
+    #Activites h2 {
+    font-size: 6.2vw;
+    margin-left: 0vw;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    }
+
+    .boxactivites_a, .boxactivites_b, .boxactivites_c {
+    width: 84vw;
+    height: 41vw;
+    margin: 0px;
+    margin-bottom: 25px;
+    }
+
+    figcaption {
+    font-weight: bold;
+    font-size: 3.7vw;
+    margin-left: 2vw;
+    margin-top: 0.3vw;
+    }
+}
