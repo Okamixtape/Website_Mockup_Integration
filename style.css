@@ -443,3 +443,110 @@ a {
 .populaires h4{
     margin-top: 25px;
 }
+
+/* CSS / SECTION ACTIVITES */ 
+
+
+/* avant c'était width: 273px /*
+
+/* Dimension 3 types images / Bordure top arrondie */ 
+/* Vieux port et Parc national Calanques */ 
+.imageactivites_a {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    width: 220px;
+    height: 90.5%;
+    padding-bottom: 10px;
+    object-fit: cover;
+}
+
+  /* Fort de Pomègues et Parc Longchamp */ 
+.imageactivites_b {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    width: 220px;
+    height: 79%;
+    padding-bottom: 10px;
+    object-fit: cover;
+}
+
+/* Iles du Frioul et ND de la Garde*/ 
+.imageactivites_c {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    width: 220px;
+    height: 75%;
+    padding-bottom: 10px;
+    object-fit: cover;
+}
+
+/* Création bloc flex activités */ 
+.sectionactivites {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 42px;
+    height: 450px;
+}
+
+#Activites h2{
+    margin-left: 52px;
+    margin-bottom: 22px;
+}
+
+/* 1er type Flex Simple / Vieux Port et Calanques */ 
+.boxactivites_1 {
+    display: flex;
+    padding: 0;
+    height: 450px;
+}
+
+/* 2eme type Flex Double / Colonne Pomègues et Frioul 
+et colonne ND de la Garde et Longchamp */ 
+.boxactivites_2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+/* Création des ombres */ 
+figure {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 2px 2px 20px rgb(217, 217, 217);
+}
+
+/* Agrandissement au survol */ 
+figure:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+
+/* Taille police et Mise en gras et alignement dans boite */ 
+figcaption {
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+/* Adapter 3 types images à box*/ 
+/* Vieux port et Parc national Calanques */ 
+.boxactivites_a {
+    height: 315px;
+    height: initial;
+    padding: 0;
+    margin: 0 10px ;
+}
+/* Fort de Pomègues et Parc Longchamp */ 
+.boxactivites_b {
+    height: 214px;
+    padding: 0;
+    margin: 0 10px;
+}
+/* Iles du Frioul et ND de la Garde*/ 
+.boxactivites_c {
+    height: 175px;
+    padding: 0;
+    margin: 0 10px;
+}
+
