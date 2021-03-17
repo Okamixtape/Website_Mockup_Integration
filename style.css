@@ -673,7 +673,7 @@ footer ul li {
         margin: 0 2.6vw 0 4.5vw;
         height: 450px;
     }
-
+}
 @media screen and (max-width: 1068px) {
     /* Faire flotter mot Filtres à gauche puis alignement horizontal avec icones */
     .filterstitle {
@@ -705,7 +705,6 @@ footer ul li {
         font-size: 1.6vw;
         margin-left: 41px;
     }
-
 
     /* Création bloc flex activités */ 
     .sectionactivites {
@@ -813,5 +812,116 @@ footer ul li {
         font-weight: bold;
         font-size: 1.7vw;
         margin-left: 1vw;
+    }
+}
+@media screen and (max-width: 982px) {
+    /* Redimmensionner filtres */
+    .icontextfilters {
+    }
+    
+    footer h5 {
+        font-size: 1.8vw;
+    }
+    
+    footer ul li {
+    font-size: 1.5vw;
+    }
+}
+@media screen and (max-width: 800px) {
+    .recherche h1 {
+    font-size: 2.6vw;
+    }
+    .recherche p {
+    font-size: 2vw;
+    }
+    h4 {
+        margin-top: 0.5vw;
+        font-size: 1.5vw;
+    }
+    .boxhebergements p,
+    .boxpopulaires p {
+        font-size: 1.5vw;
+    }
+    .boxpopulaires {
+        width: 26vw;
+        height: 14vw;
+    }
+}
+    @media screen and (max-width: 768px) {
+    .filter p {
+        margin-top: 22px;
+        font-size: 2vw;
+    }
+    .populaires h2 {
+        margin-left: 5vw;
+        font-size: 3.3vw;
+    }
+    .charticon {
+        font-size: 2.6vw;
+        position: relative;
+        left: 82.5vw;
+        bottom: 3.3vw;
+    }
+    h2 {
+        font-size: 2.8vw;
+        margin-left: 5vw;
+    }
+    
+    .asidepopulaires {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 0px 4.1vw 2vw;
+    }
+    
+    .boxpopulaires {
+        width: 80vw;
+        height: 19vw;
+    }
+    
+    .boxhebergements {
+        width: 37.5vw;
+        height: 27vw;
+    }
+    
+    .boxhebergements h4 {
+        margin-top: 0.6vw;
+        font-size: 1.9vw;
+    }
+    
+    .boxhebergements p {
+        font-size: 1.7vw;
+    }
+    
+    .plusderesultats {
+        font-size: 2vw;
+    }
+    
+    .etoiles, .etoilegrise {
+        font-size: 1.6vw;
+    }
+    
+    .imagehebergements {
+        height: 64%;
+    }
+    
+    h4 {
+        font-size: 2.5vw;
+    }
+    
+    .imagepopulaires {
+        margin-right: 3vw;
+    }
+    
+    .boxpopulaires p {
+        font-size: 2.1vw;
+    }
+    
+    .etoilespopulaires {
+        font-size: 1.9vw;
+    }
+    
+    .asidepopulaires .etoilegrise {
+        font-size: 1.9vw;
     }
 }
