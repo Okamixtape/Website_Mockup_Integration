@@ -707,7 +707,7 @@ footer ul li {
 
 @media screen and (max-width: 1188px) {
     main {
-        flex-direction: column;
+        flex-direction: column-reverse;
         margin: 0 5.2vw;
     }
     .container {
@@ -914,10 +914,6 @@ footer ul li {
     }
 }
 @media screen and (max-width: 982px) {
-    /* Redimmensionner filtres */
-    .icontextfilters {
-    }
-    
     footer h5 {
         font-size: 1.8vw;
     }
@@ -1135,7 +1131,7 @@ footer ul li {
     }
 
     .plusderesultats {
-        font-size: 3vw;
+        font-size: 4vw;
     }
 
     .populaires h2 {
@@ -1156,7 +1152,7 @@ footer ul li {
 
     #Activites h2 {
         font-size: 3vw;
-        margin-left: 5.3vw;
+        margin-left: 9.2vw;
         margin-bottom: 10px;
     }
 
@@ -1260,6 +1256,22 @@ footer ul li {
     .filtericon {
     padding: 16.3px 13.6px 16.3px 18.8px;
     }
+    .container {
+        background-color: white;
+        margin-top: 0;
+    }
+
+    .principal {
+        margin-bottom: 0px;
+    }
+
+    .container h2 {
+        font-size: 4.8vw;
+    }
+
+    .plusderesultats {
+        margin-left: 20px;
+    }
 
     .recherche h1 {
     font-size: 6vw;
@@ -1280,16 +1292,18 @@ footer ul li {
     width: 89.8vw;
     height: 21vw;
     }
-
+    .populaires {
+        border-radius: 0px;
+        }
     .populaires h2 {
-    font-size: 4vw;
+    font-size: 4.8vw;
     }
 
     .charticon {
-    left: 91.4vw;
-    font-size: 4vw;
-    position: relative;
-    bottom: 4.2vw;
+        left: 90vw;
+        font-size: 5vw;
+        position: relative;
+        bottom: 5.6vw;
     }
 
     .populaires h4 {
@@ -1311,7 +1325,7 @@ footer ul li {
 
     #Activites h2 {
     margin-bottom: 5vw;
-    font-size: 4vw;
+    font-size: 4.8vw;
     }
 
     .sectionactivites {
@@ -1356,16 +1370,17 @@ footer ul li {
     flex-direction: column;
     padding-top: 6vw;
     padding-bottom: 3vw;
-    text-align: center;
     }
 
     footer h5 {
     font-size: 4.5vw;
     margin-bottom: 20px;
+    margin-left: 9vw;
     }
 
     footer ul li {
     font-size: 3.2vw;
+    margin-left: 9vw;
     }
 
     .apropos {
@@ -1384,29 +1399,15 @@ footer ul li {
 @media screen and (max-width: 450px) {
     .filter p {
     margin-top: 5vw;
-    font-size: 3vw;
+    font-size: 3.1vw;
     }
 }
 @media screen and (max-width: 400px) {
-    .recherche h1 {
-    text-align: center;
-    }
-
-    .recherche p {
-    text-align: center;
-    }
-
     .searchfield {
     font-size: 4.4vw;
     }
-
-    .filtres {
-    text-align: center;
-    }
-
     .filterstitle {
     padding-left: 0;
-    text-align: center;
     font-size: 4.6vw;
     margin-bottom: 3.7vw;
     }
@@ -1456,7 +1457,6 @@ footer ul li {
     .plusderesultats {
     font-size: 3.3vw;
     }
-
     .populaires h2 {
     font-size: 5.5vw;
     margin-left: 19vw;
