@@ -606,14 +606,82 @@ footer ul li {
 
 
 @media screen and (min-width: 1299px) {
-
+    .logo {
+        width: 10vw;
+    }
+    .recherche h1 {
+        font-size: 1.5vw;
+    }
+    .recherche p {
+        font-size: 1.3vw;
+    }
+    nav ul {
+        font-size: 1.3vw;
+    }
+    .sinscrire {
+        font-size: 1.33vw;
+    }
+    .search {
+        height: 4.3vw;
+    }
+    .searchfield {
+        width: 18vw;
+        font-size: 1.3vw;
+    }
+    .searchbutton {
+        width: 10.5vw;
+        font-size: 1.3vw;
+    }
+    .boxhebergements h4 {
+        margin-top: 2px;
+        font-size: 1.2vw;
+    }
+    .boxhebergements p {
+        margin: 3px 0px 6px 6px;
+        font-size: 1.1vw;
+    }
+    .etoiles {
+        font-size: 1vw;
+    }
+    .etoilegrise {
+        font-size: 1vw;
+    }
+    .plusderesultats {
+        font-size: 1.3vw;
+    }
     .asidepopulaires {
         padding: 0px 20px 20px 1.9vw;
+    }
+    .populaires h4 {
+        font-size: 1.1vw;
+    }
+    .populaires p {
+        font-size: 1vw;
+    }
+    .etoilespopulaires {
+        font-size: 0.8vw;
+    }
+    .asidepopulaires .etoilegrise {
+        font-size: 0.8vw;
+    }
+    #Activites h2 {
+        font-size: 1.5vw;
+    }
+    .imageactivites_a, .imageactivites_b, .imageactivites_c {
+        width: 20vw;
+    }
+    figcaption {
+        font-size: 1.2vw;
+    }
+    footer h5 {
+        font-size: 1.4vw;
+    }
+    footer ul li {
+        font-size: 1.2vw;
     }
 }
 
 @media screen and (min-width: 1189px) {
-
     .boxhebergements {
         width: 17vw;
         height: 13vw;
@@ -623,7 +691,6 @@ footer ul li {
         max-width: 100%;
         height: 10vw;
     }
-
     .charticon {
         position: relative;
         left: 19vw;
