@@ -7,9 +7,6 @@ Transformer une maquette en site web proposant un outil de planification de vaca
 
 Ce site permettra à l'usager de trouver des hébergements et des activités dans la ville de son choix.
 
-Les hébergements peuvent être filtrés par thématique (ex : budget ou ambiance).
-
-
 ## Contexte : 
 
 Vous rejoignez l'équipe de développement et une maquette vous est proposée par le designer UI 
@@ -17,13 +14,22 @@ Vous rejoignez l'équipe de développement et une maquette vous est proposée pa
 
 ![maquette desktop reservia](images/maquettes/Desktop_1.png)
 
-## Ressources disponibles : 
+## Ressources disponibles :
 
-- Deux maquettes (pour desktop et smartphone)
-- Images nécessaires en plusieurs formats (small, medium, large et extralarge)
+- Deux maquettes (version desktop et smartphone) à trouver dans dossier "images"
+- Images en plusieurs formats (small, medium, large et extralarge) à trouver dans dossier "images"
 - Icônes à exporter depuis [Font Awesome](https://fontawesome.com/)
 - Couleurs de la charte : bleu #0065FC, bleu claire #DEEBFF et gris #F2F2F2
-- Police : ["Raleway"](https://fonts.google.com/specimen/Raleway)
+- Police à exporter depuis ["Raleway"](https://fonts.google.com/specimen/Raleway)
+
+## Fonctionnalités : 
+
+- Offrir une expérience de navigation optimale quel que soit l'appareil utilisé **(Desktop, Tablette et Smartphone)**
+- Respecter une taille adaptée d'image pour l'intégration (penser à l'esthétique et au temps de chargement de la page)
+- Possibilité d'insérer du texte dans le champ de saisie de la barre de recherche (le bouton de recherche restera non fonctionnel) 
+- Chaque carte d’hébergement ou d’activité doit être cliquable dans son intégralité (les liens resteront vides)
+- Les filtres ne seront pas fonctionnels mais il doivent changer d’apparence au survol
+- Dans le menu les liens “Hébergements” et “Activités” sont des ancres qui doivent mener aux sections de la page
 
 ## Cahier des charges : 
 
