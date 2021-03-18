@@ -14,9 +14,12 @@ Les hébergements peuvent être filtrés par thématique (ex : budget ou ambianc
 Vous rejoignez l'équipe et une maquette vous est proposée par le designer UI 
 (document ci-dessous).
 
+![maquette desktop reservia](images/maquettes/Desktop - 1.png)
 
 ## Ressources disponibles : 
 
 - Deux maquettes (pour desktop et smartphone)
 - Images nécessaires en plusieurs formats (small, medium, large et extralarge)
 - Icônes à exporter depuis [Font Awesome](https://fontawesome.com/)
+- Couleurs de la charte : bleu #0065FC, bleu claire #DEEBFF et gris #F2F2F2
+- Police : ["Raleway"](https://fonts.google.com/specimen/Raleway)
