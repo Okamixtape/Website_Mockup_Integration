@@ -14,7 +14,7 @@ Les hébergements peuvent être filtrés par thématique (ex : budget ou ambianc
 Vous rejoignez l'équipe et une maquette vous est proposée par le designer UI 
 (document ci-dessous).
 
-![maquette desktop reservia](images/maquettes/Desktop - 1.png)
+![maquette desktop reservia](images/maquettes/Desktop_1.png)
 
 ## Ressources disponibles : 
 
