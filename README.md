@@ -1,5 +1,6 @@
-# Reservia / 2e projet du parcours "Développeur Web" d'OpenClassrooms
+# Reservia
 
+2e projet du parcours "Développeur Web" d'OpenClassrooms
 
 ## Objectif principal : 
 
@@ -34,9 +35,15 @@ Vous rejoignez l'équipe de développement et une maquette vous est proposée pa
 ## Cahier des charges : 
 
 - Intégration de la maquette et transformation en page web **uniquement en langage HTML et CSS** (framework et pré-compilateur CSS proscrits)
-- Utilisation de Visual Studio Code ( plugins conseillés : [Live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) et [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) )
+- Intégration à faire avec Visual Studio Code (plugins conseillés : [Live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) et [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode))
 - Utilisation conseillée de [Flexbox](https://www.w3schools.com/css/css3_flexbox.asp) et [CSS Grid](https://www.w3schools.com/css/css_grid.asp) 
 - Le code devra comprendre les [balises sémantiques](https://ronan-hello.fr/series/html/balises-semantiques-html) et ne doit contenir aucune erreur ni alerte au validateur W3C [HTML](https://validator.w3.org/) et [CSS](https://jigsaw.w3.org/css-validator/)
 - Le site devra être compatible avec les dernières versions de Chrome et Firefox
 - Séparer les fichiers HTML et le CSS et organiser le dossier final
 - Code à versionner avec Git pour ensuite déployer la page sur GitHub Pages ou GitLab Pages
+
+## Coordonnées :
+
+Vous pouvez me contacter directement en m'envoyant un [email](mailto:loup.aubour@gmail.com)
+
+ou si vous faites partie de la communauté OpenClassrooms en consultant mon [profil workplace](https://openclassrooms.workplace.com/profile.php?id=100064072264487)
