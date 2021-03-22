@@ -78,7 +78,7 @@ Alignement avec Nav */
 
 /* CSS / BARRE DE RECHERCHE */ 
 
-/* Faire apparaître la loupe qu'à 506px */
+/* Faire apparaître la loupe qu'à max-width:506px */
 #searchbutton{
     display: none;
 }
@@ -135,7 +135,7 @@ enlever bord gauche et droite déplacer à gauche de mapmarker*/
     padding-left: 17px;
 }
 
-/* Passer de police transparente à noire */
+/* Passer de police transparente à noire dans barre de recherche */
 ::placeholder {
     color:black;
 }
@@ -175,29 +175,30 @@ Arrondi bordure top et bottom right / Curseur devient pointeur */
     padding-left: 9px;
 }
 
-/* Redimmensionner et Arrondir boutons filtres / Bordure grise */
+/* Redimmensionner et Arrondir boutons filtres / Bordure grise dérivé de F2F2F2*/
 .icontextfilters {
     font-weight: bold;
     display: inline-block;
     margin-bottom: 10px;
     margin-right: 24px;
-    border-top: solid #e0e0e0 2px;
-    border-right: solid #e0e0e0 2px;
-    border-bottom: solid #e0e0e0 2px;
+    border-top: solid #e1e1e1 2px;
+    border-right: solid #e1e1e1 2px;
+    border-bottom: solid #e1e1e1 2px;
     border-left: none;
     border-radius: 60px;
     padding: 14.4px;
     padding-left: 0;
 }
 
-/* Survol boutons filtres bleu clair et temps de transition */
+/* Survol boutons filtres bleu clair et temps de transition
+couleur nuance de DEEBFF */
 .icontextfilters:hover {
-    background-color: #f1f7ff;
+    background-color: #F5F9FF;
     transform: scale(1.05);
     transition: 0.5s;
 }
 
-/* Couleur de fonc bleu clair pour filtres et Arrondi romantique et animaux */
+/* Couleur de fond bleu clair pour filtres et Arrondi romantique et animaux */
 .filtericon {
     background-color: #deebff;
     padding: 16.7px 14px 16.1px 18.7px;
@@ -206,7 +207,7 @@ Arrondi bordure top et bottom right / Curseur devient pointeur */
     color: #0065fc;
 }
 
-/* Couleur de fonc bleu clair pour filtres familial */
+/* Couleur de fond bleu clair pour filtres familial */
 .filtericonfamilial {
     background-color: #deebff;
     padding: 16.7px 17px 16.7px 20px;
@@ -215,7 +216,7 @@ Arrondi bordure top et bottom right / Curseur devient pointeur */
     color: #0065fc;
 }
 
-/* Couleur de fonc bleu clair pour filtres economique */
+/* Couleur de fond bleu clair pour filtres economique */
 .filtericoneconomique {
     background-color: #deebff;
     padding: 16.7px 14px 16.7px 17.2px;
@@ -230,13 +231,13 @@ Arrondi bordure top et bottom right / Curseur devient pointeur */
     font-size: 16px;
 }
 
-/* Faire flotter icone à gauche, déplacer à droite et cercle gris */
+/* Faire flotter icone à gauche, déplacer à droite et cercle gris dérivé de F2F2F2 */
 .infoicon {
     float: left;
     margin-left: 0px;
     margin-right: 12px;
     font-size: 10px;
-    border: solid #f2f2f2 1.5px;
+    border: solid #e1e1e1 1.5px;
     border-radius: 100%;
     color: #0065fc;
     padding: 3.5px 6.5px;
@@ -379,7 +380,7 @@ a {
 }
 
 /* Conteneur populaires fond gris / bordures arrondies
-  aligné avec conteneur hébergements/ occupe 1/3 de la page */
+aligné avec conteneur hébergements/ occupe 1/3 de la page */
 .populaires {
     background-color: #f2f2f2;
     border-radius: 25px;
@@ -447,7 +448,7 @@ a {
 /* CSS / SECTION ACTIVITES */ 
 
 
-/* avant c'était width: 273px /*
+/* width utilisé à l'ébauche : 273px /*
 
 /* Dimension 3 types images / Bordure top arrondie */ 
 /* Vieux port et Parc national Calanques */ 
@@ -783,15 +784,15 @@ footer ul li {
         padding-left: 9px;
     }
 
-    /* Redimmensionner et Arrondir boutons filtres / Bordure grise */
+    /* Redimmensionner et Arrondir boutons filtres / Bordure grise dérivé de F2F2F2 */
     .icontextfilters {
         font-weight: bold;
         display: inline-block;
         margin-bottom: 10px;
         margin-right: 24px;
-        border-top: solid #e0e0e0 2px;
-        border-right: solid #e0e0e0 2px;
-        border-bottom: solid #e0e0e0 2px;
+        border-top: solid #e1e1e1 2px;
+        border-right: solid #e1e1e1 2px;
+        border-bottom: solid #e1e1e1 2px;
         border-left: none;
         border-radius: 60px;
         padding: 14.4px;
@@ -924,10 +925,10 @@ footer ul li {
 }
 @media screen and (max-width: 800px) {
     .recherche h1 {
-    font-size: 2.6vw;
+        font-size: 2.6vw;
     }
     .recherche p {
-    font-size: 2vw;
+        font-size: 2vw;
     }
     h4 {
         margin-top: 0.5vw;
@@ -1029,9 +1030,9 @@ footer ul li {
 }
     @media screen and (max-width: 690px) {
     .logo {
-    margin-top: 31px;
-    position: absolute;
-    margin-left: 7.5vw;
+        margin-top: 31px;
+        position: absolute;
+        margin-left: 7.5vw;
     }
 
     .sinscrire {
@@ -1151,41 +1152,41 @@ footer ul li {
     }
 
     .sectionactivites {
-    justify-content: space-evenly;
-    height: 100%;
+        justify-content: space-evenly;
+        height: 100%;
     }
 
     .boxactivites_1 {
-    width: 84vw;
-    height: auto;
-    padding-left: 0vw;
-    margin: 0vw 0vw;
+        width: 84vw;
+        height: auto;
+        padding-left: 0vw;
+        margin: 0vw 0vw;
     }
 
     .boxactivites_2 {
-    flex-direction: column;
-    width: 84vw;
-    margin: 0.5vw 0vw 0.5vw;
+        flex-direction: column;
+        width: 84vw;
+        margin: 0.5vw 0vw 0.5vw;
     }
 
     .boxactivites_a, .boxactivites_b, .boxactivites_c {
-    width: 84vw;
-    height: 40vw;
-    margin: 0px;
-    margin-bottom: 25px;
+        width: 84vw;
+        height: 40vw;
+        margin: 0px;
+        margin-bottom: 25px;
     }
 
     .imageactivites_a, .imageactivites_b, .imageactivites_c {
-    width: 84vw;
-    height: 33vw;
-    padding-bottom: 0.4vw;
+        width: 84vw;
+        height: 33vw;
+        padding-bottom: 0.4vw;
     }
 
     figcaption {
-    font-weight: bold;
-    font-size: 3vw;
-    margin-left: 2vw;
-    margin-top: 0.5vw;
+        font-weight: bold;
+        font-size: 3vw;
+        margin-left: 2vw;
+        margin-top: 0.5vw;
     }
 
     figure {
@@ -1223,47 +1224,47 @@ footer ul li {
 }
 
 @media screen and (max-width: 506px) {
-    .sinscrire {
-    font-size: 17px;
-    padding-top: 39px;
+        .sinscrire {
+        font-size: 17px;
+        padding-top: 39px;
     }
 
     nav ul {
-    font-size: 3.9vw;
+        font-size: 3.9vw;
     }
 
     .search {
-    margin-bottom: 15px;
-    height: 50px;
+        margin-bottom: 15px;
+        height: 50px;
     }
 
     .searchfield {
-    font-size: 3.8vw;
-    width: 73%;
+        font-size: 3.8vw;
+        width: 73%;
     }
 
     .filterstitle {
-    width: 100%;
-    padding-top: 0px;
-    margin-bottom: 3vw;
-    font-size: 3.6vw;
+        width: 100%;
+        padding-top: 0px;
+        margin-bottom: 3vw;
+        font-size: 3.6vw;
     }
 
     .filter p {
-    margin-top: 22.5px;
-    font-size: 2.7vw;
+        margin-top: 22.5px;
+        font-size: 2.7vw;
     }
 
     .filtericoneconomique {
-    padding: 16.5px 14px 16.7px 17.2px;
+        padding: 16.5px 14px 16.7px 17.2px;
     }
 
     .filtericonfamilial {
-    padding: 16.5px 17px 16.7px 20px;
+        padding: 16.5px 17px 16.7px 20px;
     }
 
     .filtericon {
-    padding: 16.3px 13.6px 16.3px 18.8px;
+        padding: 16.3px 13.6px 16.3px 18.8px;
     }
     .container {
         background-color: white;
@@ -1283,29 +1284,29 @@ footer ul li {
     }
 
     .recherche h1 {
-    font-size: 6vw;
-    margin-top: 13px;
+        font-size: 6vw;
+        margin-top: 13px;
     }
 
     .recherche p {
-    font-size: 4vw;
-    margin-top: 14px;
+        font-size: 4vw;
+        margin-top: 14px;
     }
 
     main {
-    width: 100%;
-    margin: 0;
+        width: 100%;
+        margin: 0;
     }
 
     .boxpopulaires {
-    width: 89.8vw;
-    height: 29vw;
+        width: 89.8vw;
+        height: 29vw;
     }
     .populaires {
         border-radius: 0px;
         }
     .populaires h2 {
-    font-size: 4.8vw;
+        font-size: 4.8vw;
     }
 
     .charticon {
@@ -1316,151 +1317,151 @@ footer ul li {
     }
 
     .populaires h4 {
-    font-size: 3.5vw;
-    margin-top: 0.8vw;
+        font-size: 3.5vw;
+        margin-top: 0.8vw;
     }
 
     .boxpopulaires p {
-    font-size: 2.9vw;
+        font-size: 2.9vw;
     }
 
     .etoilespopulaires {
-    font-size: 2.7vw;
+        font-size: 2.7vw;
     }
 
     .asidepopulaires .etoilegrise {
-    font-size: 2.7vw;
+        font-size: 2.7vw;
     }
 
     #Activites h2 {
         margin-bottom: 7vw;
-    font-size: 4.8vw;
+        font-size: 4.8vw;
     }
 
     .sectionactivites {
-    justify-content: space-evenly;
-    height: 100%;
+        justify-content: space-evenly;
+        height: 100%;
     }
 
     .boxactivites_1 {
-    width: 84vw;
-    height: auto;
-    padding-left: 0vw;
-    margin: 0vw 0vw;
+        width: 84vw;
+        height: auto;
+        padding-left: 0vw;
+        margin: 0vw 0vw;
     }
 
     .boxactivites_2 {
-    flex-direction: column;
-    width: 84vw;
-    margin: 0.5vw 0vw 0.5vw;
+        flex-direction: column;
+        width: 84vw;
+        margin: 0.5vw 0vw 0.5vw;
     }
 
     .boxactivites_a, .boxactivites_b, .boxactivites_c {
-    width: 84vw;
-    height: 40vw;
-    margin: 0px;
-    margin-bottom: 25px;
+        width: 84vw;
+        height: 40vw;
+        margin: 0px;
+        margin-bottom: 25px;
     }
 
     .imageactivites_a, .imageactivites_b, .imageactivites_c {
-    width: 84vw;
-    height: 33vw;
-    padding-bottom: 0.4vw;
+        width: 84vw;
+        height: 33vw;
+        padding-bottom: 0.4vw;
     }
 
     figcaption {
-    font-weight: bold;
-    font-size: 3vw;
-    margin-left: 2vw;
-    margin-top: 0.5vw;
+        font-weight: bold;
+        font-size: 3vw;
+        margin-left: 2vw;
+        margin-top: 0.5vw;
     }
 }
 @media screen and (max-width: 450px) {
     .filter p {
-    margin-top: 5vw;
-    font-size: 3.1vw;
+        margin-top: 5vw;
+        font-size: 3.1vw;
     }
 }
 @media screen and (max-width: 400px) {
     .searchfield {
-    font-size: 4.4vw;
+        font-size: 4.4vw;
     }
     .filterstitle {
-    padding-left: 0;
-    font-size: 4.6vw;
-    margin-bottom: 3.7vw;
+        padding-left: 0;
+        font-size: 4.6vw;
+        margin-bottom: 3.7vw;
     }
 
     .icontextfilters {
-    margin-right: 0;
+        margin-right: 0;
     }
 
     .filtericoneconomique {
-    margin-right: 10px;
+        margin-right: 10px;
     }
 
     .filtericonfamilial {
-    margin-right: 10px;
+        margin-right: 10px;
     }
 
     .filtericon {
-    margin-right: 10px;
+        margin-right: 10px;
     }
 
 
     .filter p {
-    margin-top: 24px;
-    font-size: 3vw;
+        margin-top: 24px;
+        font-size: 3vw;
     }
 
     h2 {
-    font-size: 5vw;
+        font-size: 5vw;
     }
 
     .boxhebergements h4 {
-    margin-top: 1vw;
-    font-size: 4vw;
+        margin-top: 1vw;
+        font-size: 4vw;
     }
 
     .boxhebergements p {
-    font-size: 3.4vw;
-    margin-bottom: 8px;
+        font-size: 3.4vw;
+        margin-bottom: 8px;
     }
 
     .etoiles, .etoilegrise {
-    font-size: 2.9vw;
+        font-size: 2.9vw;
     }
     .populaires h2 {
-    font-size: 5.5vw;
-    text-align: start;
+        font-size: 5.5vw;
+        text-align: start;
     }
 
     .charticon {
-    font-size: 5vw;
-    position: relative;
-    bottom: 5.9vw;
+        font-size: 5vw;
+        position: relative;
+        bottom: 5.9vw;
     }
 
     .populaires h4 {
-    font-size: 3.8vw;
-    margin-top: 0vw;
+        font-size: 3.8vw;
+        margin-top: 0vw;
     }
 
     .boxpopulaires p {
-    font-size: 3.1vw;
+        font-size: 3.1vw;
     }
 
     .etoilespopulaires {
-    font-size: 2.9vw;
+        font-size: 2.9vw;
     }
 
     .asidepopulaires .etoilegrise {
-    font-size: 2.9vw;
+        font-size: 2.9vw;
     }
 
     #Activites {
-    width: 100vw;
-    margin: 0;
+        width: 100vw;
+        margin: 0;
     }
 
     #Activites h2 {
@@ -1470,17 +1471,17 @@ footer ul li {
     }
 
     .boxactivites_a, .boxactivites_b, .boxactivites_c {
-    width: 84vw;
-    height: 41vw;
-    margin: 0px;
-    margin-bottom: 25px;
+        width: 84vw;
+        height: 41vw;
+        margin: 0px;
+        margin-bottom: 25px;
     }
 
     figcaption {
-    font-weight: bold;
-    font-size: 3.7vw;
-    margin-left: 2vw;
-    margin-top: 0.3vw;
+        font-weight: bold;
+        font-size: 3.7vw;
+        margin-left: 2vw;
+        margin-top: 0.3vw;
     }
 }
 @media screen and (max-width: 300px) {
