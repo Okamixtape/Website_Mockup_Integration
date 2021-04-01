@@ -432,7 +432,6 @@ aligné avec conteneur hébergements/ occupe 1/3 de la page */
 /* Déplacer Charticon à droite "Les plus populaires" */
 .charticon{
     position: relative;
-    left: 295px;
     bottom: 19px;
 }
 
@@ -694,7 +693,8 @@ footer ul li {
     }
     .charticon {
         position: relative;
-        left: 19vw;
+        text-align: right;
+        right: 2vw;
         bottom: 19px;
         font-size: 1.1vw;
     }
@@ -735,7 +735,8 @@ footer ul li {
     .charticon {
         font-size: 1.6vw;
         position: relative;
-        left: 84vw;
+        text-align: right;
+        right: 3vw;
         bottom: 1.7vw;
     }
     .asidepopulaires {
@@ -955,7 +956,8 @@ footer ul li {
     .charticon {
         font-size: 2.6vw;
         position: relative;
-        left: 82.5vw;
+        text-align: right;
+        right: 3vw;
         bottom: 3.3vw;
     }
     h2 {
@@ -967,7 +969,7 @@ footer ul li {
         display: inline-flex;
         flex-direction: column;
         justify-content: space-around;
-        padding: 0px 4.1vw 2vw;
+        padding: 0px 3vw 2vw;
     }
     
     .boxpopulaires {
@@ -1142,8 +1144,9 @@ footer ul li {
     .charticon {
         font-size: 3vw;
         position: relative;
-        left: 82vw;
         bottom: 3.2vw;
+        right: 3vw;
+        text-align: right;
     }
 
     #Activites h2 {
@@ -1310,7 +1313,6 @@ footer ul li {
     }
 
     .charticon {
-        left: 90vw;
         font-size: 5vw;
         position: relative;
         bottom: 5.6vw;
