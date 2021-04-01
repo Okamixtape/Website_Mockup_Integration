@@ -1120,6 +1120,8 @@ footer ul li {
 
     .container {
         margin-top: 25px;
+        padding-left: 0%;
+        padding-right: 0%;
     }
 
     .boxhebergements h4 {
