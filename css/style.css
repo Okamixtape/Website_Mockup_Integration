@@ -713,6 +713,7 @@ footer ul li {
     }
     .container {
         width: 100%;
+        margin-right: 0px;
     }
     .boxhebergements {
         width: 25vw;
