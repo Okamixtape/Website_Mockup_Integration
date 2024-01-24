@@ -26,14 +26,14 @@ header {
 }
 
 /* Recadrage logo / Calcul photopea*/
-.logo {
+.header__logo {
     margin: 46px 52px 26px 52px;
     width: 100px;
     height: auto;
 }
 
 /* Alignement horizontal bloc "2 menuitems" et sinscrire */
-.navigation {
+.header__nav {
     display: flex;
 }
 
@@ -61,13 +61,13 @@ nav ul li:hover {
 }
 
 /* Nav menuitem / Survol bleu foncé */
-.menuitem a:hover {
+.header__nav-item a:hover {
     color: #0065fc;
 }
 
 /* p sinscrire / Mise en gras bleu foncé / Flottement à droite
 Alignement avec Nav */
-.sinscrire {
+.header__signup {
     font-weight: bolder;
     font-size: 16px;
     color: #0065fc;
@@ -79,30 +79,30 @@ Alignement avec Nav */
 /* CSS / BARRE DE RECHERCHE */ 
 
 /* Faire apparaître la loupe qu'à max-width:506px */
-#searchbutton{
+#search__button--icon{
     display: none;
 }
 
 /* Alignement vertical avec logo de la section recherche */
-.recherche {
+.search {
     margin-left: 52px;
 }
 
 /* Taille police h1  */
-.recherche h1 {
+.search h1 {
     font-size: 22px;
     margin-top: 10px;
 }
 
 /* Réduction taille police p et espace avec h1 et barre de recherche  */
-.recherche p {
+.search p {
     margin-top: 5px;
     margin-bottom: 20px;
     font-size: 16px;
 }
 
 /* Alignement horizontal et étirer barre de recherche et espacer avec filtres */
-.search {
+.search__bar {
     display: flex;
     height: 50px;
     margin-bottom: 30px;
@@ -110,7 +110,7 @@ Alignement avec Nav */
 
 /* Searchbar icon : Couleur de fond grise / centré vertical et horizontal l'icône ici
 Arrondir bord top left et bottom left */
-.mapmarker {
+.search__icon {
     background-color: #f2f2f2;
     font-size: 18px;
     min-width: 52px;
@@ -123,7 +123,7 @@ Arrondir bord top left et bottom left */
 
 /* Searchfield : Taille et couleur police / haut et bas grisé 
 enlever bord gauche et droite déplacer à gauche de mapmarker*/
-.searchfield {
+.search__input {
     width: 234px;
     border-top: solid #f2f2f2 1px;
     border-bottom: solid #f2f2f2 1px;
@@ -142,7 +142,7 @@ enlever bord gauche et droite déplacer à gauche de mapmarker*/
 
 /* Searchbutton : Police blanche sur fond bleu foncé 
 Arrondi bordure top et bottom right / Curseur devient pointeur */
-.searchbutton {
+.search__button {
     width: 135px;
     background-color: #0065fc;
     font-family: "Raleway", sans-serif;
@@ -160,7 +160,7 @@ Arrondi bordure top et bottom right / Curseur devient pointeur */
 
 
 /* Aligner Filtres avec logo et section recherche */
-.filter {
+.filters {
     margin-left: 52px;
 }
 .filtres {
@@ -188,6 +188,7 @@ Arrondi bordure top et bottom right / Curseur devient pointeur */
     border-radius: 60px;
     padding: 14.4px;
     padding-left: 0;
+    transition: 0.5s;
 }
 
 /* Survol boutons filtres bleu clair et temps de transition
@@ -226,7 +227,7 @@ couleur nuance de DEEBFF */
 }
 
 /* Redimensionner filtres */
-.filter p {
+.filters p {
     margin-top: 21px;
     font-size: 16px;
 }
@@ -297,6 +298,7 @@ main {
     padding: 5px;
     margin: 10px 0 25px 0;
     box-shadow: 4px 2px 20px rgb(217, 217, 217);
+    transition: 0.5s;
 }
 
 /* Agrandissement au survol */
@@ -401,6 +403,7 @@ aligné avec conteneur hébergements/ occupe 1/3 de la page */
     background-color: white;
     border-radius: 20px;
     box-shadow: 4px 2px 20px rgb(217, 217, 217);
+    transition: 0.5s;
 }
 
 /* Agrandissement au survol */
@@ -514,6 +517,7 @@ figure {
     background-color: white;
     border-radius: 20px;
     box-shadow: 2px 2px 20px rgb(217, 217, 217);
+    transition: 0.5s;
 }
 
 /* Agrandissement au survol */ 
@@ -606,29 +610,29 @@ footer ul li {
 
 
 @media screen and (min-width: 1299px) {
-    .logo {
+    .header__logo {
         width: 10vw;
     }
-    .recherche h1 {
+    .search h1 {
         font-size: 1.5vw;
     }
-    .recherche p {
+    .search p {
         font-size: 1.3vw;
     }
     nav ul {
         font-size: 1.3vw;
     }
-    .sinscrire {
+    .header__signup {
         font-size: 1.33vw;
     }
-    .search {
+    .search__bar {
         height: 4.3vw;
     }
-    .searchfield {
+    .search__input {
         width: 18vw;
         font-size: 1.3vw;
     }
-    .searchbutton {
+    .search__button {
         width: 10.5vw;
         font-size: 1.3vw;
     }
@@ -927,10 +931,10 @@ footer ul li {
     }
 }
 @media screen and (max-width: 800px) {
-    .recherche h1 {
+    .search h1 {
         font-size: 2.6vw;
     }
-    .recherche p {
+    .search p {
         font-size: 2vw;
     }
     h4 {
@@ -947,7 +951,7 @@ footer ul li {
     }
 }
     @media screen and (max-width: 768px) {
-    .filter p {
+    .filters p {
         margin-top: 22px;
         font-size: 2vw;
     }
@@ -1027,31 +1031,31 @@ footer ul li {
 }
 
 @media screen and (max-width: 726px) {
-    .filter p {
+    .filters p {
         margin-top: 23px;
         font-size: 2vw;
     }
 }
     @media screen and (max-width: 690px) {
-    .logo {
+    .header__logo {
         margin-top: 31px;
         position: absolute;
         margin-left: 7.5vw;
     }
 
-    .sinscrire {
+    .header__signup {
         margin-right: 7.5vw;
     }
 
-    .navigation {
+    .header__nav {
         width: 100vw;
         position: relative;
         flex-direction: column-reverse;
     }
-    .navigation p {
+    .header__nav p {
         margin-bottom: 1.2vw;
     }
-    .menuitem {
+    .header__nav-item {
         text-align: center;
         width: 100%;
         padding-bottom: 15px;
@@ -1072,10 +1076,10 @@ footer ul li {
         padding-bottom: 10px;
     }
 
-    .searchbutton {
+    .search__button {
         display: none;
     }
-    #searchbutton {
+    #search__button--icon {
         display: initial;
         color: white;
         background-color: #0065fc;
@@ -1093,19 +1097,19 @@ footer ul li {
         right: 15px;
     }
 
-    .searchfield {
+    .search__input {
         width: 77%;
     }
 
-    .recherche,
-    .filter {
+    .search,
+    .filters {
         margin-left: 7vw;
     }
-    .recherche h1 {
+    .search h1 {
         font-size: 3vw;
         margin-top: 13px;
     }
-    .recherche p {
+    .search p {
         font-size: 2.4vw;
     }
 
@@ -1236,7 +1240,7 @@ footer ul li {
 }
 
 @media screen and (max-width: 506px) {
-        .sinscrire {
+        .header__signup {
         font-size: 17px;
         padding-top: 39px;
     }
@@ -1245,12 +1249,12 @@ footer ul li {
         font-size: 3.9vw;
     }
 
-    .search {
+    .search__bar {
         margin-bottom: 15px;
         height: 50px;
     }
 
-    .searchfield {
+    .search__input {
         font-size: 3.8vw;
         width: 73%;
     }
@@ -1262,7 +1266,7 @@ footer ul li {
         font-size: 3.6vw;
     }
 
-    .filter p {
+    .filters p {
         margin-top: 22.5px;
         font-size: 2.7vw;
     }
@@ -1295,12 +1299,12 @@ footer ul li {
         margin-left: 20px;
     }
 
-    .recherche h1 {
+    .search h1 {
         font-size: 6vw;
         margin-top: 13px;
     }
 
-    .recherche p {
+    .search p {
         font-size: 4vw;
         margin-top: 14px;
     }
@@ -1388,13 +1392,13 @@ footer ul li {
     }
 }
 @media screen and (max-width: 450px) {
-    .filter p {
+    .filters p {
         margin-top: 5vw;
         font-size: 3.1vw;
     }
 }
 @media screen and (max-width: 400px) {
-    .searchfield {
+    .search__input {
         font-size: 4.4vw;
     }
     .filterstitle {
@@ -1420,7 +1424,7 @@ footer ul li {
     }
 
 
-    .filter p {
+    .filters p {
         margin-top: 24px;
         font-size: 3vw;
     }
