@@ -33,15 +33,19 @@ Migrer progressivement le portfolio Reservia existant vers une architecture mode
 - [x] ThemeProvider et gestion du mode sombre
 
 ### Phase 2: Migration des Composants (Semaine 3-4)
-- [ ] **TASK-005**: Migration du Header
-  - [ ] Navbar responsive avec Material Design
-  - [ ] Logo et branding
-  - [ ] Navigation mobile optimisée
+- [x] **TASK-005**: Migration du Header ✅
+  - [x] Navbar responsive avec Material Design
+  - [x] Logo et branding Reservia
+  - [x] Navigation mobile avec hamburger menu
+  - [x] Barre de recherche intégrée
+  - [x] Animations Material Design Motion
   
-- [ ] **TASK-006**: Migration de la Section Héro
-  - [ ] Design moderne avec Material components
-  - [ ] Barre de recherche interactive
-  - [ ] Animations d'entrée
+- [x] **TASK-006**: Migration de la Section Héro ✅
+  - [x] Design moderne avec Material components
+  - [x] Barre de recherche interactive avec filtres
+  - [x] Animations d'entrée avec Framer Motion
+  - [x] Suggestions de destinations populaires
+  - [x] Interface responsive mobile-first
   
 - [ ] **TASK-007**: Migration des Hébergements
   - [ ] Cards Material Design 3
@@ -151,10 +155,10 @@ npm run a11y-test
    npm run dev
    ```
 
-2. **Commencer TASK-005**: Migration du Header
-   - Analyser le header existant dans index.html
-   - Créer le composant Header avec Material Design
-   - Intégrer la navigation responsive
+2. **Commencer TASK-007**: Migration des Hébergements
+   - Analyser les hébergements existants dans index.html
+   - Créer le composant Hébergements avec Material Design
+   - Intégrer les filtres et le système de notation
 
 3. **Setup des tests**
    - Configuration Jest + Testing Library
