@@ -3,6 +3,7 @@
 import { Header } from '@/components/ui/Header'
 import { Hero } from '@/components/ui/Hero'
 import { Accommodations } from '@/components/ui/Accommodations'
+import { Activities } from '@/components/ui/Activities'
 
 export default function HomePage() {
   return (
@@ -11,6 +12,7 @@ export default function HomePage() {
       <main className="pt-16">
         <Hero />
         <Accommodations />
+        <Activities />
         
         {/* Placeholder for upcoming sections */}
         <section className="py-16 bg-surface-container">
