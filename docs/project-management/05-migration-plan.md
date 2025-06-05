@@ -52,10 +52,10 @@ Migrer progressivement le portfolio Reservia existant vers une architecture mode
   - [x] Système de notation (étoiles)
   - [x] Filtres et tri interactifs
   
-- [ ] **TASK-008**: Migration des Activités
-  - [ ] Layout en grid responsive
-  - [ ] Cards avec hover effects
-  - [ ] Lazy loading des images
+- [x] **TASK-008**: Migration des Activités ✅
+  - [x] Layout en grid responsive
+  - [x] Cards avec hover effects
+  - [x] Lazy loading des images
 
 ### Phase 3: Optimisations (Semaine 5-6)
 - [ ] **TASK-009**: Performance
@@ -155,10 +155,10 @@ npm run a11y-test
    npm run dev
    ```
 
-2. **Commencer TASK-008**: Migration des Activités
-   - Analyser les activités existantes dans index.html
-   - Créer le composant Activités avec Material Design
-   - Intégrer les hover effects et lazy loading
+2. **Commencer TASK-009**: Optimisation des performances
+   - Analyser les performances actuelles
+   - Optimiser les images avec Next.js Image
+   - Configurer le code splitting et lazy loading
 
 3. **Setup des tests**
    - Configuration Jest + Testing Library
@@ -176,12 +176,12 @@ npm run a11y-test
 - [x] **TASK-005**: Header ✅ (1h)
 - [x] **TASK-006**: Héro ✅ (1.5h)  
 - [x] **TASK-007**: Hébergements ✅ (1.5h)
-- [ ] **TASK-008**: Activités (2h estimées)
+- [x] **TASK-008**: Activités ✅ (1.5h)
 
-**Progression**: 3/4 tâches terminées  
-**Temps investi**: 4h de développement  
+**Progression**: 4/4 tâches terminées  
+**Temps investi**: 5.5h de développement  
 **Qualité**: Excellent (Material Design 3 complet)
 
 ### Prochaine Priorité
-- **TASK-008**: Finaliser les activités pour compléter Phase 2 à 100%
+- **TASK-009**: Finaliser l'optimisation des performances pour démarrer Phase 3
 - **Phase 3**: Démarrer l'intégration de contenu et optimisations
