@@ -94,7 +94,7 @@ export function ReservationCalendar({
   })
 
   return (
-    <div className="space-y-4">
+    <div className="reservation-calendar space-y-4">
       {/* Sélection des dates */}
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-1">

@@ -1,179 +1,165 @@
-# 🚀 Roadmap MVP Reservia M3
+# 🎨 Roadmap Portfolio Technique - Reservia M3
 
-**Date :** 2025-06-11  
-**Statut :** Planification active  
-**Version :** 1.0
+**Date :** 2025-06-12  
+**Statut :** Actif - Features Portfolio  
+**Version :** 2.0 (Pivot Portfolio)  
+**Décision :** [Voir justification complète](./09-project-positioning-decision.md)
 
 ## 📊 État actuel du projet
 
-### ✅ Fonctionnalités complétées
-- Architecture Next.js 14 + TypeScript + Material Design 3
-- Interface responsive complète (Header, Hero, Hébergements, Activités)
-- Système de thème (light/dark/system)
-- Performance optimisée (FCP: 367ms, Score: 100/100 en production)
-- **Quick wins terminés** :
-  - Icônes Material Symbols fonctionnelles
-  - Barre de recherche avec filtrage dynamique
-  - Bouton "Réserver" sur les cartes
+### ✅ Excellence technique démontrée
+- **Architecture** : Next.js 14 + TypeScript + Material Design 3
+- **Performance** : Score Lighthouse 100/100, FCP 367ms, bundle 108kB
+- **Interface** : Responsive, multilingue (5 langues), animations fluides
+- **Qualité code** : TypeScript strict, 0 erreurs, architecture scalable
+- **Documentation** : Complète et professionnelle
 
-### 🔍 Analyse du positionnement
-- **État actuel** : Landing page statique avec contenu mockup
-- **Objectif MVP** : Plateforme de réservation fonctionnelle minimale
-- **Différentiateur** : Interface Material Design 3 moderne et performante
+### 🎯 Objectif Portfolio
+Démontrer l'excellence technique à travers des features interactives sans backend réel, 
+en privilégiant la qualité d'exécution et l'expérience utilisateur.
 
 ---
 
-## 🎯 Phase 1 : MVP Core (2-3 semaines)
+## 🚀 Phase 1 : Features Démo Interactives (Semaine 1)
 
-### 1.1 Système de réservation basique
-**Priorité : CRITIQUE** | **Effort : 3-4 jours**
-- [ ] Page détail hébergement avec galerie photos
-- [ ] Calendrier de disponibilités (simple)
-- [ ] Formulaire de réservation (dates, nombre de personnes)
-- [ ] Page récapitulatif de réservation
-- [ ] Confirmation par email (mock)
+### 1.1 Page Détail Hébergement
+**Priorité : HAUTE** | **Effort : 2 jours** | **Valeur Portfolio : ⭐⭐⭐⭐⭐**
+- [ ] Design immersif avec hero image plein écran
+- [ ] Galerie photos interactive (lightbox, zoom, navigation)
+- [ ] Informations structurées (équipements, description, carte)
+- [ ] Animation de transition depuis la liste
+- [ ] Version mobile optimisée
 
-### 1.2 Gestion multi-destinations
-**Priorité : HAUTE** | **Effort : 2 jours**
-- [ ] Étendre au-delà de Marseille (5-10 villes françaises)
-- [ ] Filtrage par ville dans la recherche
-- [ ] Adaptation du contenu Hero par destination
+**Démo de compétences** : Navigation complexe, animations, responsive design
 
-### 1.3 Backend API minimal
-**Priorité : CRITIQUE** | **Effort : 3-4 jours**
-- [ ] API REST avec Next.js Route Handlers
-- [ ] Base de données SQLite/Postgres (Prisma)
-- [ ] CRUD hébergements et réservations
-- [ ] Gestion des disponibilités
+### 1.2 Simulation Réservation Interactive
+**Priorité : HAUTE** | **Effort : 2 jours** | **Valeur Portfolio : ⭐⭐⭐⭐⭐**
+- [ ] Calendrier de sélection dates (design custom)
+- [ ] Calcul dynamique du prix
+- [ ] Formulaire multi-étapes avec validation
+- [ ] Animations de feedback (loading, success, error)
+- [ ] Récapitulatif visuellement riche
 
----
+**Démo de compétences** : State management, UX complexe, animations
 
-## 🌍 Phase 2 : Internationalisation (1 semaine)
+### 1.3 Flow de Confirmation
+**Priorité : MOYENNE** | **Effort : 1 jour** | **Valeur Portfolio : ⭐⭐⭐⭐**
+- [ ] Page de confirmation animée
+- [ ] Email de confirmation (template visuel)
+- [ ] Animation de célébration (confetti, transitions)
+- [ ] Boutons de partage social
+- [ ] Redirection intelligente
 
-### 2.1 Système i18n
-**Priorité : HAUTE** | **Effort : 2-3 jours**
-- [ ] Setup next-intl ou similar
-- [ ] Traductions FR/EN (minimum)
-- [ ] Sélecteur de langue dans le header
-- [ ] Routes localisées (/fr, /en)
-
-### 2.2 Adaptation du contenu
-**Priorité : MOYENNE** | **Effort : 2 jours**
-- [ ] Traduction de tous les textes statiques
-- [ ] Formatage des devises selon la locale
-- [ ] Adaptation des dates et nombres
+**Démo de compétences** : Micro-interactions, feedback utilisateur
 
 ---
 
-## 👤 Phase 3 : Espace utilisateur (1-2 semaines)
+## 🎨 Phase 2 : Polish & Documentation (Semaine 2)
 
-### 3.1 Authentification
-**Priorité : HAUTE** | **Effort : 2-3 jours**
-- [ ] Connexion/Inscription (NextAuth.js)
-- [ ] OAuth providers (Google, GitHub)
-- [ ] Sessions sécurisées
-- [ ] Pages profil utilisateur
+### 2.1 Tests & Qualité
+**Priorité : HAUTE** | **Effort : 2 jours** | **Valeur Portfolio : ⭐⭐⭐⭐⭐**
+- [ ] Tests unitaires pour composants clés (coverage >80%)
+- [ ] Tests d'intégration pour flows principaux
+- [ ] Tests de performance (Web Vitals)
+- [ ] Tests d'accessibilité (WCAG AA)
+- [ ] Documentation des tests
 
-### 3.2 Fonctionnalités utilisateur
-**Priorité : MOYENNE** | **Effort : 3-4 jours**
-- [ ] Historique des réservations
-- [ ] Favoris/Wishlist
-- [ ] Modification/Annulation réservation
-- [ ] Notifications par email
+**Démo de compétences** : Testing best practices, qualité code
 
----
+### 2.2 Storybook Interactif
+**Priorité : HAUTE** | **Effort : 1 jour** | **Valeur Portfolio : ⭐⭐⭐⭐⭐**
+- [ ] Stories pour tous les composants
+- [ ] Documentation des props et variants
+- [ ] Playground interactif
+- [ ] Thèmes light/dark démo
+- [ ] Export documentation
 
-## 💳 Phase 4 : Paiement (1 semaine)
+**Démo de compétences** : Documentation, design system
 
-### 4.1 Intégration Stripe
-**Priorité : CRITIQUE** | **Effort : 3-4 jours**
-- [ ] Setup Stripe Checkout
-- [ ] Gestion des webhooks
-- [ ] Page de succès/échec
-- [ ] Factures PDF
+### 2.3 Documentation Technique
+**Priorité : HAUTE** | **Effort : 1 jour** | **Valeur Portfolio : ⭐⭐⭐⭐**
+- [ ] Architecture détaillée (diagrammes)
+- [ ] Décisions techniques justifiées
+- [ ] Guide de contribution
+- [ ] API documentation (même si simulée)
+- [ ] Performance analysis
 
-### 4.2 Sécurité
-**Priorité : CRITIQUE** | **Effort : 2 jours**
-- [ ] Validation PCI DSS
-- [ ] HTTPS enforced
-- [ ] Protection CSRF
-- [ ] Rate limiting
+**Démo de compétences** : Communication technique, professionnalisme
 
----
+### 2.4 Déploiement & Showcase
+**Priorité : CRITIQUE** | **Effort : 1 jour** | **Valeur Portfolio : ⭐⭐⭐⭐⭐**
+- [ ] Déploiement Vercel optimisé
+- [ ] Domaine personnalisé
+- [ ] SEO et meta tags parfaits
+- [ ] Analytics intégrés
+- [ ] Monitoring performance
 
-## 🔄 Features optionnelles (post-MVP)
-
-### Nice-to-have
-- [ ] Système d'avis et notations
-- [ ] Chat/Support client
-- [ ] Programme de fidélité
-- [ ] Recommandations IA
-- [ ] Application mobile (React Native)
-
-### Extensions futures
-- [ ] Activités réservables
-- [ ] Packages hébergement + activités
-- [ ] Assurance voyage
-- [ ] Comparateur de prix
-- [ ] API partenaires
+**Démo de compétences** : DevOps, production-ready
 
 ---
 
-## 📈 Métriques de succès MVP
+## 📈 Métriques de Succès Portfolio
 
-### KPIs techniques
-- Performance : Score Lighthouse > 90
-- Uptime : 99.9%
-- Temps de chargement : < 2s
-- Taux de conversion : > 2%
+### Technique
+- ✅ Lighthouse: 100/100 maintenu
+- ✅ Bundle size: <150kB
+- ✅ Tests coverage: >80%
+- ✅ TypeScript: 0 erreurs
+- ✅ Accessibilité: WCAG AA
 
-### KPIs business
-- 100 premières réservations
-- 1000 utilisateurs inscrits
-- NPS > 40
-- Taux de rétention : > 30%
+### Expérience
+- ✅ Animations fluides 60fps
+- ✅ Interactions instantanées
+- ✅ Mobile-first parfait
+- ✅ Navigation intuitive
+- ✅ Feedback clair
 
----
-
-## 🚧 Risques et mitigations
-
-| Risque | Impact | Mitigation |
-|--------|--------|------------|
-| Complexité paiement | Élevé | Commencer avec Stripe Checkout hébergé |
-| Performance avec données réelles | Moyen | Pagination, cache Redis, CDN |
-| Sécurité des données | Élevé | Audit sécurité, RGPD compliance |
-| Scalabilité | Moyen | Architecture serverless, Vercel |
+### Portfolio
+- ✅ Code sur GitHub (README pro)
+- ✅ Live demo impressionnante
+- ✅ Documentation exhaustive
+- ✅ Case study détaillée
+- ✅ Métriques publiques
 
 ---
 
-## 📅 Timeline estimé
+## 🎯 Points Forts à Mettre en Avant
 
-```
-Semaine 1-2 : MVP Core (réservation + multi-destinations)
-Semaine 3   : Backend API + Base de données
-Semaine 4   : Internationalisation
-Semaine 5-6 : Espace utilisateur
-Semaine 7   : Paiement Stripe
-Semaine 8   : Tests, debug, déploiement
-```
+### Pour Recruteurs
+1. **Maîtrise technique** : Stack moderne, best practices
+2. **Qualité code** : Tests, types, architecture
+3. **Performance** : Optimisations mesurables
+4. **Documentation** : Communication claire
+5. **Attention détails** : UX, animations, responsive
 
-**Livraison MVP estimée : 8 semaines**
+### Pour Clients
+1. **Résultats concrets** : Métriques performance
+2. **Process rigoureux** : Documentation, tests
+3. **Design moderne** : Material Design 3
+4. **International** : Support 5 langues
+5. **Livraison rapide** : 2 semaines conception → production
+
+### Pour Communauté
+1. **Open source** : Code disponible
+2. **Documentation** : Apprentissage
+3. **Best practices** : Exemple à suivre
+4. **Stack moderne** : Technologies actuelles
+5. **Case study** : Retour d'expérience
 
 ---
 
-## 🎯 Prochaines actions immédiates
+## 📅 Timeline Finale
 
-1. **Cette semaine** :
-   - Créer la page détail hébergement
-   - Implémenter le calendrier de disponibilités
-   - Setup base de données avec Prisma
+**12-14 juin** : Page détail + Galerie  
+**15-16 juin** : Simulation réservation  
+**17 juin** : Flow confirmation  
+**18-19 juin** : Tests + Storybook  
+**20-21 juin** : Documentation  
+**22-23 juin** : Déploiement + Polish  
+**24 juin** : Case study + Communication  
 
-2. **Décisions à prendre** :
-   - Choix de la base de données (SQLite vs Postgres)
-   - Provider d'authentification (NextAuth vs Clerk)
-   - Hébergement (Vercel vs self-hosted)
+**Livraison** : Portfolio technique complet démontrant l'excellence dans le développement front-end moderne.
 
-3. **Ressources nécessaires** :
-   - Designer UI/UX pour pages manquantes
-   - Développeur backend (optionnel)
-   - Budget Stripe/hosting (~100€/mois)
+---
+
+**Note** : Ce document remplace l'ancienne roadmap MVP produit. Le focus est maintenant sur la démonstration technique plutôt que sur les fonctionnalités business.

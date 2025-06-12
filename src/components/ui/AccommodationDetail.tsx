@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { AnimatedBox } from './AnimatedBox'
 import { Button } from './Button'
 import { ReservationCalendar } from './ReservationCalendar'
+import { ReservationConfirmation } from './ReservationConfirmation'
 import { cn } from '@/lib/utils'
 import { Accommodation, amenityIcons } from '@/data/accommodations'
 
@@ -18,6 +19,7 @@ export function AccommodationDetail({ accommodation }: AccommodationDetailProps)
   const [checkIn, setCheckIn] = useState<Date | null>(null)
   const [checkOut, setCheckOut] = useState<Date | null>(null)
   const [guests, setGuests] = useState(2)
+  const [showConfirmation, setShowConfirmation] = useState(false)
 
   // Simuler plusieurs images pour la galerie
   const images = [
@@ -29,18 +31,17 @@ export function AccommodationDetail({ accommodation }: AccommodationDetailProps)
 
   const handleReservation = () => {
     if (!checkIn || !checkOut) {
-      alert('Veuillez sélectionner vos dates de séjour')
+      // Effet de tremblement sur le calendrier
+      const calendar = document.querySelector('.reservation-calendar')
+      if (calendar) {
+        calendar.classList.add('animate-shake')
+        setTimeout(() => calendar.classList.remove('animate-shake'), 500)
+      }
       return
     }
     
-    // TODO: Implémenter la logique de réservation
-    console.log('Réservation:', {
-      accommodation: accommodation.name,
-      checkIn,
-      checkOut,
-      guests,
-      totalPrice: calculateTotalPrice()
-    })
+    // Ouvrir la modal de confirmation
+    setShowConfirmation(true)
   }
 
   const calculateNights = () => {
@@ -271,6 +272,17 @@ export function AccommodationDetail({ accommodation }: AccommodationDetailProps)
           </div>
         </div>
       </main>
+
+      {/* Modal de confirmation */}
+      <ReservationConfirmation
+        isOpen={showConfirmation}
+        onClose={() => setShowConfirmation(false)}
+        accommodationName={accommodation.name}
+        checkIn={checkIn!}
+        checkOut={checkOut!}
+        guests={guests}
+        totalPrice={calculateTotalPrice() + Math.round(calculateTotalPrice() * 0.1)}
+      />
     </div>
   )
 }
