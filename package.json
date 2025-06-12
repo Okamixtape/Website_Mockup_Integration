@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
-    "extract-tasks": "./scripts/extract-tasks.sh"
+    "extract-tasks": "./scripts/extract-tasks.sh",
+    "audit": "node scripts/lighthouse-audit.js",
+    "audit:watch": "npm run audit && echo 'Audit terminé. Relancez avec npm run audit pour un nouvel audit.'"
   },
   "dependencies": {
     "@material/web": "^2.2.0",
@@ -17,7 +19,6 @@
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.16",
     "clsx": "^2.1.1",
-    "framer-motion": "^11.11.17",
     "next": "14.2.15",
     "react": "^18",
     "react-dom": "^18",
@@ -28,8 +29,12 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.16",
+    "chrome-launcher": "^1.2.0",
+    "critters": "^0.0.23",
+    "cssnano": "^7.0.7",
     "eslint": "^8",
     "eslint-config-next": "14.2.15",
+    "lighthouse": "^12.6.1",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.4.5"

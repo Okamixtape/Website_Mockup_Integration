@@ -1,98 +1,87 @@
 'use client'
 
-import React, { forwardRef } from 'react'
-import { motion, MotionProps } from 'framer-motion'
+import React, { forwardRef, ReactNode } from 'react'
 import { cn } from '@/lib/utils'
+import { AnimatedBox } from './AnimatedBox'
 
-export interface CardProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    MotionProps {
+export interface CardProps {
+  children: ReactNode
+  className?: string
   variant?: 'elevated' | 'filled' | 'outlined'
-  interactive?: boolean
   padding?: 'none' | 'small' | 'medium' | 'large'
+  clickable?: boolean
+  hover?: boolean
+  onClick?: () => void
 }
 
-const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({
-    className,
-    variant = 'filled',
-    interactive = false,
-    padding = 'medium',
-    children,
-    ...props
-  }, ref) => {
-    const baseClasses = [
-      'rounded-xl overflow-hidden',
-      'transition-all duration-300 ease-out',
-      
-      // Interactive states
-      interactive && [
-        'cursor-pointer',
-        'hover:scale-[1.02]',
-        'active:scale-[0.98]',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
-      ],
-      
-      // Padding variants
-      padding === 'none' && 'p-0',
-      padding === 'small' && 'p-4',
-      padding === 'medium' && 'p-6',
-      padding === 'large' && 'p-8',
-    ]
+/**
+ * Card Component - Optimisé avec animations CSS natives
+ * Alternative performante à Framer Motion pour des performances optimales
+ */
+export const Card = forwardRef<HTMLDivElement, CardProps>(({
+  children,
+  className,
+  variant = 'elevated',
+  padding = 'medium',
+  clickable = false,
+  hover = true,
+  onClick,
+  ...props
+}, ref) => {
+  
+  const cardClasses = cn(
+    // Base styles
+    'rounded-xl transition-all duration-200 ease-out',
+    
+    // Variant styles
+    {
+      'bg-surface shadow-elevation-1 hover:shadow-elevation-2': variant === 'elevated',
+      'bg-surface-container': variant === 'filled',
+      'bg-surface border border-outline-variant': variant === 'outlined',
+    },
+    
+    // Padding variants
+    {
+      'p-0': padding === 'none',
+      'p-3': padding === 'small',
+      'p-6': padding === 'medium',
+      'p-8': padding === 'large',
+    },
+    
+    // Interactive states
+    {
+      'cursor-pointer': clickable,
+      'hover:bg-surface-container-high': clickable && variant === 'elevated',
+    },
+    
+    className
+  )
 
-    const variantClasses = {
-      elevated: [
-        'bg-surface-container-low shadow-elevation-1',
-        interactive && 'hover:shadow-elevation-2 hover:bg-surface-container',
-      ],
-      filled: [
-        'bg-surface-container-highest',
-        interactive && 'hover:bg-surface-container-high',
-      ],
-      outlined: [
-        'bg-surface border border-outline-variant',
-        interactive && 'hover:bg-surface-container-low hover:border-outline',
-      ],
-    }
-
-    const cardVariants = {
-      initial: { opacity: 0, y: 20 },
-      animate: { 
-        opacity: 1, 
-        y: 0,
-        transition: {
-          duration: 0.4,
-          ease: 'easeOut'
-        }
-      },
-      hover: interactive ? {
-        y: -4,
-        transition: {
-          duration: 0.2,
-          ease: 'easeOut'
-        }
-      } : {},
-    }
-
+  if (clickable || onClick) {
     return (
-      <motion.div
+      <AnimatedBox
         ref={ref}
-        className={cn(
-          baseClasses,
-          variantClasses[variant],
-          className
-        )}
-        variants={cardVariants}
-        initial="initial"
-        animate="animate"
-        whileHover="hover"
+        className={cardClasses}
+        hover={hover ? 'lift' : 'none'}
+        tap={clickable}
+        onClick={onClick}
         {...props}
       >
         {children}
-      </motion.div>
+      </AnimatedBox>
     )
   }
-)
+
+  return (
+    <div
+      ref={ref}
+      className={cardClasses}
+      {...props}
+    >
+      {children}
+    </div>
+  )
+})
 
 Card.displayName = 'Card'
 
@@ -205,5 +194,3 @@ const CardImage = forwardRef<HTMLImageElement, CardImageProps>(
 )
 
 CardImage.displayName = 'CardImage'
-
-export { Card, CardHeader, CardContent, CardFooter, CardImage }

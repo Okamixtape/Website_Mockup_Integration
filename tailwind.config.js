@@ -5,98 +5,93 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'class',
   theme: {
     extend: {
-      // Material Design 3 Color System
-      colors: {
-        // Primary palette
-        primary: {
-          DEFAULT: 'var(--md-sys-color-primary)',
-          50: 'var(--md-sys-color-primary-container)',
-          100: 'var(--md-sys-color-on-primary)',
-          200: 'var(--md-sys-color-on-primary-container)',
-        },
-        // Secondary palette
-        secondary: {
-          DEFAULT: 'var(--md-sys-color-secondary)',
-          50: 'var(--md-sys-color-secondary-container)',
-          100: 'var(--md-sys-color-on-secondary)',
-          200: 'var(--md-sys-color-on-secondary-container)',
-        },
-        // Tertiary palette
-        tertiary: {
-          DEFAULT: 'var(--md-sys-color-tertiary)',
-          50: 'var(--md-sys-color-tertiary-container)',
-          100: 'var(--md-sys-color-on-tertiary)',
-          200: 'var(--md-sys-color-on-tertiary-container)',
-        },
-        // Neutral palette
-        surface: {
-          DEFAULT: 'var(--md-sys-color-surface)',
-          dim: 'var(--md-sys-color-surface-dim)',
-          bright: 'var(--md-sys-color-surface-bright)',
-          container: 'var(--md-sys-color-surface-container)',
-          'container-low': 'var(--md-sys-color-surface-container-low)',
-          'container-high': 'var(--md-sys-color-surface-container-high)',
-          'container-highest': 'var(--md-sys-color-surface-container-highest)',
-        },
-        // Semantic colors
-        error: {
-          DEFAULT: 'var(--md-sys-color-error)',
-          container: 'var(--md-sys-color-error-container)',
-          50: 'var(--md-sys-color-on-error)',
-          100: 'var(--md-sys-color-on-error-container)',
-        },
-        outline: {
-          DEFAULT: 'var(--md-sys-color-outline)',
-          variant: 'var(--md-sys-color-outline-variant)',
-        },
-      },
-      
-      // Material Design 3 Typography
+      // Optimisation des fonts avec variables CSS
       fontFamily: {
-        'display': ['var(--md-sys-typescale-display-large-font)', 'Roboto', 'Arial', 'sans-serif'],
-        'headline': ['var(--md-sys-typescale-headline-large-font)', 'Roboto', 'Arial', 'sans-serif'],
-        'title': ['var(--md-sys-typescale-title-large-font)', 'Roboto', 'Arial', 'sans-serif'],
-        'body': ['var(--md-sys-typescale-body-large-font)', 'Roboto', 'Arial', 'sans-serif'],
-        'label': ['var(--md-sys-typescale-label-large-font)', 'Roboto', 'Arial', 'sans-serif'],
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        inter: ['var(--font-inter)', 'sans-serif'],
       },
       
-      // Material Design 3 Spacing
+      // Material Design 3 Color Tokens
+      colors: {
+        // Primary colors
+        primary: 'rgb(var(--md-sys-color-primary) / <alpha-value>)',
+        'on-primary': 'rgb(var(--md-sys-color-on-primary) / <alpha-value>)',
+        'primary-container': 'rgb(var(--md-sys-color-primary-container) / <alpha-value>)',
+        'on-primary-container': 'rgb(var(--md-sys-color-on-primary-container) / <alpha-value>)',
+        
+        // Secondary colors
+        secondary: 'rgb(var(--md-sys-color-secondary) / <alpha-value>)',
+        'on-secondary': 'rgb(var(--md-sys-color-on-secondary) / <alpha-value>)',
+        'secondary-container': 'rgb(var(--md-sys-color-secondary-container) / <alpha-value>)',
+        'on-secondary-container': 'rgb(var(--md-sys-color-on-secondary-container) / <alpha-value>)',
+        
+        // Surface colors
+        surface: 'rgb(var(--md-sys-color-surface) / <alpha-value>)',
+        'on-surface': 'rgb(var(--md-sys-color-on-surface) / <alpha-value>)',
+        'surface-variant': 'rgb(var(--md-sys-color-surface-variant) / <alpha-value>)',
+        'on-surface-variant': 'rgb(var(--md-sys-color-on-surface-variant) / <alpha-value>)',
+        'surface-container': 'rgb(var(--md-sys-color-surface-container) / <alpha-value>)',
+        'surface-container-low': 'rgb(var(--md-sys-color-surface-container-low) / <alpha-value>)',
+        'surface-container-high': 'rgb(var(--md-sys-color-surface-container-high) / <alpha-value>)',
+        
+        // Outline
+        outline: 'rgb(var(--md-sys-color-outline) / <alpha-value>)',
+        'outline-variant': 'rgb(var(--md-sys-color-outline-variant) / <alpha-value>)',
+        
+        // Error colors
+        error: 'rgb(var(--md-sys-color-error) / <alpha-value>)',
+        'on-error': 'rgb(var(--md-sys-color-on-error) / <alpha-value>)',
+        'error-container': 'rgb(var(--md-sys-color-error-container) / <alpha-value>)',
+        'on-error-container': 'rgb(var(--md-sys-color-on-error-container) / <alpha-value>)',
+      },
+      
+      // Typography optimisée
+      fontSize: {
+        'display-large': ['3.5rem', { lineHeight: '4rem', fontWeight: '400' }],
+        'display-medium': ['2.8rem', { lineHeight: '3.25rem', fontWeight: '400' }],
+        'display-small': ['2.25rem', { lineHeight: '2.75rem', fontWeight: '400' }],
+        'headline-large': ['2rem', { lineHeight: '2.5rem', fontWeight: '400' }],
+        'headline-medium': ['1.75rem', { lineHeight: '2.25rem', fontWeight: '400' }],
+        'headline-small': ['1.5rem', { lineHeight: '2rem', fontWeight: '400' }],
+        'title-large': ['1.375rem', { lineHeight: '1.75rem', fontWeight: '400' }],
+        'title-medium': ['1rem', { lineHeight: '1.5rem', fontWeight: '500' }],
+        'title-small': ['0.875rem', { lineHeight: '1.25rem', fontWeight: '500' }],
+        'body-large': ['1rem', { lineHeight: '1.5rem', fontWeight: '400' }],
+        'body-medium': ['0.875rem', { lineHeight: '1.25rem', fontWeight: '400' }],
+        'body-small': ['0.75rem', { lineHeight: '1rem', fontWeight: '400' }],
+        'label-large': ['0.875rem', { lineHeight: '1.25rem', fontWeight: '500' }],
+        'label-medium': ['0.75rem', { lineHeight: '1rem', fontWeight: '500' }],
+        'label-small': ['0.6875rem', { lineHeight: '1rem', fontWeight: '500' }],
+      },
+      
+      // Spacing basé sur Material Design
       spacing: {
-        'xs': 'var(--md-sys-spacing-4)',
-        'sm': 'var(--md-sys-spacing-8)',
-        'md': 'var(--md-sys-spacing-12)',
-        'lg': 'var(--md-sys-spacing-16)',
-        'xl': 'var(--md-sys-spacing-24)',
-        '2xl': 'var(--md-sys-spacing-32)',
-        '3xl': 'var(--md-sys-spacing-48)',
+        '0.5': '0.125rem', // 2px
+        '1.5': '0.375rem', // 6px
+        '2.5': '0.625rem', // 10px
+        '3.5': '0.875rem', // 14px
+        '4.5': '1.125rem', // 18px
+        '5.5': '1.375rem', // 22px
+        '6.5': '1.625rem', // 26px
+        '7.5': '1.875rem', // 30px
       },
       
-      // Material Design 3 Elevation
+      // Élévations Material Design
       boxShadow: {
-        'elevation-1': 'var(--md-sys-elevation-1)',
-        'elevation-2': 'var(--md-sys-elevation-2)',
-        'elevation-3': 'var(--md-sys-elevation-3)',
-        'elevation-4': 'var(--md-sys-elevation-4)',
-        'elevation-5': 'var(--md-sys-elevation-5)',
+        'elevation-1': '0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)',
+        'elevation-2': '0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15)',
+        'elevation-3': '0px 1px 3px 0px rgba(0, 0, 0, 0.3), 0px 4px 8px 3px rgba(0, 0, 0, 0.15)',
+        'elevation-4': '0px 2px 3px 0px rgba(0, 0, 0, 0.3), 0px 6px 10px 4px rgba(0, 0, 0, 0.15)',
+        'elevation-5': '0px 4px 4px 0px rgba(0, 0, 0, 0.3), 0px 8px 12px 6px rgba(0, 0, 0, 0.15)',
       },
       
-      // Material Design 3 Border Radius
-      borderRadius: {
-        'none': '0',
-        'xs': 'var(--md-sys-shape-corner-extra-small)',
-        'sm': 'var(--md-sys-shape-corner-small)',
-        'md': 'var(--md-sys-shape-corner-medium)',
-        'lg': 'var(--md-sys-shape-corner-large)',
-        'xl': 'var(--md-sys-shape-corner-extra-large)',
-        'full': '9999px',
-      },
-      
-      // Animation and Motion
+      // Animations optimisées
       animation: {
-        'fade-in': 'fadeIn 0.3s ease-in-out',
-        'slide-up': 'slideUp 0.3s ease-out',
+        'fade-in': 'fadeIn 0.2s ease-out',
+        'slide-in': 'slideIn 0.3s ease-out',
         'scale-in': 'scaleIn 0.2s ease-out',
       },
       
@@ -105,8 +100,8 @@ module.exports = {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
-        slideUp: {
-          '0%': { transform: 'translateY(20px)', opacity: '0' },
+        slideIn: {
+          '0%': { transform: 'translateY(10px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
         scaleIn: {
@@ -116,10 +111,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/line-clamp'),
-  ],
+  plugins: [],
 }

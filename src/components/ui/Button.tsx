@@ -1,152 +1,102 @@
 'use client'
 
-import React, { forwardRef } from 'react'
-import { motion, MotionProps } from 'framer-motion'
+import { forwardRef, ButtonHTMLAttributes } from 'react'
 import { cn } from '@/lib/utils'
+import { useHoverAnimation, useTapAnimation } from '@/hooks/useAnimations'
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    MotionProps {
-  variant?: 'filled' | 'outlined' | 'text' | 'elevated' | 'tonal'
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'text' | 'outlined' | 'filled' | 'tonal'
   size?: 'small' | 'medium' | 'large'
-  icon?: React.ReactNode
+  icon?: string
   iconPosition?: 'left' | 'right'
   loading?: boolean
-  fullWidth?: boolean
+  children?: React.ReactNode
 }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({
-    className,
-    variant = 'filled',
-    size = 'medium',
-    icon,
-    iconPosition = 'left',
-    loading = false,
-    fullWidth = false,
-    children,
-    disabled,
-    ...props
-  }, ref) => {
-    const baseClasses = [
-      // Base styling
-      'inline-flex items-center justify-center gap-2',
-      'font-label font-medium',
-      'transition-all duration-200 ease-out',
-      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-      'disabled:opacity-50 disabled:cursor-not-allowed',
-      'relative overflow-hidden',
-      
-      // Full width
-      fullWidth && 'w-full',
-      
-      // Size variants
-      size === 'small' && 'h-10 px-4 text-sm rounded-full',
-      size === 'medium' && 'h-12 px-6 text-sm rounded-full',
-      size === 'large' && 'h-14 px-8 text-base rounded-full',
-    ]
+/**
+ * Button Component - Optimisé avec animations CSS natives
+ * Alternative performante à Framer Motion pour un meilleur LCP/TTI
+ */
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
+  variant = 'filled',
+  size = 'medium',
+  icon,
+  iconPosition = 'left',
+  loading = false,
+  disabled,
+  className,
+  children,
+  ...props
+}, ref) => {
+  // Hooks d'animation légères
+  const { handlers: hoverHandlers, getHoverClasses } = useHoverAnimation()
+  const { handlers: tapHandlers, getTapClasses } = useTapAnimation()
 
-    const variantClasses = {
-      filled: [
-        'bg-primary text-on-primary',
-        'hover:bg-primary/90 hover:shadow-elevation-1',
-        'active:bg-primary/80',
-        'focus-visible:ring-primary',
-      ],
-      outlined: [
-        'border border-outline text-primary bg-transparent',
-        'hover:bg-primary/8 hover:border-primary',
-        'active:bg-primary/12',
-        'focus-visible:ring-primary',
-      ],
-      text: [
-        'text-primary bg-transparent',
-        'hover:bg-primary/8',
-        'active:bg-primary/12',
-        'focus-visible:ring-primary',
-      ],
-      elevated: [
-        'bg-surface-container-low text-primary shadow-elevation-1',
-        'hover:bg-surface-container hover:shadow-elevation-2',
-        'active:bg-surface-container-high',
-        'focus-visible:ring-primary',
-      ],
-      tonal: [
-        'bg-secondary-container text-on-secondary-container',
-        'hover:bg-secondary-container/90 hover:shadow-elevation-1',
-        'active:bg-secondary-container/80',
-        'focus-visible:ring-secondary',
-      ],
-    }
+  const buttonClasses = cn(
+    // Base styles
+    'inline-flex items-center justify-center gap-2 rounded-3xl font-medium transition-all duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-98',
+    
+    // Size variants
+    {
+      'px-4 py-2 text-sm': size === 'small',
+      'px-6 py-3 text-base': size === 'medium', 
+      'px-8 py-4 text-lg': size === 'large',
+    },
+    
+    // Variant styles
+    {
+      'bg-primary text-on-primary hover:bg-primary/90 hover:shadow-md focus:ring-primary shadow-sm': variant === 'filled',
+      'bg-secondary-container text-on-secondary-container hover:bg-secondary-container/90 hover:shadow-sm focus:ring-secondary': variant === 'tonal',
+      'border border-outline text-primary hover:bg-primary/8 hover:border-primary focus:ring-primary': variant === 'outlined',
+      'text-primary hover:bg-primary/8 focus:ring-primary': variant === 'text',
+    },
+    
+    // States
+    {
+      'opacity-50 cursor-not-allowed': disabled || loading,
+      'cursor-pointer': !disabled && !loading,
+    },
+    
+    // Animation classes
+    !disabled && !loading && getHoverClasses('scale'),
+    !disabled && !loading && getTapClasses(),
+    
+    className
+  )
 
-    const rippleVariants = {
-      initial: { scale: 0, opacity: 0.5 },
-      animate: { scale: 4, opacity: 0 },
-    }
+  const iconClasses = cn(
+    'material-symbols-outlined transition-transform duration-150',
+    {
+      'text-sm': size === 'small',
+      'text-base': size === 'medium',
+      'text-lg': size === 'large',
+    },
+    loading && 'animate-spin'
+  )
 
-    const loadingVariants = {
-      initial: { rotate: 0 },
-      animate: { rotate: 360 },
-    }
+  const iconElement = icon && (
+    <span className={iconClasses}>
+      {loading ? 'progress_activity' : icon}
+    </span>
+  )
 
-    return (
-      <motion.button
-        ref={ref}
-        className={cn(
-          baseClasses,
-          variantClasses[variant],
-          className
-        )}
-        disabled={disabled || loading}
-        whileTap={{ scale: 0.98 }}
-        whileHover={{ scale: 1.02 }}
-        {...props}
-      >
-        {/* Ripple Effect */}
-        <motion.span
-          className="absolute inset-0 rounded-full"
-          variants={rippleVariants}
-          initial="initial"
-          whileTap="animate"
-          transition={{ duration: 0.4, ease: 'easeOut' }}
-        />
-        
-        {/* Content */}
-        {loading ? (
-          <motion.span
-            className="material-symbols-outlined"
-            variants={loadingVariants}
-            animate="animate"
-            transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-          >
-            progress_activity
-          </motion.span>
-        ) : (
-          <>
-            {icon && iconPosition === 'left' && (
-              <span className="material-symbols-outlined text-inherit">
-                {icon}
-              </span>
-            )}
-            
-            {children && (
-              <span className="relative z-10">
-                {children}
-              </span>
-            )}
-            
-            {icon && iconPosition === 'right' && (
-              <span className="material-symbols-outlined text-inherit">
-                {icon}
-              </span>
-            )}
-          </>
-        )}
-      </motion.button>
-    )
-  }
-)
+  return (
+    <button
+      ref={ref}
+      disabled={disabled || loading}
+      className={buttonClasses}
+      {...(!disabled && !loading ? { ...hoverHandlers, ...tapHandlers } : {})}
+      {...props}
+    >
+      {iconPosition === 'left' && iconElement}
+      {children && (
+        <span className={loading ? 'opacity-75' : ''}>
+          {children}
+        </span>
+      )}
+      {iconPosition === 'right' && iconElement}
+    </button>
+  )
+})
 
 Button.displayName = 'Button'
-
-export { Button }

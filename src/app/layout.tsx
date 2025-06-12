@@ -1,61 +1,42 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import { inter, materialSymbolsCSS } from './fonts'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
+import { Suspense } from 'react'
+import './globals.css'
+import { I18nProvider } from '@/lib/i18n/context'
 
-const inter = Inter({ subsets: ['latin'] })
+// Optimisation des fonts avec next/font
+const interVariable = inter.variable
 
 export const metadata: Metadata = {
-  title: {
-    default: 'Reservia M3 - Portfolio Moderne',
-    template: '%s | Reservia M3'
-  },
-  description: 'Portfolio professionnel moderne basé sur Material Design 3. Découvrez mes projets et compétences en développement web.',
-  keywords: ['portfolio', 'développeur web', 'Material Design 3', 'Next.js', 'TypeScript'],
-  authors: [{ name: 'Votre Nom' }],
-  creator: 'Votre Nom',
-  publisher: 'Reservia M3',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL(process.env.SITE_URL || 'http://localhost:3000'),
-  alternates: {
-    canonical: '/',
-  },
+  title: 'Reservia M3 | Trouvez votre hébergement de rêve',
+  description: 'Découvrez les meilleurs hébergements et activités avec Reservia. Interface moderne basée sur Material Design 3 pour une expérience utilisateur exceptionnelle.',
+  keywords: ['hébergement', 'hôtel', 'vacances', 'activités', 'tourisme', 'réservation'],
+  authors: [{ name: 'Reservia Team' }],
+  creator: 'Reservia',
+  publisher: 'Reservia',
+  robots: 'index, follow',
   openGraph: {
     type: 'website',
+    locale: 'fr_FR',
+    url: 'https://reservia-m3.vercel.app',
+    title: 'Reservia M3 | Trouvez votre hébergement de rêve',
+    description: 'Découvrez les meilleurs hébergements et activités avec Reservia.',
     siteName: 'Reservia M3',
-    title: 'Reservia M3 - Portfolio Moderne',
-    description: 'Portfolio professionnel moderne basé sur Material Design 3',
-    url: '/',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Reservia M3 Portfolio',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Reservia M3 - Portfolio Moderne',
-    description: 'Portfolio professionnel moderne basé sur Material Design 3',
-    images: ['/og-image.jpg'],
+    title: 'Reservia M3 | Trouvez votre hébergement de rêve',
+    description: 'Découvrez les meilleurs hébergements et activités avec Reservia.',
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+  icons: {
+    icon: '/favicon.ico',
   },
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({
@@ -64,12 +45,30 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider>
-          <div id="root" className="min-h-screen bg-surface text-on-surface">
-            {children}
-          </div>
+    <html lang="fr" className={interVariable}>
+      <head>
+        {/* Material Symbols Font */}
+        <style dangerouslySetInnerHTML={{ __html: materialSymbolsCSS }} />
+        
+        {/* Préconnexions DNS pour améliorer les performances */}
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="//images.unsplash.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      </head>
+      <body className="font-sans antialiased">
+        <ThemeProvider defaultTheme="system">
+          <I18nProvider>
+            <Suspense fallback={
+              <div className="min-h-screen flex items-center justify-center">
+                <div className="animate-pulse text-on-surface-variant">
+                  Chargement...
+                </div>
+              </div>
+            }>
+              {children}
+            </Suspense>
+          </I18nProvider>
         </ThemeProvider>
       </body>
     </html>
