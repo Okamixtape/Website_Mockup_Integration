@@ -24,7 +24,9 @@ export const fr = {
     reviews: 'avis',
     close: 'Fermer',
     allCities: 'Toutes les villes',
-    tryModifyingSearch: 'Essayez de modifier vos critères de recherche'
+    tryModifyingSearch: 'Essayez de modifier vos critères de recherche',
+    filters: 'Filtres',
+    applyFilters: 'Appliquer les filtres'
   },
   navigation: {
     accommodations: 'Hébergements',
@@ -32,11 +34,11 @@ export const fr = {
     signUp: "S'inscrire"
   },
   hero: {
-    title: 'Trouvez votre hébergement pour des vacances de rêve',
-    subtitle: 'En centre-ville ou en pleine nature'
+    title: 'Trouvez votre hébergement de rêve en France',
+    subtitle: 'Des milliers de locations dans toute la France'
   },
   accommodations: {
-    title: 'Hébergements à Marseille',
+    title: 'Hébergements en France',
     subtitle: 'Découvrez nos meilleures offres',
     titleWithCity: 'Hébergements à {city}',
     available: '{count} hébergements disponibles',
@@ -46,7 +48,10 @@ export const fr = {
       apartment: 'Appartements',
       sortBy: 'Trier par',
       rating: 'Note',
-      price: 'Prix'
+      price: 'Prix',
+      priceRange: 'Gamme de prix',
+      upTo: 'Jusqu\'à',
+      amenities: 'Équipements'
     },
     types: {
       all: 'Tous',
@@ -66,13 +71,16 @@ export const fr = {
       popular: 'Populaire',
       perNight: 'nuit',
       reviews: 'avis',
-      book: 'Réserver'
+      book: 'Réserver',
+      viewDetails: 'Voir les détails',
+      addToFavorites: 'Ajouter aux favoris',
+      removeFromFavorites: 'Retirer des favoris'
     },
     noAccommodations: 'Aucun hébergement disponible',
     tryAgain: 'Essayez de modifier vos critères de recherche'
   },
   activities: {
-    title: 'Activités à Marseille',
+    title: 'Activités en France',
     subtitle: 'Découvrez les meilleures expériences',
     titleWithCity: 'Activités à {city}',
     available: '{count} activités disponibles',

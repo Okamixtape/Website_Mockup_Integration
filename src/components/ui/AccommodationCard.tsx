@@ -1,6 +1,6 @@
 'use client'
 
-import { AnimatedBox } from './AnimatedBox'
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -17,6 +17,7 @@ interface AccommodationCardProps {
 export function AccommodationCard({ accommodation, className }: AccommodationCardProps) {
   const router = useRouter()
   const { t } = useI18n()
+  const [isFavorite, setIsFavorite] = useState(false)
 
   const {
     name,
@@ -38,7 +39,7 @@ export function AccommodationCard({ accommodation, className }: AccommodationCar
 
     for (let i = 0; i < fullStars; i++) {
       stars.push(
-        <span key={`star-${i}`} className="material-symbols-outlined text-yellow-500 text-sm">
+        <span key={i} className="material-symbols-outlined text-yellow-500 text-sm fill">
           star
         </span>
       )
@@ -46,7 +47,7 @@ export function AccommodationCard({ accommodation, className }: AccommodationCar
 
     if (hasHalfStar) {
       stars.push(
-        <span key="half-star" className="material-symbols-outlined text-yellow-500 text-sm">
+        <span key="half-star" className="material-symbols-outlined text-yellow-500 text-sm fill">
           star_half
         </span>
       )
@@ -64,134 +65,120 @@ export function AccommodationCard({ accommodation, className }: AccommodationCar
     return stars
   }
 
+  const handleFavoriteClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setIsFavorite(!isFavorite)
+    // TODO: Persist to localStorage or API
+  }
+
   return (
-    <Link href={`/accommodation/${accommodation.id}`} className={cn("block h-full", className)}>
-      <AnimatedBox 
-        className="group relative h-full bg-surface-container rounded-2xl overflow-hidden border border-outline-variant hover:border-outline transition-all duration-300 hover:shadow-lg"
-        hover="lift"
-        tap
-      >
+    <article 
+      className="bg-surface rounded-xl overflow-hidden shadow-md"
+    >
+      <div className="relative">
         {/* Image Container */}
-        <div className="relative overflow-hidden">
-          <Image
-            src={image}
-            alt={`${name} - ${type} à ${location}`}
-            width={400}
-            height={240}
-            className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            loading="lazy"
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAhEQACAQIHAQAAAAAAAAAAAAABAgADBAUREiExUWHB/9oADAMBAAIRAxEAPwA7jRmqahoq3qW2fS/iHxV2eT7nXqf2j9+Aqf5BHCavwKAUz9FKXNflKLxLv+D/2Q=="
+        <div className="relative aspect-[4/3] overflow-hidden">
+          <img 
+            src={image} 
+            alt={name}
+            className="w-full h-full object-cover"
           />
           
           {/* Badges */}
-          <div className="absolute top-3 left-3 flex gap-2">
-            {isPopular && (
-              <div className="absolute top-3 left-3 z-10">
-                <span className="
-                  bg-tertiary text-on-tertiary 
-                  px-3 py-1 rounded-full text-xs font-medium
-                  shadow-md
-                ">
-                  {t.accommodations.cards.popular}
-                </span>
-              </div>
+          <div className="absolute top-4 left-4 flex gap-2">
+            {accommodation.isPopular && (
+              <span className="px-3 py-1 bg-blue-500 text-white text-sm font-medium rounded-full flex items-center gap-1">
+                <span className="material-symbols-outlined text-base">trending_up</span>
+                Populaire
+              </span>
             )}
           </div>
 
-          {/* Prix overlay */}
-          <div className="absolute bottom-3 right-3 z-10">
-            <div className="
-              bg-surface/90 backdrop-blur-sm
-              px-3 py-1.5 rounded-full
-              shadow-md
-            ">
-              <span className="text-sm font-bold text-on-surface">
-                €{price}
-              </span>
-              <span className="text-xs text-on-surface-variant">
-                /{t.accommodations.cards.perNight}
-              </span>
-            </div>
+          {/* Price Badge */}
+          <div className="absolute bottom-4 left-4 bg-primary text-on-primary px-4 py-2 rounded-full font-bold text-lg shadow-lg">
+            {price}€<span className="text-sm font-normal">/nuit</span>
           </div>
+
+          {/* Favorite Button */}
+          <button
+            onClick={(e) => {
+              e.preventDefault()
+              setIsFavorite(!isFavorite)
+            }}
+            className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md hover:bg-white transition-colors"
+            aria-label={isFavorite ? "Retirer des favoris" : "Ajouter aux favoris"}
+          >
+            <span className={`material-symbols-outlined ${isFavorite ? 'text-red-500 filled' : 'text-gray-600'}`}>
+              favorite
+            </span>
+          </button>
         </div>
 
         {/* Content */}
         <div className="p-6">
           {/* Header */}
           <div className="mb-3">
-            <h3 className="text-lg font-bold text-on-surface mb-1 group-hover:text-primary transition-colors">
+            <h3 className="text-xl font-semibold text-on-surface mb-1 line-clamp-1">
               {name}
             </h3>
             <div className="flex items-center gap-2 text-sm text-on-surface-variant">
               <span className="material-symbols-outlined text-base">
                 location_on
               </span>
-              {location}
+              <span>{location}</span>
             </div>
           </div>
 
           {/* Rating */}
-          <div className="flex items-center gap-3 mb-4">
-            <div className="flex items-center gap-1">
+          <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center">
               {renderStars(rating)}
             </div>
-            <span className="text-sm font-medium text-on-surface">
+            <span className="font-medium text-on-surface">
               {rating.toFixed(1)}
             </span>
             <span className="text-sm text-on-surface-variant">
               ({reviewCount} {t.accommodations.cards.reviews})
             </span>
           </div>
-
-          {/* Description */}
-          <p className="text-sm text-on-surface-variant mb-4 line-clamp-2">
-            {description}
-          </p>
-
-          {/* Amenities */}
-          <div className="flex items-center gap-3 mb-4">
-            {amenities.slice(0, 4).map((amenity) => (
-              <div
-                key={amenity}
-                className="flex items-center justify-center w-8 h-8 bg-surface-container rounded-lg"
-                title={amenity}
-              >
-                <span className="material-symbols-outlined text-sm text-on-surface-variant">
-                  {amenityIcons[amenity] || 'check'}
+          
+          {/* Distance from city center */}
+          <div className="flex items-center gap-1 text-sm text-on-surface-variant mb-4">
+            <span className="material-symbols-outlined text-base">pin_drop</span>
+            <span>À 2.5 km du centre-ville</span>
+          </div>
+          
+          {/* Quick amenities */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            {amenities.slice(0, 3).map((amenity, index) => (
+              <div key={index} className="flex items-center gap-1 text-xs text-on-surface-variant bg-surface-variant px-2 py-1 rounded-md">
+                <span className="material-symbols-outlined text-sm">
+                  {amenityIcons[amenity] || 'check_circle'}
                 </span>
+                <span>{amenity}</span>
               </div>
             ))}
-            {amenities.length > 4 && (
-              <div className="flex items-center justify-center w-8 h-8 bg-surface-container rounded-lg">
-                <span className="text-xs text-on-surface-variant font-medium">
-                  +{amenities.length - 4}
-                </span>
-              </div>
+            {amenities.length > 3 && (
+              <span className="text-xs text-on-surface-variant bg-surface-variant px-2 py-1 rounded-md">
+                +{amenities.length - 3}
+              </span>
             )}
           </div>
 
-          {/* Action Button */}
-          <div className="flex items-center justify-between">
-            <Link href={`/accommodation/${accommodation.id}`}>
-              <Button
-                variant="filled"
-                size="small"
-                className="hover:scale-105 transition-transform"
-              >
-                {t.accommodations.cards.book}
-              </Button>
-            </Link>
-            <div className="flex items-center gap-1">
-              {renderStars(rating)}
-              <span className="text-sm text-on-surface-variant ml-1">
-                ({reviewCount} {t.accommodations.cards.reviews})
-              </span>
-            </div>
-          </div>
+          {/* Single Action Button */}
+          <Button 
+            variant="filled"
+            size="medium"
+            className="w-full"
+            onClick={(e) => {
+              e.preventDefault()
+              router.push(`/accommodation/${accommodation.id}`)
+            }}
+          >
+            Voir les détails
+          </Button>
         </div>
-      </AnimatedBox>
-    </Link>
+      </div>
+    </article>
   )
 }

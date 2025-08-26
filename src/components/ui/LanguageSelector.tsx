@@ -40,7 +40,7 @@ export function LanguageSelector() {
       {isOpen && (
         <AnimatedBox
           animation="fadeIn"
-          className="absolute right-0 mt-2 w-48 bg-surface-container rounded-lg shadow-lg overflow-hidden z-50"
+          className="absolute right-0 mt-2 w-48 bg-surface-container border border-outline-variant rounded-xl shadow-lg overflow-hidden z-50"
         >
           <ul className="py-1">
             {locales.map((lang) => (

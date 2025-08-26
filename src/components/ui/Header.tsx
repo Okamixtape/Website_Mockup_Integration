@@ -7,10 +7,13 @@ import { AnimatedBox } from './AnimatedBox'
 import { Navigation } from './Navigation'
 import { LanguageSelector } from './LanguageSelector'
 import { useI18n } from '@/lib/i18n/context'
+import { useAuth } from '@/hooks/useAuth'
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { t } = useI18n()
+  const { isLoggedIn, login, logout } = useAuth()
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false)
 
   return (
     <AnimatedBox
@@ -30,12 +33,38 @@ export function Header() {
           <div className="hidden md:flex items-center gap-6">
             <Navigation />
             <LanguageSelector />
-            <Button
-              variant="text"
-              className="text-primary font-semibold"
-            >
-              {t.navigation.signUp}
-            </Button>
+            {isLoggedIn ? (
+              <div className="relative">
+                <div className="flex items-center gap-4">
+                  <Button variant="tonal" size="small" onClick={() => window.location.href='/reservations'}>
+                    Mes réservations
+                  </Button>
+                  <button 
+                    onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)} 
+                    className="rounded-full w-10 h-10 bg-primary/10 flex items-center justify-center text-primary"
+                  >
+                    <span className="material-symbols-outlined">person</span>
+                  </button>
+                </div>
+                {isProfileMenuOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-surface-container rounded-lg shadow-lg py-1 z-10">
+                    <button 
+                      onClick={logout} 
+                      className="w-full text-left px-4 py-2 text-sm text-on-surface-variant hover:bg-primary/10"
+                    >
+                      Déconnexion
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Button
+                variant="filled"
+                onClick={login}
+              >
+                Connexion
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -57,14 +86,24 @@ export function Header() {
             className="md:hidden py-4 border-t border-outline-variant"
           >
             <Navigation mobile />
-            <div className="mt-4 pt-4 border-t border-outline-variant flex items-center justify-between">
-              <Button
-                variant="text"
-                className="text-primary font-semibold"
-              >
-                {t.navigation.signUp}
-              </Button>
-              <LanguageSelector />
+            <div className="mt-4 pt-4 border-t border-outline-variant">
+              {isLoggedIn ? (
+                <div className="space-y-4">
+                  <Button variant="tonal" size="small" onClick={() => window.location.href='/reservations'} className="w-full">
+                    Mes réservations
+                  </Button>
+                  <Button variant="outlined" size="small" onClick={logout} className="w-full">
+                    Déconnexion
+                  </Button>
+                </div>
+              ) : (
+                <Button variant="filled" onClick={login} className="w-full">
+                  Connexion
+                </Button>
+              )}
+              <div className="mt-4 pt-4 border-t border-outline-variant">
+                <LanguageSelector />
+              </div>
             </div>
           </AnimatedBox>
         )}

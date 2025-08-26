@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { AnimatedBox } from './AnimatedBox'
 import { Button } from './Button'
 import { ReservationCalendar } from './ReservationCalendar'
@@ -20,6 +20,7 @@ export function AccommodationDetail({ accommodation }: AccommodationDetailProps)
   const [checkOut, setCheckOut] = useState<Date | null>(null)
   const [guests, setGuests] = useState(2)
   const [showConfirmation, setShowConfirmation] = useState(false)
+  const router = useRouter()
 
   // Simuler plusieurs images pour la galerie
   const images = [
@@ -40,6 +41,22 @@ export function AccommodationDetail({ accommodation }: AccommodationDetailProps)
       return
     }
     
+    // Logic to store the reservation
+    const newReservation = {
+      id: `res-${accommodation.id}-${Date.now()}`,
+      accommodationId: accommodation.id,
+      accommodationName: accommodation.name,
+      accommodationImage: accommodation.image,
+      checkIn,
+      checkOut,
+      guests,
+      totalPrice: calculateTotalPrice() + Math.round(calculateTotalPrice() * 0.1),
+      bookingDate: new Date(),
+    };
+
+    const existingReservations = JSON.parse(localStorage.getItem('reservations') || '[]');
+    localStorage.setItem('reservations', JSON.stringify([...existingReservations, newReservation]));
+
     // Ouvrir la modal de confirmation
     setShowConfirmation(true)
   }
@@ -56,18 +73,13 @@ export function AccommodationDetail({ accommodation }: AccommodationDetailProps)
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header simple avec retour */}
-      <header className="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-outline-variant">
-        <div className="container mx-auto px-4 py-4">
-          <Link href="/" className="inline-flex items-center gap-2 text-on-surface hover:text-primary transition-colors">
-            <span className="material-symbols-outlined">arrow_back</span>
-            Retour aux hébergements
-          </Link>
-        </div>
-      </header>
-
       {/* Contenu principal */}
       <main className="container mx-auto px-4 py-8">
+        <div className="mb-6">
+          <Button variant="tonal" size="small" onClick={() => router.back()} icon="arrow_back">
+            Retour aux hébergements
+          </Button>
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Colonne principale (2/3) */}
           <div className="lg:col-span-2 space-y-8">

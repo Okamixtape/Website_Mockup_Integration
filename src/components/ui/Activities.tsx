@@ -1,10 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { AnimatedBox } from './AnimatedBox'
 import { ActivityCard } from './ActivityCard'
 import { Chip } from './Chip'
+import { Switch } from './Switch'
 import { Button } from './Button'
+import { ActivityFilters } from './ActivityFilters'
 import { cn } from '@/lib/utils'
 import { activities } from '@/data/activities'
 import { useI18n } from '@/lib/i18n/context'
@@ -19,6 +21,8 @@ export function Activities({ className }: ActivitiesProps) {
   const [showFreeOnly, setShowFreeOnly] = useState(false)
   const [sortBy, setSortBy] = useState<'rating' | 'price-asc' | 'price-desc'>('rating')
   const [selectedDestination, setSelectedDestination] = useState<string>('')
+  const [priceRange, setPriceRange] = useState<number>(0)
+  const [appliedPriceRange, setAppliedPriceRange] = useState<number>(0)
 
   // Écouter les changements de destination
   useEffect(() => {
@@ -39,6 +43,15 @@ export function Activities({ className }: ActivitiesProps) {
     }
   }, [])
 
+  const maxPrice = useMemo(() => Math.max(...activities.map(a => a.price || 0)), [])
+
+  useEffect(() => {
+    if (maxPrice > 0) {
+      setPriceRange(maxPrice)
+      setAppliedPriceRange(maxPrice)
+    }
+  }, [maxPrice])
+
   const activityCategories = [
     { id: 'all', label: t.activities.filters.all, icon: 'category' },
     { id: 'culture', label: t.activities.filters.culture, icon: 'museum' },
@@ -58,7 +71,11 @@ export function Activities({ className }: ActivitiesProps) {
         return false
       }
       // Filtre par gratuité
-      if (showFreeOnly && (!activity.price || activity.price > 0)) {
+      if (showFreeOnly && activity.price && activity.price > 0) {
+        return false
+      }
+      // Filtre par gamme de prix
+      if (appliedPriceRange > 0 && (activity.price || 0) > appliedPriceRange) {
         return false
       }
       // Filtre par destination
@@ -80,8 +97,8 @@ export function Activities({ className }: ActivitiesProps) {
     })
 
   return (
-    <section id="activites" className={cn('py-16', className)}>
-      <div className="container mx-auto px-4">
+    <section id="activites" className={cn('py-16 md:py-24 px-4', className)}>
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-on-surface mb-4">
             {selectedDestination 
@@ -95,66 +112,60 @@ export function Activities({ className }: ActivitiesProps) {
         </div>
 
         {/* Filters */}
-        <div className="mb-8 space-y-4">
-          {/* Destination filter */}
-          {selectedDestination && (
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-on-surface-variant">
-                {t.common.filteringBy}: {selectedDestination}
-              </span>
-              <Button
-                variant="text"
-                size="small"
-                icon="close"
-                onClick={() => {
-                  setSelectedDestination('')
-                  localStorage.removeItem('selectedDestination')
-                  window.dispatchEvent(new CustomEvent('destinationUpdated', { detail: '' }))
-                }}
-              >
-                {t.common.reset}
-              </Button>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="md:col-span-2 space-y-4">
+            <div className="flex flex-wrap gap-4 items-center">
+                {/* Category filters */}
+                <div className="flex gap-2 flex-wrap">
+                  {activityCategories.map((category) => (
+                    <Chip
+                      key={category.id}
+                      label={category.label}
+                      icon={category.icon}
+                      selected={selectedCategory === category.id}
+                      onClick={() => toggleCategory(category.id)}
+                    />
+                  ))}
+                </div>
+
+                {/* Separator */}
+                <div className="hidden md:block w-px h-8 bg-outline-variant" />
+
+                {/* Free only toggle */}
+                <div className="flex items-center gap-2">
+                  <Switch
+                    id="free-only"
+                    checked={showFreeOnly}
+                    onCheckedChange={setShowFreeOnly}
+                  />
+                  <label htmlFor="free-only" className="text-sm font-medium text-on-surface-variant">
+                    {t.activities.filters.free}
+                  </label>
+                </div>
+
+                {/* Separator */}
+                <div className="hidden md:block w-px h-8 bg-outline-variant" />
+
+                {/* Sort */}
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
+                  className="px-4 py-2 bg-surface-container rounded-lg border border-outline-variant focus:outline-none focus:border-primary"
+                >
+                  <option value="rating">{t.activities.sortBy.rating}</option>
+                  <option value="price-asc">{t.activities.sortBy.priceAsc}</option>
+                  <option value="price-desc">{t.activities.sortBy.priceDesc}</option>
+                </select>
             </div>
-          )}
+          </div>
 
-          <div className="flex flex-wrap gap-4 items-center">
-            {/* Category filters */}
-            <div className="flex gap-2">
-              {activityCategories.map((category) => (
-                <Chip
-                  key={category.id}
-                  label={category.label}
-                  icon={category.icon}
-                  selected={selectedCategory === category.id}
-                  onClick={() => toggleCategory(category.id)}
-                />
-              ))}
-            </div>
-
-            {/* Separator */}
-            <div className="hidden md:block w-px h-8 bg-outline-variant" />
-
-            {/* Free only toggle */}
-            <Chip
-              label={t.activities.filters.free}
-              icon="savings"
-              selected={showFreeOnly}
-              onClick={() => setShowFreeOnly(!showFreeOnly)}
+          <div className="md:col-span-1">
+            <ActivityFilters 
+              maxPrice={maxPrice}
+              priceRange={priceRange}
+              onPriceChange={setPriceRange}
+              onApply={() => setAppliedPriceRange(priceRange)}
             />
-
-            {/* Separator */}
-            <div className="hidden md:block w-px h-8 bg-outline-variant" />
-
-            {/* Sort */}
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-              className="px-4 py-2 bg-surface-container rounded-lg border border-outline-variant focus:outline-none focus:border-primary"
-            >
-              <option value="rating">{t.activities.sortBy.rating}</option>
-              <option value="price-asc">{t.activities.sortBy.priceAsc}</option>
-              <option value="price-desc">{t.activities.sortBy.priceDesc}</option>
-            </select>
           </div>
         </div>
 
@@ -185,19 +196,6 @@ export function Activities({ className }: ActivitiesProps) {
             <p className="text-on-surface-variant">
               {t.common.tryModifyingSearch}
             </p>
-            {selectedDestination && (
-              <Button
-                variant="text"
-                className="mt-4"
-                onClick={() => {
-                  setSelectedDestination('')
-                  localStorage.removeItem('selectedDestination')
-                  window.dispatchEvent(new CustomEvent('destinationUpdated', { detail: '' }))
-                }}
-              >
-                {t.common.reset}
-              </Button>
-            )}
           </AnimatedBox>
         )}
       </div>

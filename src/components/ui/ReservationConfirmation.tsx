@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import { Button } from './Button'
 
 interface ReservationConfirmationProps {
@@ -23,6 +23,7 @@ export function ReservationConfirmation({
   guests,
   totalPrice
 }: ReservationConfirmationProps) {
+  const router = useRouter()
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
@@ -43,49 +44,33 @@ export function ReservationConfirmation({
   }
 
   return (
-    <AnimatePresence>
+    <>
       {isOpen && (
         <>
           {/* Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+          <div
             onClick={onClose}
             className="fixed inset-0 bg-scrim/60 backdrop-blur-sm z-50"
           />
 
           {/* Modal */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{ type: "spring", damping: 20, stiffness: 300 }}
+          <div
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
           >
             <div className="bg-surface-container-high rounded-3xl p-8 max-w-md w-full shadow-2xl">
               {/* Success Icon Animation */}
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.2, type: "spring", damping: 15 }}
+              <div
                 className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6"
               >
-                <motion.span
-                  initial={{ scale: 0, rotate: -180 }}
-                  animate={{ scale: 1, rotate: 0 }}
-                  transition={{ delay: 0.4, type: "spring", damping: 10 }}
+                <span
                   className="material-symbols-outlined text-primary text-4xl"
                 >
                   check_circle
-                </motion.span>
-              </motion.div>
+                </span>
+              </div>
 
               {/* Content */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
+              <div
                 className="text-center space-y-4"
               >
                 <h2 className="text-2xl font-bold text-on-surface">
@@ -127,31 +112,25 @@ export function ReservationConfirmation({
                 </div>
 
                 {/* Booking ID */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
+                <div
                   className="bg-primary/5 rounded-xl p-3"
                 >
                   <p className="text-xs text-on-surface-variant">Numéro de réservation</p>
                   <p className="font-mono text-sm font-medium text-primary">
                     RSV-{Math.random().toString(36).substr(2, 9).toUpperCase()}
                   </p>
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
 
               {/* Actions */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
+              <div
                 className="mt-8 space-y-3"
               >
                 <Button
                   variant="filled"
                   size="large"
                   className="w-full"
-                  onClick={onClose}
+                  onClick={() => router.push('/reservations')}
                 >
                   Voir mes réservations
                 </Button>
@@ -164,11 +143,11 @@ export function ReservationConfirmation({
                 >
                   Fermer
                 </Button>
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </>
       )}
-    </AnimatePresence>
+    </>
   )
 }

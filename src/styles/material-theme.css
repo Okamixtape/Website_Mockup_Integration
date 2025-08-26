@@ -1,28 +1,46 @@
-/* Material Design 3 Design Tokens */
-/* Custom CSS Variables for Material Design 3 Theme System */
+/* ========================================
+   MATERIAL DESIGN 3 DESIGN TOKENS
+   Custom CSS Variables for MD3 Theme System
+   
+   Structure:
+   1. Color Tokens (Light & Dark)
+   2. Typography Scale
+   3. Shape Tokens
+   4. Spacing Tokens
+   5. Elevation Tokens
+   6. Motion Tokens
+   ======================================== */
 
 :root {
-  /* Light Theme Color Tokens */
+  /* ========================================
+     1. LIGHT THEME COLOR TOKENS
+     ======================================== */
+  
+  /* Primary Colors */
   --md-sys-color-primary: #6750a4;
   --md-sys-color-on-primary: #ffffff;
   --md-sys-color-primary-container: #e9ddff;
   --md-sys-color-on-primary-container: #22005d;
   
+  /* Secondary Colors */
   --md-sys-color-secondary: #625b71;
   --md-sys-color-on-secondary: #ffffff;
   --md-sys-color-secondary-container: #e8def8;
   --md-sys-color-on-secondary-container: #1e192b;
   
+  /* Tertiary Colors */
   --md-sys-color-tertiary: #7e5260;
   --md-sys-color-on-tertiary: #ffffff;
   --md-sys-color-tertiary-container: #ffd9e3;
   --md-sys-color-on-tertiary-container: #31101d;
   
+  /* Error Colors */
   --md-sys-color-error: #ba1a1a;
   --md-sys-color-on-error: #ffffff;
   --md-sys-color-error-container: #ffdad6;
   --md-sys-color-on-error-container: #410002;
   
+  /* Surface Colors */
   --md-sys-color-surface: #fef7ff;
   --md-sys-color-on-surface: #1c1b1f;
   --md-sys-color-surface-variant: #e7e0ec;
@@ -31,65 +49,122 @@
   --md-sys-color-surface-container-high: #ede6f0;
   --md-sys-color-surface-container-highest: #e6e0e9;
   
+  /* Outline Colors */
   --md-sys-color-outline: #79747e;
   --md-sys-color-outline-variant: #cac4d0;
   
-  /* Typography Scale */
+  /* ========================================
+     2. TYPOGRAPHY SCALE
+     ======================================== */
+  
+  /* Display */
   --md-sys-typescale-display-large-font-size: 57px;
   --md-sys-typescale-display-large-line-height: 64px;
   --md-sys-typescale-display-large-font-weight: 400;
   
+  /* Headlines */
   --md-sys-typescale-headline-large-font-size: 32px;
   --md-sys-typescale-headline-large-line-height: 40px;
   --md-sys-typescale-headline-large-font-weight: 400;
   
+  --md-sys-typescale-headline-medium-font-size: 28px;
+  --md-sys-typescale-headline-medium-line-height: 36px;
+  --md-sys-typescale-headline-medium-font-weight: 400;
+  
+  /* Titles */
   --md-sys-typescale-title-large-font-size: 22px;
   --md-sys-typescale-title-large-line-height: 28px;
   --md-sys-typescale-title-large-font-weight: 400;
   
+  --md-sys-typescale-title-medium-font-size: 16px;
+  --md-sys-typescale-title-medium-line-height: 24px;
+  --md-sys-typescale-title-medium-font-weight: 500;
+  
+  /* Body */
   --md-sys-typescale-body-large-font-size: 16px;
   --md-sys-typescale-body-large-line-height: 24px;
   --md-sys-typescale-body-large-font-weight: 400;
   
-  /* Shape Tokens */
+  --md-sys-typescale-body-medium-font-size: 14px;
+  --md-sys-typescale-body-medium-line-height: 20px;
+  --md-sys-typescale-body-medium-font-weight: 400;
+  
+  /* ========================================
+     3. SHAPE TOKENS
+     ======================================== */
   --md-sys-shape-corner-none: 0px;
   --md-sys-shape-corner-extra-small: 4px;
   --md-sys-shape-corner-small: 8px;
   --md-sys-shape-corner-medium: 12px;
   --md-sys-shape-corner-large: 16px;
   --md-sys-shape-corner-extra-large: 28px;
+  --md-sys-shape-corner-full: 50%;
   
-  /* Elevation Tokens */
+  /* ========================================
+     4. SPACING TOKENS
+     ======================================== */
+  --md-sys-spacing-4: 4px;
+  --md-sys-spacing-8: 8px;
+  --md-sys-spacing-12: 12px;
+  --md-sys-spacing-16: 16px;
+  --md-sys-spacing-20: 20px;
+  --md-sys-spacing-24: 24px;
+  --md-sys-spacing-28: 28px;
+  --md-sys-spacing-32: 32px;
+  --md-sys-spacing-40: 40px;
+  --md-sys-spacing-48: 48px;
+  --md-sys-spacing-56: 56px;
+  --md-sys-spacing-64: 64px;
+  
+  /* ========================================
+     5. ELEVATION TOKENS
+     ======================================== */
+  --md-sys-elevation-0: none;
   --md-sys-elevation-1: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
   --md-sys-elevation-2: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
   --md-sys-elevation-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
   --md-sys-elevation-4: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.3);
   --md-sys-elevation-5: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+  
+  /* ========================================
+     6. MOTION TOKENS
+     ======================================== */
+  --md-sys-motion-duration-short: 150ms;
+  --md-sys-motion-duration-medium: 300ms;
+  --md-sys-motion-duration-long: 500ms;
+  --md-sys-motion-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
 }
 
-/* Dark Theme */
+/* ========================================
+   DARK THEME
+   ======================================== */
 [data-theme="dark"] {
-  /* Dark Theme Color Tokens */
+  /* Primary Colors */
   --md-sys-color-primary: #cfbcff;
   --md-sys-color-on-primary: #381e72;
   --md-sys-color-primary-container: #4f378a;
   --md-sys-color-on-primary-container: #e9ddff;
   
+  /* Secondary Colors */
   --md-sys-color-secondary: #cbc2db;
   --md-sys-color-on-secondary: #332d41;
   --md-sys-color-secondary-container: #4a4458;
   --md-sys-color-on-secondary-container: #e8def8;
   
+  /* Tertiary Colors */
   --md-sys-color-tertiary: #efb8c8;
   --md-sys-color-on-tertiary: #4a2532;
   --md-sys-color-tertiary-container: #633b48;
   --md-sys-color-on-tertiary-container: #ffd9e3;
   
+  /* Error Colors */
   --md-sys-color-error: #ffb4ab;
   --md-sys-color-on-error: #690005;
   --md-sys-color-error-container: #93000a;
   --md-sys-color-on-error-container: #ffdad6;
   
+  /* Surface Colors */
   --md-sys-color-surface: #141218;
   --md-sys-color-on-surface: #e6e0e9;
   --md-sys-color-surface-variant: #49454f;
@@ -98,33 +173,48 @@
   --md-sys-color-surface-container-high: #2b2930;
   --md-sys-color-surface-container-highest: #36343b;
   
-  --md-sys-color-outline: #938f99;
+  /* Outline Colors */
+  --md-sys-color-outline: #958e99;
   --md-sys-color-outline-variant: #49454f;
+  
+  /* Dark theme elevation adjustments */
+  --md-sys-elevation-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  --md-sys-elevation-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  --md-sys-elevation-3: 0px 1px 3px 0px rgba(0, 0, 0, 0.3), 0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+  --md-sys-elevation-4: 0px 2px 3px 0px rgba(0, 0, 0, 0.3), 0px 6px 10px 4px rgba(0, 0, 0, 0.15);
+  --md-sys-elevation-5: 0px 4px 4px 0px rgba(0, 0, 0, 0.3), 0px 8px 12px 6px rgba(0, 0, 0, 0.15);
 }
 
+/* ========================================
+   SYSTEM PREFERENCE DARK MODE
+   ======================================== */
 @media (prefers-color-scheme: dark) {
-  :root {
-    /* Dark Theme Color Tokens for System Preference */
+  :root:not([data-theme="light"]) {
+    /* Primary Colors */
     --md-sys-color-primary: #cfbcff;
     --md-sys-color-on-primary: #381e72;
     --md-sys-color-primary-container: #4f378a;
     --md-sys-color-on-primary-container: #e9ddff;
     
+    /* Secondary Colors */
     --md-sys-color-secondary: #cbc2db;
     --md-sys-color-on-secondary: #332d41;
     --md-sys-color-secondary-container: #4a4458;
     --md-sys-color-on-secondary-container: #e8def8;
     
+    /* Tertiary Colors */
     --md-sys-color-tertiary: #efb8c8;
     --md-sys-color-on-tertiary: #4a2532;
     --md-sys-color-tertiary-container: #633b48;
     --md-sys-color-on-tertiary-container: #ffd9e3;
     
+    /* Error Colors */
     --md-sys-color-error: #ffb4ab;
     --md-sys-color-on-error: #690005;
     --md-sys-color-error-container: #93000a;
     --md-sys-color-on-error-container: #ffdad6;
     
+    /* Surface Colors */
     --md-sys-color-surface: #141218;
     --md-sys-color-on-surface: #e6e0e9;
     --md-sys-color-surface-variant: #49454f;
@@ -133,12 +223,15 @@
     --md-sys-color-surface-container-high: #2b2930;
     --md-sys-color-surface-container-highest: #36343b;
     
-    --md-sys-color-outline: #938f99;
+    /* Outline Colors */
+    --md-sys-color-outline: #958e99;
     --md-sys-color-outline-variant: #49454f;
   }
 }
 
-/* Base Styles */
+/* ========================================
+   BASE STYLES
+   ======================================== */
 html {
   scroll-behavior: smooth;
 }
@@ -151,7 +244,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography Classes */
+/* ========================================
+   TYPOGRAPHY CLASSES
+   ======================================== */
 .text-display-large {
   font-size: var(--md-sys-typescale-display-large-font-size);
   line-height: var(--md-sys-typescale-display-large-line-height);
@@ -176,7 +271,9 @@ body {
   font-weight: var(--md-sys-typescale-body-large-font-weight);
 }
 
-/* Utility Classes */
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
 .surface-container {
   background-color: var(--md-sys-color-surface-container);
   color: var(--md-sys-color-on-surface);

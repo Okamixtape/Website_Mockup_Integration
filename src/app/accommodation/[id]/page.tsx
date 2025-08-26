@@ -9,7 +9,7 @@ interface PageProps {
 }
 
 export default function AccommodationDetailPage({ params }: PageProps) {
-  const accommodation = accommodations.find(acc => acc.id === params.id)
+  const accommodation = accommodations.find(acc => acc.id.toString() === params.id)
   
   if (!accommodation) {
     notFound()
@@ -21,6 +21,6 @@ export default function AccommodationDetailPage({ params }: PageProps) {
 // Générer les routes statiques pour toutes les accommodations
 export async function generateStaticParams() {
   return accommodations.map((accommodation) => ({
-    id: accommodation.id,
+    id: accommodation.id.toString(), // Convertir l'ID en string
   }))
 }

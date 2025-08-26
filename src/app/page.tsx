@@ -1,33 +1,25 @@
-import { Header } from '@/components/ui/Header'
 import { Hero } from '@/components/ui/Hero'
 import { Accommodations } from '@/components/ui/Accommodations'
 import { Activities } from '@/components/ui/Activities'
+import { GlobalFilters } from '@/components/ui/GlobalFilters'
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-surface">
-      <main className="pt-16">
-        <Header />
+      <main>
         
         <Hero />
         
+        {/* Filtres globaux pour la destination */}
+        <GlobalFilters />
+        
         {/* Accommodations et Activities - Below-the-fold */}
-        <Accommodations />
+        <section id="accommodations">
+          <Accommodations />
+        </section>
         
-        <Activities />
-        
-        {/* Placeholder for upcoming sections */}
-        <section className="py-16 bg-surface-container">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-on-surface mb-4">
-                Plus de fonctionnalités à venir
-              </h2>
-              <p className="text-on-surface-variant">
-                Restez connectés pour découvrir de nouvelles sections passionnantes !
-              </p>
-            </div>
-          </div>
+        <section id="activities">
+          <Activities />
         </section>
       </main>
     </div>

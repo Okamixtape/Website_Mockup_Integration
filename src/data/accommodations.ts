@@ -335,6 +335,9 @@ export const amenityIcons: Record<string, string> = {
 }
 
 export const typeLabels: Record<string, string> = {
+  'all': 'Tous',
   'Hôtel': 'Hôtel',
-  'Appartement': 'Appartement'
+  'Appartement': 'Appartement',
+  'hotel': 'Hôtel',
+  'apartment': 'Appartement'
 }

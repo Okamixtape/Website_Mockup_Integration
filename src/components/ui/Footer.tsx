@@ -16,17 +16,17 @@ export function Footer() {
             <h3 className="font-bold text-lg mb-4">{t.footer.about}</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="text-on-surface-variant hover:text-primary transition-colors">
+                <Link href="/about" className="text-on-surface-variant hover:text-primary transition-colors">
                   {t.footer.company}
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-on-surface-variant hover:text-primary transition-colors">
+                <Link href="/team" className="text-on-surface-variant hover:text-primary transition-colors">
                   {t.footer.team}
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-on-surface-variant hover:text-primary transition-colors">
+                <Link href="/careers" className="text-on-surface-variant hover:text-primary transition-colors">
                   {t.footer.careers}
                 </Link>
               </li>
@@ -38,17 +38,17 @@ export function Footer() {
             <h3 className="font-bold text-lg mb-4">{t.footer.support}</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="text-on-surface-variant hover:text-primary transition-colors">
+                <Link href="/help-center" className="text-on-surface-variant hover:text-primary transition-colors">
                   {t.footer.help}
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-on-surface-variant hover:text-primary transition-colors">
+                <Link href="/security" className="text-on-surface-variant hover:text-primary transition-colors">
                   {t.footer.safety}
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-on-surface-variant hover:text-primary transition-colors">
+                <Link href="/contact" className="text-on-surface-variant hover:text-primary transition-colors">
                   {t.footer.contact}
                 </Link>
               </li>
@@ -60,12 +60,12 @@ export function Footer() {
             <h3 className="font-bold text-lg mb-4">{t.footer.legal}</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="text-on-surface-variant hover:text-primary transition-colors">
+                <Link href="/privacy" className="text-on-surface-variant hover:text-primary transition-colors">
                   {t.footer.privacy}
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-on-surface-variant hover:text-primary transition-colors">
+                <Link href="/terms" className="text-on-surface-variant hover:text-primary transition-colors">
                   {t.footer.terms}
                 </Link>
               </li>

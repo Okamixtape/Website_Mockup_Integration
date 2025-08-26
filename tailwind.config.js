@@ -17,7 +17,7 @@ module.exports = {
       // Material Design 3 Color Tokens
       colors: {
         // Primary colors
-        primary: 'rgb(var(--md-sys-color-primary) / <alpha-value>)',
+        primary: '#007BFF', // Remplacé par la valeur directe pour corriger le bug,
         'on-primary': 'rgb(var(--md-sys-color-on-primary) / <alpha-value>)',
         'primary-container': 'rgb(var(--md-sys-color-primary-container) / <alpha-value>)',
         'on-primary-container': 'rgb(var(--md-sys-color-on-primary-container) / <alpha-value>)',
@@ -90,6 +90,13 @@ module.exports = {
       
       // Animations optimisées
       animation: {
+        fadeIn: 'fadeIn 0.5s ease-out',
+        fadeInUp: 'fadeInUp 0.5s ease-out',
+        slideUp: 'slideUp 0.3s ease-out',
+        slideDown: 'slideDown 0.3s ease-out',
+        scaleIn: 'scaleIn 0.3s ease-out',
+        float: 'float 6s ease-in-out infinite',
+        shimmer: 'shimmer 2s infinite linear',
         'fade-in': 'fadeIn 0.2s ease-out',
         'slide-in': 'slideIn 0.3s ease-out',
         'scale-in': 'scaleIn 0.2s ease-out',
@@ -103,13 +110,33 @@ module.exports = {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
-        slideIn: {
-          '0%': { transform: 'translateY(10px)', opacity: '0' },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        slideDown: {
+          '0%': { transform: 'translateY(-20px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
         scaleIn: {
           '0%': { transform: 'scale(0.95)', opacity: '0' },
           '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
+        slideIn: {
+          '0%': { transform: 'translateY(10px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
         },
         'accordion-down': {
           from: { height: 0 },

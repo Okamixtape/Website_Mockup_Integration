@@ -1,10 +1,11 @@
 'use client'
 
-import { forwardRef, ReactNode } from 'react'
+import { forwardRef, ReactNode, ElementType } from 'react'
 import { useEntranceAnimation, useHoverAnimation, useTapAnimation, useInView } from '@/hooks/useAnimations'
 import { cn } from '@/lib/utils'
 
 interface AnimatedBoxProps {
+  as?: ElementType
   children: ReactNode
   className?: string
   delay?: number
@@ -12,14 +13,15 @@ interface AnimatedBoxProps {
   hover?: 'scale' | 'lift' | 'glow' | 'none'
   tap?: boolean
   lazy?: boolean
-  onClick?: () => void
+  onClick?: (event: React.MouseEvent) => void
 }
 
 /**
  * Composant d'animation léger - Alternative performante à motion.div
  * Utilise CSS transitions natives pour des performances optimales
  */
-export const AnimatedBox = forwardRef<HTMLDivElement, AnimatedBoxProps>(({
+export const AnimatedBox = forwardRef<HTMLElement, AnimatedBoxProps>(({
+    as: Component = 'div',
   children,
   className,
   delay = 0,
@@ -78,18 +80,18 @@ export const AnimatedBox = forwardRef<HTMLDivElement, AnimatedBoxProps>(({
   }
 
   return (
-    <div
-      ref={lazy ? (el) => {
+    <Component
+      ref={(el: HTMLElement) => {
         if (typeof ref === 'function') ref(el)
         else if (ref) ref.current = el
-        inViewRef(el)
-      } : ref}
+        if (lazy) inViewRef(el)
+      }}
       className={combinedClasses}
       {...combinedHandlers}
       {...props}
     >
       {children}
-    </div>
+    </Component>
   )
 })
 

@@ -9,13 +9,23 @@ export const de = {
     perNight: 'pro Nacht',
     from: 'ab',
     free: 'Kostenlos',
+    book: 'Buchen',
+    bookNow: 'Jetzt buchen',
+    learnMore: 'Mehr erfahren',
+    showMore: 'Mehr anzeigen',
+    showLess: 'Weniger anzeigen',
+    loading: 'Wird geladen...',
+    error: 'Fehler',
+    searchOff: 'Keine Ergebnisse gefunden',
+    searchingFor: 'Suche',
+    filteringBy: 'Filtern nach',
+    reset: 'Zurücksetzen',
     duration: 'Dauer',
     reviews: 'Bewertungen',
-    book: 'Buchen',
     close: 'Schließen',
     allCities: 'Alle Städte',
     noResults: 'Keine Ergebnisse gefunden',
-    searchOff: 'Keine Ergebnisse für diese Suche gefunden'
+    tryModifyingSearch: 'Versuchen Sie, Ihre Suchkriterien zu ändern'
   },
   navigation: {
     accommodations: 'Unterkünfte',
@@ -23,11 +33,12 @@ export const de = {
     signUp: 'Anmelden'
   },
   hero: {
-    title: 'Finden Sie Ihre Unterkunft',
-    subtitle: 'Entdecken Sie die schönsten Reiseziele Frankreichs'
+    title: 'Finden Sie Ihre Traumunterkunft in Frankreich',
+    subtitle: 'Tausende von Unterkünften in ganz Frankreich'
   },
   accommodations: {
-    title: 'Unterkünfte',
+    title: 'Unterkünfte in Frankreich',
+    subtitle: 'Entdecken Sie unsere besten Angebote',
     titleWithCity: 'Unterkünfte in {city}',
     available: '{count} Unterkünfte verfügbar',
     filters: {
@@ -38,6 +49,17 @@ export const de = {
       rating: 'Bewertung',
       price: 'Preis'
     },
+    types: {
+      all: 'Alle',
+      hotel: 'Hotels',
+      apartment: 'Apartments'
+    },
+    sort: {
+      featured: 'Empfohlen',
+      priceAsc: 'Preis aufsteigend',
+      priceDesc: 'Preis absteigend',
+      rating: 'Bestbewertet'
+    },
     badges: {
       popular: 'Beliebt'
     },
@@ -45,25 +67,46 @@ export const de = {
       popular: 'Beliebt',
       perNight: 'Nacht',
       reviews: 'Bewertungen',
-      book: 'Buchen'
+      book: 'Buchen',
+      viewDetails: 'Details anzeigen',
+      addToFavorites: 'Zu Favoriten hinzufügen',
+      removeFromFavorites: 'Von Favoriten entfernen'
     },
     noAccommodations: 'Keine Unterkünfte verfügbar',
     tryAgain: 'Versuchen Sie, Ihre Suchkriterien zu ändern'
   },
   activities: {
-    title: 'Aktivitäten',
+    title: 'Aktivitäten in Frankreich',
+    subtitle: 'Entdecken Sie die besten Erlebnisse',
     titleWithCity: 'Aktivitäten in {city}',
     available: '{count} Aktivitäten verfügbar',
     filters: {
       all: 'Alle',
       culture: 'Kultur',
       nature: 'Natur',
+      sports: 'Sport',
+      free: 'Nur kostenlose',
       freeOnly: 'Nur kostenlose Aktivitäten'
     },
-    badges: {
-      essential: 'Sehenswert'
+    sortBy: {
+      rating: 'Bestbewertet',
+      priceAsc: 'Preis aufsteigend',
+      priceDesc: 'Preis absteigend'
     },
-    noActivities: 'Keine Aktivitäten für dieses Reiseziel gefunden'
+    badges: {
+      essential: 'Unverzichtbar',
+      mustSee: 'Unverzichtbar'
+    },
+    cards: {
+      free: 'Kostenlos',
+      reviews: 'Bewertungen'
+    },
+    noActivities: 'Keine Aktivitäten verfügbar',
+    priceRange: {
+      low: 'Budget',
+      medium: 'Mittelklasse',
+      high: 'Premium'
+    }
   },
   accommodationDetail: {
     gallery: 'Fotogalerie',
@@ -80,12 +123,62 @@ export const de = {
     confirmReservation: 'Buchung bestätigen'
   },
   calendar: {
-    previous: 'Zurück',
-    next: 'Weiter',
+    selectDates: 'Wählen Sie Ihre Daten',
+    checkInDate: 'Anreisedatum',
+    checkOutDate: 'Abreisedatum',
+    january: 'Januar',
+    february: 'Februar',
+    march: 'März',
+    april: 'April',
+    may: 'Mai',
+    june: 'Juni',
+    july: 'Juli',
+    august: 'August',
+    september: 'September',
+    october: 'Oktober',
+    november: 'November',
+    december: 'Dezember',
+    monday: 'Mo',
+    tuesday: 'Di',
+    wednesday: 'Mi',
+    thursday: 'Do',
+    friday: 'Fr',
+    saturday: 'Sa',
+    sunday: 'So',
+    previous: 'Vorherige',
+    next: 'Nächste',
     months: [
       'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
       'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
     ],
     weekDays: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
+  },
+  accommodation: {
+    details: 'Unterkunftsdetails',
+    amenities: 'Ausstattung',
+    description: 'Beschreibung',
+    location: 'Lage',
+    checkIn: 'Anreise',
+    checkOut: 'Abreise',
+    guests: 'Gäste',
+    nights: 'Nächte',
+    totalPrice: 'Gesamtpreis',
+    bookingConfirmation: 'Buchungsbestätigung',
+    bookingSuccess: 'Ihre Buchung wurde bestätigt!',
+    noAvailability: 'Keine Verfügbarkeit'
+  },
+  footer: {
+    about: 'Über uns',
+    company: 'Unser Unternehmen',
+    team: 'Team',
+    careers: 'Karriere',
+    support: 'Support',
+    help: 'Hilfe-Center',
+    safety: 'Sicherheit',
+    contact: 'Kontakt',
+    legal: 'Rechtliches',
+    privacy: 'Datenschutz',
+    terms: 'Bedingungen',
+    allRightsReserved: 'Alle Rechte vorbehalten'
   }
 }

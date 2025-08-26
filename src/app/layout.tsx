@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import { inter, materialSymbolsCSS } from './fonts'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import { Suspense } from 'react'
+import { Header } from '@/components/ui/Header'
+import { Footer } from '@/components/ui/Footer'
+import { ScrollProgress } from '@/components/ui/ScrollProgress'
 import './globals.css'
 import { I18nProvider } from '@/lib/i18n/context'
 
@@ -66,7 +69,14 @@ export default function RootLayout({
                 </div>
               </div>
             }>
-              {children}
+              <div className="flex flex-col min-h-screen">
+                <ScrollProgress />
+                <Header />
+                <main className="flex-grow pt-16 md:pt-20">
+                  {children}
+                </main>
+                <Footer />
+              </div>
             </Suspense>
           </I18nProvider>
         </ThemeProvider>
