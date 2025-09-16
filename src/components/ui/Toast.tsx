@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
-import { AnimatePresence, motion } from 'framer-motion'
 
 interface ToastProps {
   message: string
@@ -12,16 +11,24 @@ interface ToastProps {
 }
 
 export function Toast({ message, type = 'info', duration = 3000, onClose }: ToastProps) {
-  const [isVisible, setIsVisible] = useState(true)
+  const [animationClass, setAnimationClass] = useState('animate-toast-in');
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(false)
-      onClose?.()
-    }, duration)
+    const closeTimer = setTimeout(() => {
+      setAnimationClass('animate-toast-out');
+    }, duration);
 
-    return () => clearTimeout(timer)
-  }, [duration, onClose])
+    const unmountTimer = setTimeout(() => {
+      setIsVisible(false);
+      onClose?.();
+    }, duration + 300); // Match animation duration
+
+    return () => {
+      clearTimeout(closeTimer);
+      clearTimeout(unmountTimer);
+    };
+  }, [duration, onClose]);
 
   const icons = {
     success: 'check_circle',
@@ -35,22 +42,18 @@ export function Toast({ message, type = 'info', duration = 3000, onClose }: Toas
     info: 'bg-primary text-on-primary'
   }
 
+  if (!isVisible) return null;
+
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.3 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
-          className={cn(
-            'fixed bottom-8 right-8 flex items-center gap-3 px-6 py-4 rounded-2xl shadow-2xl backdrop-blur-md z-50',
-            colors[type]
-          )}
-        >
-          <span className="material-symbols-outlined fill">{icons[type]}</span>
-          <span className="font-medium">{message}</span>
-        </motion.div>
+    <div
+      className={cn(
+        'fixed bottom-8 right-8 flex items-center gap-3 px-6 py-4 rounded-2xl shadow-2xl backdrop-blur-md z-50',
+        colors[type],
+        animationClass
       )}
-    </AnimatePresence>
-  )
+    >
+      <span className="material-symbols-outlined fill">{icons[type]}</span>
+      <span className="font-medium">{message}</span>
+    </div>
+  );
 }
