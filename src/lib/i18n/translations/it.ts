@@ -25,7 +25,9 @@ export const it = {
     close: 'Chiudi',
     allCities: 'Tutte le città',
     noResults: 'Nessun risultato trovato',
-    tryModifyingSearch: 'Prova a modificare i tuoi criteri di ricerca'
+    tryModifyingSearch: 'Prova a modificare i tuoi criteri di ricerca',
+    filters: 'Filtri',
+    applyFilters: 'Applica filtri'
   },
   navigation: {
     accommodations: 'Alloggi',
@@ -47,7 +49,10 @@ export const it = {
       apartment: 'Appartamenti',
       sortBy: 'Ordina per',
       rating: 'Valutazione',
-      price: 'Prezzo'
+      price: 'Prezzo',
+      priceRange: 'Fascia di prezzo',
+      upTo: 'Fino a',
+      amenities: 'Servizi'
     },
     types: {
       all: 'Tutti',

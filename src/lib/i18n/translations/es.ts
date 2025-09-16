@@ -25,7 +25,9 @@ export const es = {
     searchingFor: 'Buscando',
     filteringBy: 'Filtrando por',
     reset: 'Restablecer',
-    tryModifyingSearch: 'Intenta modificar tus criterios de búsqueda'
+    tryModifyingSearch: 'Intenta modificar tus criterios de búsqueda',
+    filters: 'Filtros',
+    applyFilters: 'Aplicar filtros'
   },
   navigation: {
     accommodations: 'Alojamientos',
@@ -47,7 +49,10 @@ export const es = {
       apartment: 'Apartamentos',
       sortBy: 'Ordenar por',
       rating: 'Calificación',
-      price: 'Precio'
+      price: 'Precio',
+      priceRange: 'Rango de precios',
+      upTo: 'Hasta',
+      amenities: 'Servicios'
     },
     types: {
       all: 'Todos',
