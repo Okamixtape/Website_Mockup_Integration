@@ -5,7 +5,6 @@ import { AnimatedBox } from './AnimatedBox'
 import { AccommodationCard } from './AccommodationCard'
 import { Button } from './Button'
 import { ResultsHeader } from './ResultsHeader'
-import { AccommodationFilters } from './AccommodationFilters'
 import { cn } from '@/lib/utils'
 import { useI18n } from '@/lib/i18n/context'
 import { accommodations, typeLabels, destinations } from '@/data/accommodations'
@@ -22,10 +21,6 @@ export function Accommodations({ className }: AccommodationsProps) {
   const [selectedDestination, setSelectedDestination] = useState<string>('')
   const [currentView, setCurrentView] = useState<'grid' | 'map'>('grid')
   const [visibleCount, setVisibleCount] = useState(6)
-  const [filters, setFilters] = useState({
-    priceRange: [0, 500],
-    amenities: [] as string[],
-  })
 
   // Écouter les événements de recherche depuis le Header
   useEffect(() => {
@@ -76,15 +71,13 @@ export function Accommodations({ className }: AccommodationsProps) {
         acc.city.toLowerCase() === selectedDestination.toLowerCase()
       
       // Filtrage par terme de recherche
-      const searchMatch = !searchTerm || 
+      const searchMatch = !searchTerm ||
         acc.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         acc.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
         acc.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
         acc.amenities.some(a => a.toLowerCase().includes(searchTerm.toLowerCase()))
-      const priceMatch = acc.price >= filters.priceRange[0] && acc.price <= filters.priceRange[1]
-      const amenitiesMatch = filters.amenities.length === 0 || filters.amenities.every(a => acc.amenities.includes(a))
 
-      return typeMatch && matchesDestination && searchMatch && priceMatch && amenitiesMatch
+      return typeMatch && matchesDestination && searchMatch
     })
 
     // Sort
@@ -100,15 +93,11 @@ export function Accommodations({ className }: AccommodationsProps) {
     })
 
     return filtered
-  }, [selectedType, sortBy, searchTerm, selectedDestination, filters])
+  }, [selectedType, sortBy, searchTerm, selectedDestination])
 
   const displayedAccommodations = useMemo(() => {
     return filteredAndSortedAccommodations.slice(0, visibleCount)
   }, [filteredAndSortedAccommodations, visibleCount])
-
-  const handleFilterChange = (newFilters: any) => {
-    setFilters(newFilters)
-  }
 
   return (
     <section id="hebergements" className={cn('py-16 md:py-24 px-4', className)}>
@@ -136,13 +125,7 @@ export function Accommodations({ className }: AccommodationsProps) {
           </p>
         </AnimatedBox>
 
-        {/* Filters */}
-        <AccommodationFilters 
-          accommodations={accommodations} 
-          onFilterChange={handleFilterChange} 
-        />
-
-        {/* Type and Sort Controls */}
+        {/* Simplified Type and Sort Controls - French Riviera Luxury */}
         <div className="mb-8 flex flex-wrap items-center gap-4">
           <div className="flex gap-2">
             {accommodationTypes.map((type) => (

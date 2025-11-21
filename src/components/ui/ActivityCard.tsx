@@ -98,9 +98,13 @@ export function ActivityCard({ activity, className }: ActivityCardProps) {
           )}
         </div>
 
-        {/* Price Badge */}
-        <div className="absolute bottom-4 left-4 bg-scrim/70 backdrop-blur-sm text-white px-4 py-1.5 rounded-full font-bold text-base shadow-lg">
-          {activity.isFree ? t.activities.cards.free : `${activity.price}€`}
+        {/* Price Badge - French Riviera Luxury */}
+        <div className="absolute bottom-4 left-4 bg-secondary text-on-secondary px-5 py-2.5 rounded-full font-bold text-2xl shadow-xl border-2 border-white/30">
+          {activity.isFree ? (
+            <span className="drop-shadow-md text-base">{t.activities.cards.free}</span>
+          ) : (
+            <span className="drop-shadow-md">{activity.price}€</span>
+          )}
         </div>
 
         {/* Favorite Button */}

@@ -96,9 +96,10 @@ export function AccommodationCard({ accommodation, className }: AccommodationCar
             )}
           </div>
 
-          {/* Price Badge */}
-          <div className="absolute bottom-4 left-4 bg-primary text-on-primary px-4 py-2 rounded-full font-bold text-lg shadow-lg">
-            {price}€<span className="text-sm font-normal">/nuit</span>
+          {/* Price Badge - French Riviera Luxury */}
+          <div className="absolute bottom-4 left-4 bg-secondary text-on-secondary px-5 py-2.5 rounded-full font-bold text-2xl shadow-xl border-2 border-white/30">
+            <span className="drop-shadow-md">{price}€</span>
+            <span className="text-sm font-medium ml-1">/nuit</span>
           </div>
 
           {/* Favorite Button */}

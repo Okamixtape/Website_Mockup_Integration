@@ -72,7 +72,7 @@ export function AccommodationDetail({ accommodation }: AccommodationDetailProps)
   return (
     <div className="min-h-screen bg-background">
       {/* Contenu principal */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-8 pb-32 lg:pb-8">
         <div className="mb-6">
           <Button variant="tonal" size="small" onClick={() => router.back()} icon="arrow_back">
             Retour aux hébergements
@@ -155,10 +155,10 @@ export function AccommodationDetail({ accommodation }: AccommodationDetailProps)
             </AnimatedBox>
           </div>
 
-          {/* Colonne de réservation (1/3) */}
+          {/* Colonne de réservation (1/3) - Desktop sticky sidebar */}
           <div className="lg:col-span-1">
-            <AnimatedBox 
-              className="sticky top-24 bg-surface-container rounded-2xl p-6 border border-outline-variant shadow-lg"
+            <AnimatedBox
+              className="hidden lg:block sticky top-24 bg-surface-container rounded-2xl p-6 border border-outline-variant shadow-lg"
               animation="slideLeft"
               delay={100}
             >
@@ -230,14 +230,14 @@ export function AccommodationDetail({ accommodation }: AccommodationDetailProps)
                   </div>
                 )}
 
-                {/* Bouton de réservation */}
+                {/* Bouton de réservation - French Riviera Luxury CTA */}
                 <Button
                   variant="filled"
-                  size="large"
+                  size="xl"
                   className="w-full"
                   onClick={handleReservation}
                 >
-                  Réserver
+                  Réserver maintenant
                 </Button>
 
                 {/* Note */}
@@ -254,6 +254,29 @@ export function AccommodationDetail({ accommodation }: AccommodationDetailProps)
           <NearbyActivities accommodation={accommodation} maxItems={4} />
         </div>
       </main>
+
+      {/* Mobile Sticky CTA Bar - French Riviera Luxury */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-outline-variant shadow-2xl z-40 safe-area-inset-bottom">
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex items-center justify-between gap-4">
+            {/* Prix */}
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold text-on-surface">{accommodation.price}€</span>
+              <span className="text-xs text-on-surface-variant">par nuit</span>
+            </div>
+
+            {/* Bouton Réserver */}
+            <Button
+              variant="filled"
+              size="xl"
+              className="flex-1"
+              onClick={handleReservation}
+            >
+              Réserver maintenant
+            </Button>
+          </div>
+        </div>
+      </div>
 
       {/* Modal de confirmation */}
       <ReservationConfirmation

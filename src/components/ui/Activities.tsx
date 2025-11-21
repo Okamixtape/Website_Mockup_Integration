@@ -4,12 +4,9 @@ import { useState, useEffect, useMemo } from 'react'
 import { AnimatedBox } from './AnimatedBox'
 import { ActivityCard } from './ActivityCard'
 import { Chip } from './Chip'
-import { Switch } from './Switch'
 import { Button } from './Button'
-import { ActivityFilters } from './ActivityFilters'
 import { cn } from '@/lib/utils'
 import { activities } from '@/data/activities'
-import { getCityNeighborhoods } from '@/data/neighborhoods'
 import { useI18n } from '@/lib/i18n/context'
 
 interface ActivitiesProps {
@@ -19,12 +16,8 @@ interface ActivitiesProps {
 export function Activities({ className }: ActivitiesProps) {
   const { t } = useI18n()
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
-  const [showFreeOnly, setShowFreeOnly] = useState(false)
   const [sortBy, setSortBy] = useState<'rating' | 'price-asc' | 'price-desc'>('rating')
   const [selectedDestination, setSelectedDestination] = useState<string>('')
-  const [selectedNeighborhood, setSelectedNeighborhood] = useState<string>('all')
-  const [priceRange, setPriceRange] = useState<number>(0)
-  const [appliedPriceRange, setAppliedPriceRange] = useState<number>(0)
 
   // Écouter les changements de destination
   useEffect(() => {
@@ -45,15 +38,6 @@ export function Activities({ className }: ActivitiesProps) {
     }
   }, [])
 
-  const maxPrice = useMemo(() => Math.max(...activities.map(a => a.price || 0)), [])
-
-  useEffect(() => {
-    if (maxPrice > 0) {
-      setPriceRange(maxPrice)
-      setAppliedPriceRange(maxPrice)
-    }
-  }, [maxPrice])
-
   const activityCategories = [
     { id: 'all', label: t.activities.filters.all, icon: 'category' },
     { id: 'culture', label: t.activities.filters.culture, icon: 'museum' },
@@ -65,37 +49,15 @@ export function Activities({ className }: ActivitiesProps) {
     setSelectedCategory(categoryId)
   }
 
-  // Récupérer les quartiers de la ville sélectionnée
-  const cityNeighborhoods = selectedDestination
-    ? getCityNeighborhoods(selectedDestination)
-    : []
-
-  // Réinitialiser le quartier si la ville change
-  useEffect(() => {
-    setSelectedNeighborhood('all')
-  }, [selectedDestination])
-
-  // Filtrer les activités
+  // Simplified filtering - French Riviera Luxury
   const filteredActivities = activities
     .filter(activity => {
       // Filtre par catégorie
       if (selectedCategory !== 'all' && activity.category !== selectedCategory) {
         return false
       }
-      // Filtre par gratuité
-      if (showFreeOnly && activity.price && activity.price > 0) {
-        return false
-      }
-      // Filtre par gamme de prix
-      if (appliedPriceRange > 0 && (activity.price || 0) > appliedPriceRange) {
-        return false
-      }
       // Filtre par destination
       if (selectedDestination && activity.city !== selectedDestination) {
-        return false
-      }
-      // Filtre par quartier
-      if (selectedNeighborhood !== 'all' && activity.neighborhoodId !== selectedNeighborhood) {
         return false
       }
       return true
@@ -127,91 +89,31 @@ export function Activities({ className }: ActivitiesProps) {
           </p>
         </div>
 
-        {/* Filters */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <div className="md:col-span-2 space-y-4">
-            {/* Category filters */}
-            <div className="flex flex-wrap gap-4 items-center">
-                <div className="flex gap-2 flex-wrap">
-                  {activityCategories.map((category) => (
-                    <Chip
-                      key={category.id}
-                      label={category.label}
-                      icon={category.icon}
-                      selected={selectedCategory === category.id}
-                      onClick={() => toggleCategory(category.id)}
-                    />
-                  ))}
-                </div>
-
-                {/* Separator */}
-                <div className="hidden md:block w-px h-8 bg-outline-variant" />
-
-                {/* Free only toggle */}
-                <div className="flex items-center gap-2">
-                  <Switch
-                    id="free-only"
-                    checked={showFreeOnly}
-                    onCheckedChange={setShowFreeOnly}
-                  />
-                  <label htmlFor="free-only" className="text-sm font-medium text-on-surface-variant">
-                    {t.activities.filters.free}
-                  </label>
-                </div>
-
-                {/* Separator */}
-                <div className="hidden md:block w-px h-8 bg-outline-variant" />
-
-                {/* Sort */}
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-                  className="px-4 py-2 bg-surface-container rounded-lg border border-outline-variant focus:outline-none focus:border-primary"
-                >
-                  <option value="rating">{t.activities.sortBy.rating}</option>
-                  <option value="price-asc">{t.activities.sortBy.priceAsc}</option>
-                  <option value="price-desc">{t.activities.sortBy.priceDesc}</option>
-                </select>
-            </div>
-
-            {/* Neighborhood filters - only show if a city is selected and has neighborhoods */}
-            {cityNeighborhoods.length > 0 && (
-              <div className="pt-4 border-t border-outline-variant">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="material-symbols-outlined text-primary">location_city</span>
-                  <h3 className="text-sm font-medium text-on-surface">
-                    Filtrer par quartier de {selectedDestination}
-                  </h3>
-                </div>
-                <div className="flex gap-2 flex-wrap">
-                  <Chip
-                    label="Tous les quartiers"
-                    icon="map"
-                    selected={selectedNeighborhood === 'all'}
-                    onClick={() => setSelectedNeighborhood('all')}
-                  />
-                  {cityNeighborhoods.map((neighborhood) => (
-                    <Chip
-                      key={neighborhood.id}
-                      label={neighborhood.name}
-                      icon="place"
-                      selected={selectedNeighborhood === neighborhood.id}
-                      onClick={() => setSelectedNeighborhood(neighborhood.id)}
-                    />
-                  ))}
-                </div>
-              </div>
-            )}
+        {/* Simplified Filters - French Riviera Luxury */}
+        <div className="mb-8 flex flex-wrap items-center gap-4 justify-between">
+          {/* Category chips */}
+          <div className="flex gap-2 flex-wrap">
+            {activityCategories.map((category) => (
+              <Chip
+                key={category.id}
+                label={category.label}
+                icon={category.icon}
+                selected={selectedCategory === category.id}
+                onClick={() => toggleCategory(category.id)}
+              />
+            ))}
           </div>
 
-          <div className="md:col-span-1">
-            <ActivityFilters 
-              maxPrice={maxPrice}
-              priceRange={priceRange}
-              onPriceChange={setPriceRange}
-              onApply={() => setAppliedPriceRange(priceRange)}
-            />
-          </div>
+          {/* Sort dropdown */}
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
+            className="px-4 py-2 bg-surface-container rounded-full text-sm border-0 focus:outline-none focus:ring-2 focus:ring-primary"
+          >
+            <option value="rating">{t.activities.sortBy.rating}</option>
+            <option value="price-asc">{t.activities.sortBy.priceAsc}</option>
+            <option value="price-desc">{t.activities.sortBy.priceDesc}</option>
+          </select>
         </div>
 
         {/* Activities Grid */}

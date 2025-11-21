@@ -6,7 +6,7 @@ import { useHoverAnimation, useTapAnimation } from '@/hooks/useAnimations'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'text' | 'outlined' | 'filled' | 'tonal'
-  size?: 'small' | 'medium' | 'large'
+  size?: 'small' | 'medium' | 'large' | 'xl'
   icon?: string
   iconPosition?: 'left' | 'right'
   loading?: boolean
@@ -38,6 +38,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
     small: 'px-4 py-2 text-sm',
     medium: 'px-6 py-3 text-base',
     large: 'px-8 py-4 text-lg',
+    xl: 'px-8 h-14 text-xl font-bold', // 56px CTA - French Riviera Luxury
   }[size];
 
   const variantClasses = {
@@ -66,6 +67,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
       'text-sm': size === 'small',
       'text-base': size === 'medium',
       'text-lg': size === 'large',
+      'text-xl': size === 'xl',
     },
     loading && 'animate-spin'
   )
