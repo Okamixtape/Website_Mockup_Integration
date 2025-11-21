@@ -1,0 +1,430 @@
+{
+  "project": {
+    "name": "Reservia Homepage Redesign",
+    "type": "Landing Page",
+    "industry": "Travel & Hospitality",
+    "target": "Conversion optimization + User experience"
+  },
+
+  "designSystem": {
+    "framework": "Material Design 3",
+    "primaryColor": "#0065FC",
+    "colorPalette": {
+      "primary": "#0065FC",
+      "surface": "#FFFFFF",
+      "surfaceContainer": "#F7F7F7",
+      "onSurface": "#000000",
+      "onSurfaceVariant": "#666666",
+      "tertiaryContainer": "#DEEBFF"
+    },
+    "typography": {
+      "display": "3.5rem / 800 weight",
+      "h2": "2rem / 700 weight",
+      "h3": "1.5rem / 600 weight",
+      "body": "1rem / 400 weight"
+    },
+    "spacing": {
+      "gridGap": "24px",
+      "cardPadding": "20px",
+      "sectionPadding": "64px vertical"
+    },
+    "borderRadius": {
+      "cards": "32px",
+      "buttons": "9999px",
+      "images": "32px"
+    },
+    "aspectRatios": {
+      "images": "4:3"
+    }
+  },
+
+  "currentProblems": [
+    "Search bar too complex (destination + dates + guests)",
+    "Too many visible filters (cognitive overload)",
+    "Lack of trust elements (reviews, certifications)",
+    "No clear hierarchy between sections",
+    "No popular destination suggestions",
+    "No social proof section"
+  ],
+
+  "sections": [
+    {
+      "name": "Hero",
+      "priority": 1,
+      "layout": "Full viewport height with background image",
+      "components": [
+        {
+          "type": "Heading",
+          "text": "Trouvez votre prochaine aventure",
+          "style": "Display / 3.5rem / 800 weight / white"
+        },
+        {
+          "type": "Subtitle",
+          "text": "10 hébergements • 17 activités • 7 villes",
+          "style": "Body Large / 1.125rem / white"
+        },
+        {
+          "type": "SearchBar",
+          "variant": "Simplified",
+          "fields": [
+            {
+              "name": "destination",
+              "type": "text input",
+              "placeholder": "Où souhaitez-vous aller ?",
+              "icon": "search",
+              "width": "flex-1"
+            },
+            {
+              "name": "submit",
+              "type": "button",
+              "label": "Rechercher",
+              "variant": "filled primary"
+            }
+          ],
+          "styling": {
+            "background": "white",
+            "borderRadius": "9999px",
+            "shadow": "0 20px 25px rgba(0,0,0,0.1)",
+            "padding": "8px"
+          }
+        },
+        {
+          "type": "SuggestionChips",
+          "items": [
+            { "label": "🔥 Marseille", "value": "Marseille" },
+            { "label": "🏖️ Nice", "value": "Nice" },
+            { "label": "🗼 Paris", "value": "Paris" },
+            { "label": "🏔️ Annecy", "value": "Annecy" }
+          ],
+          "styling": {
+            "background": "rgba(255,255,255,0.2)",
+            "backdropBlur": "10px",
+            "borderRadius": "9999px",
+            "color": "white"
+          }
+        },
+        {
+          "type": "TrustIndicators",
+          "items": [
+            { "icon": "star", "text": "4.7/5 moyenne" },
+            { "icon": "hotel", "text": "90% disponibilité" },
+            { "icon": "check_circle", "text": "Réservation instantanée" }
+          ],
+          "styling": {
+            "color": "white",
+            "fontSize": "0.875rem"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Destinations",
+      "priority": 2,
+      "layout": "Grid 3 columns",
+      "components": [
+        {
+          "type": "SectionHeading",
+          "title": "Explorez nos destinations",
+          "subtitle": "Chaque ville a son caractère unique"
+        },
+        {
+          "type": "CityCard",
+          "count": 7,
+          "structure": {
+            "image": {
+              "aspectRatio": "4:3",
+              "borderRadius": "32px",
+              "overlay": "gradient from-transparent to-black/60"
+            },
+            "content": {
+              "cityName": "H3 / 1.5rem / 600 weight / white",
+              "stats": [
+                "X hébergements",
+                "Y activités"
+              ],
+              "cta": {
+                "label": "Explorer",
+                "variant": "filled primary",
+                "icon": "arrow_forward"
+              }
+            }
+          },
+          "interactions": {
+            "hover": "lift -4px + image scale 1.05",
+            "click": "navigate to city page"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Accommodations",
+      "priority": 3,
+      "layout": "Grid 3 columns",
+      "maxItems": 6,
+      "components": [
+        {
+          "type": "SectionHeading",
+          "title": "Hébergements populaires",
+          "subtitle": "Nos coups de cœur sélectionnés pour vous"
+        },
+        {
+          "type": "FilterBar",
+          "filters": [
+            {
+              "type": "chips",
+              "options": ["Tous", "Hôtels", "Appartements"]
+            },
+            {
+              "type": "select",
+              "label": "Trier par",
+              "options": ["Plus populaires", "Prix croissant", "Prix décroissant", "Meilleures notes"]
+            }
+          ]
+        },
+        {
+          "type": "ResultsCounter",
+          "format": "{count} hébergements disponibles"
+        },
+        {
+          "type": "AccommodationCard",
+          "structure": {
+            "image": {
+              "aspectRatio": "4:3",
+              "borderRadius": "32px top",
+              "overlays": [
+                { "position": "top-right", "type": "favorite button" },
+                { "position": "top-left", "type": "popular badge", "conditional": true },
+                { "position": "bottom-left", "type": "price badge" }
+              ]
+            },
+            "content": {
+              "title": "H3 / line-clamp-1",
+              "location": "icon + text / small",
+              "rating": "stars + score",
+              "price": "large bold + /nuit",
+              "cta": "filled button / full-width"
+            }
+          }
+        },
+        {
+          "type": "CTAButton",
+          "label": "Voir tous les hébergements",
+          "variant": "outlined",
+          "icon": "arrow_forward",
+          "alignment": "center"
+        }
+      ]
+    },
+
+    {
+      "name": "Activities",
+      "priority": 4,
+      "layout": "Grid 4 columns",
+      "maxItems": 8,
+      "components": [
+        {
+          "type": "SectionHeading",
+          "title": "Activités incontournables",
+          "subtitle": "Vivez des expériences uniques"
+        },
+        {
+          "type": "CategoryTabs",
+          "tabs": [
+            { "id": "all", "label": "Tout", "icon": "category" },
+            { "id": "culture", "label": "Culture", "icon": "museum" },
+            { "id": "nature", "label": "Nature", "icon": "forest" },
+            { "id": "sport", "label": "Sport", "icon": "sports_soccer" }
+          ],
+          "styling": {
+            "activeIndicator": "bottom border 3px primary",
+            "spacing": "gap-4"
+          }
+        },
+        {
+          "type": "SecondaryFilters",
+          "layout": "horizontal row",
+          "filters": [
+            { "type": "select", "label": "Ville", "options": ["Toutes", "..."] },
+            { "type": "select", "label": "Quartier", "options": ["Tous", "..."] },
+            { "type": "select", "label": "Prix", "options": ["Tous", "..."] },
+            { "type": "switch", "label": "Gratuit uniquement" }
+          ]
+        },
+        {
+          "type": "ActivityCard",
+          "structure": {
+            "image": {
+              "aspectRatio": "4:3",
+              "borderRadius": "32px top",
+              "overlays": [
+                { "position": "top-right", "type": "favorite button" },
+                { "position": "top-left", "type": "badges", "variants": ["popular", "must-see"] },
+                { "position": "bottom-left", "type": "price badge" }
+              ],
+              "gradient": "bottom overlay from-black/50"
+            },
+            "content": {
+              "title": "H3 / line-clamp-1",
+              "location": "icon + city",
+              "rating": "stars + score + reviews",
+              "cta": "filled button / full-width"
+            }
+          }
+        },
+        {
+          "type": "CTAButton",
+          "label": "Découvrir toutes les activités",
+          "variant": "outlined",
+          "icon": "arrow_forward",
+          "alignment": "center"
+        }
+      ]
+    },
+
+    {
+      "name": "HowItWorks",
+      "priority": 5,
+      "layout": "Grid 3 columns",
+      "components": [
+        {
+          "type": "SectionHeading",
+          "title": "Réservez en 3 étapes simples"
+        },
+        {
+          "type": "StepCard",
+          "steps": [
+            {
+              "number": 1,
+              "icon": "search",
+              "title": "Recherchez",
+              "description": "Trouvez votre destination idéale"
+            },
+            {
+              "number": 2,
+              "icon": "calendar_today",
+              "title": "Comparez",
+              "description": "Consultez les avis et les détails"
+            },
+            {
+              "number": 3,
+              "icon": "check_circle",
+              "title": "Réservez",
+              "description": "Confirmation instantanée"
+            }
+          ],
+          "styling": {
+            "iconSize": "48px",
+            "iconColor": "primary",
+            "alignment": "center"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "SocialProof",
+      "priority": 6,
+      "layout": "Carousel",
+      "components": [
+        {
+          "type": "SectionHeading",
+          "title": "Ils nous font confiance"
+        },
+        {
+          "type": "TestimonialCarousel",
+          "autoRotate": true,
+          "interval": 5000,
+          "structure": {
+            "rating": "5 stars",
+            "quote": "Body Large / italic",
+            "author": "Body Small / bold",
+            "location": "Caption / on-surface-variant"
+          },
+          "styling": {
+            "background": "surface-container",
+            "borderRadius": "32px",
+            "padding": "24px",
+            "maxWidth": "800px"
+          }
+        },
+        {
+          "type": "TrustBadges",
+          "items": [
+            { "icon": "star", "text": "4.7/5 sur 1,234 avis" },
+            { "icon": "workspace_premium", "text": "Certifié qualité" },
+            { "icon": "lock", "text": "Paiement sécurisé" }
+          ]
+        }
+      ]
+    }
+  ],
+
+  "animations": {
+    "hero": {
+      "fadeIn": { "delay": "300ms", "duration": "400ms" },
+      "slideUp": { "delay": "400ms", "duration": "500ms" }
+    },
+    "cards": {
+      "slideUp": { "trigger": "scroll", "stagger": "100ms" },
+      "hover": { "lift": "-4px", "scale": "1.05", "duration": "200ms" }
+    },
+    "filters": {
+      "transition": { "duration": "200ms", "easing": "ease-out" }
+    }
+  },
+
+  "responsive": {
+    "desktop": {
+      "width": "1280px",
+      "grids": {
+        "destinations": "3 columns",
+        "accommodations": "3 columns",
+        "activities": "4 columns",
+        "howItWorks": "3 columns"
+      }
+    },
+    "tablet": {
+      "width": "768px",
+      "grids": {
+        "destinations": "2 columns",
+        "accommodations": "2 columns",
+        "activities": "2 columns",
+        "howItWorks": "3 columns"
+      },
+      "filters": "stacked vertically"
+    },
+    "mobile": {
+      "width": "375px",
+      "grids": {
+        "all": "1 column"
+      },
+      "searchBar": "full-width",
+      "tabs": "horizontal scroll"
+    }
+  },
+
+  "deliverables": [
+    "Figma file with 3 responsive frames (Desktop, Tablet, Mobile)",
+    "Reusable components with variants",
+    "Interactive prototype with transitions",
+    "Design tokens (color styles, text styles, effects)",
+    "Exported assets (icons SVG, images WebP)",
+    "Implementation guide with annotations"
+  ],
+
+  "successMetrics": {
+    "conversion": "+30% clicks to detail pages",
+    "engagement": "+40% time on homepage",
+    "discovery": "+50% filter usage",
+    "trust": "-20% bounce rate"
+  },
+
+  "references": [
+    "Airbnb (search simplicity)",
+    "Booking.com (effective filters)",
+    "TripAdvisor (social proof)",
+    "Material Design 3 (components)"
+  ]
+}
