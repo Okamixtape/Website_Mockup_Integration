@@ -1,10 +1,10 @@
 'use client'
 
-import { useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { AnimatedBox } from './AnimatedBox'
 import { Button } from './Button'
+import { ImageGallery } from './ImageGallery'
 import { cn } from '@/lib/utils'
 import { Activity } from '@/data/activities'
 
@@ -13,15 +13,10 @@ interface ActivityDetailProps {
 }
 
 export function ActivityDetail({ activity }: ActivityDetailProps) {
-  const [selectedImage, setSelectedImage] = useState(0)
   const router = useRouter()
 
-  const images = [
-    activity.image,
-    activity.image.replace('400x300', '800x600'),
-    activity.image.replace('400x300', '600x400'),
-    activity.image.replace('400x300', '700x500'),
-  ]
+  // Utiliser une seule image pour les activités pour l'instant
+  const images = [activity.image]
 
   return (
     <div className="min-h-screen bg-background">
@@ -33,42 +28,13 @@ export function ActivityDetail({ activity }: ActivityDetailProps) {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-8">
+            {/* Galerie d'images avec lightbox */}
             <AnimatedBox animation="fadeIn">
-              <div className="space-y-4">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-                  <Image
-                    src={images[selectedImage]}
-                    alt={`${activity.name} à ${activity.city}`}
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                  {activity.isPopular && (
-                    <div className="absolute top-4 left-4 bg-primary text-on-primary px-4 py-2 rounded-full text-sm font-medium">
-                      Populaire
-                    </div>
-                  )}
-                </div>
-                <div className="grid grid-cols-4 gap-2">
-                  {images.map((image, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setSelectedImage(index)}
-                      className={cn(
-                        "relative aspect-[4/3] overflow-hidden rounded-2xl transition-all",
-                        selectedImage === index ? "ring-2 ring-primary" : "opacity-70 hover:opacity-100"
-                      )}
-                    >
-                      <Image
-                        src={image}
-                        alt={`Vue ${index + 1}`}
-                        fill
-                        className="object-cover"
-                      />
-                    </button>
-                  ))}
-                </div>
-              </div>
+              <ImageGallery
+                images={images}
+                alt={`${activity.name} à ${activity.city}`}
+                aspectRatio="aspect-[4/3]"
+              />
             </AnimatedBox>
 
             <AnimatedBox animation="slideUp" delay={100}>

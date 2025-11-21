@@ -8,6 +8,7 @@ import { Button } from './Button'
 import { ReservationCalendar } from './ReservationCalendar'
 import { ReservationConfirmation } from './ReservationConfirmation'
 import { NearbyActivities } from './NearbyActivities'
+import { ImageGallery } from './ImageGallery'
 import { cn } from '@/lib/utils'
 import { Accommodation, amenityIcons } from '@/data/accommodations'
 
@@ -16,20 +17,16 @@ interface AccommodationDetailProps {
 }
 
 export function AccommodationDetail({ accommodation }: AccommodationDetailProps) {
-  const [selectedImage, setSelectedImage] = useState(0)
   const [checkIn, setCheckIn] = useState<Date | null>(null)
   const [checkOut, setCheckOut] = useState<Date | null>(null)
   const [guests, setGuests] = useState(2)
   const [showConfirmation, setShowConfirmation] = useState(false)
   const router = useRouter()
 
-  // Simuler plusieurs images pour la galerie
-  const images = [
-    accommodation.image,
-    accommodation.image.replace('400x300', '800x600'),
-    accommodation.image.replace('400x300', '600x400'),
-    accommodation.image.replace('400x300', '700x500'),
-  ]
+  // Utiliser les images de l'hébergement ou l'image principale
+  const images = accommodation.images && accommodation.images.length > 0
+    ? accommodation.images
+    : [accommodation.image]
 
   const handleReservation = () => {
     if (!checkIn || !checkOut) {
@@ -84,46 +81,13 @@ export function AccommodationDetail({ accommodation }: AccommodationDetailProps)
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Colonne principale (2/3) */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Galerie d'images */}
+            {/* Galerie d'images avec lightbox */}
             <AnimatedBox animation="fadeIn">
-              <div className="space-y-4">
-                {/* Image principale */}
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-                  <Image
-                    src={images[selectedImage]}
-                    alt={`${accommodation.name} - ${accommodation.location}`}
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                  {accommodation.isPopular && (
-                    <div className="absolute top-4 left-4 bg-primary text-on-primary px-4 py-2 rounded-full text-sm font-medium">
-                      Populaire
-                    </div>
-                  )}
-                </div>
-
-                {/* Miniatures */}
-                <div className="grid grid-cols-4 gap-2">
-                  {images.map((image, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setSelectedImage(index)}
-                      className={cn(
-                        "relative aspect-[4/3] overflow-hidden rounded-2xl transition-all",
-                        selectedImage === index ? "ring-2 ring-primary" : "opacity-70 hover:opacity-100"
-                      )}
-                    >
-                      <Image
-                        src={image}
-                        alt={`Vue ${index + 1}`}
-                        fill
-                        className="object-cover"
-                      />
-                    </button>
-                  ))}
-                </div>
-              </div>
+              <ImageGallery
+                images={images}
+                alt={`${accommodation.name} - ${accommodation.location}`}
+                aspectRatio="aspect-[4/3]"
+              />
             </AnimatedBox>
 
             {/* Informations principales */}
