@@ -7,6 +7,7 @@ import { AnimatedBox } from './AnimatedBox'
 import { Button } from './Button'
 import { ReservationCalendar } from './ReservationCalendar'
 import { ReservationConfirmation } from './ReservationConfirmation'
+import { NearbyActivities } from './NearbyActivities'
 import { cn } from '@/lib/utils'
 import { Accommodation, amenityIcons } from '@/data/accommodations'
 
@@ -90,7 +91,7 @@ export function AccommodationDetail({ accommodation }: AccommodationDetailProps)
                 <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
                   <Image
                     src={images[selectedImage]}
-                    alt={accommodation.name}
+                    alt={`${accommodation.type} ${accommodation.name} - Vue ${selectedImage + 1} - ${accommodation.description}`}
                     fill
                     className="object-cover"
                     priority
@@ -282,6 +283,11 @@ export function AccommodationDetail({ accommodation }: AccommodationDetailProps)
               </div>
             </AnimatedBox>
           </div>
+        </div>
+
+        {/* Section Activités à proximité */}
+        <div className="mt-16">
+          <NearbyActivities accommodation={accommodation} maxItems={4} />
         </div>
       </main>
 

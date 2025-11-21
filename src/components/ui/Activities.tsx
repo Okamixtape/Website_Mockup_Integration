@@ -9,6 +9,7 @@ import { Button } from './Button'
 import { ActivityFilters } from './ActivityFilters'
 import { cn } from '@/lib/utils'
 import { activities } from '@/data/activities'
+import { getCityNeighborhoods } from '@/data/neighborhoods'
 import { useI18n } from '@/lib/i18n/context'
 
 interface ActivitiesProps {
@@ -21,6 +22,7 @@ export function Activities({ className }: ActivitiesProps) {
   const [showFreeOnly, setShowFreeOnly] = useState(false)
   const [sortBy, setSortBy] = useState<'rating' | 'price-asc' | 'price-desc'>('rating')
   const [selectedDestination, setSelectedDestination] = useState<string>('')
+  const [selectedNeighborhood, setSelectedNeighborhood] = useState<string>('all')
   const [priceRange, setPriceRange] = useState<number>(0)
   const [appliedPriceRange, setAppliedPriceRange] = useState<number>(0)
 
@@ -63,6 +65,16 @@ export function Activities({ className }: ActivitiesProps) {
     setSelectedCategory(categoryId)
   }
 
+  // Récupérer les quartiers de la ville sélectionnée
+  const cityNeighborhoods = selectedDestination
+    ? getCityNeighborhoods(selectedDestination)
+    : []
+
+  // Réinitialiser le quartier si la ville change
+  useEffect(() => {
+    setSelectedNeighborhood('all')
+  }, [selectedDestination])
+
   // Filtrer les activités
   const filteredActivities = activities
     .filter(activity => {
@@ -80,6 +92,10 @@ export function Activities({ className }: ActivitiesProps) {
       }
       // Filtre par destination
       if (selectedDestination && activity.city !== selectedDestination) {
+        return false
+      }
+      // Filtre par quartier
+      if (selectedNeighborhood !== 'all' && activity.neighborhoodId !== selectedNeighborhood) {
         return false
       }
       return true
@@ -114,8 +130,8 @@ export function Activities({ className }: ActivitiesProps) {
         {/* Filters */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div className="md:col-span-2 space-y-4">
+            {/* Category filters */}
             <div className="flex flex-wrap gap-4 items-center">
-                {/* Category filters */}
                 <div className="flex gap-2 flex-wrap">
                   {activityCategories.map((category) => (
                     <Chip
@@ -157,6 +173,35 @@ export function Activities({ className }: ActivitiesProps) {
                   <option value="price-desc">{t.activities.sortBy.priceDesc}</option>
                 </select>
             </div>
+
+            {/* Neighborhood filters - only show if a city is selected and has neighborhoods */}
+            {cityNeighborhoods.length > 0 && (
+              <div className="pt-4 border-t border-outline-variant">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="material-symbols-outlined text-primary">location_city</span>
+                  <h3 className="text-sm font-medium text-on-surface">
+                    Filtrer par quartier de {selectedDestination}
+                  </h3>
+                </div>
+                <div className="flex gap-2 flex-wrap">
+                  <Chip
+                    label="Tous les quartiers"
+                    icon="map"
+                    selected={selectedNeighborhood === 'all'}
+                    onClick={() => setSelectedNeighborhood('all')}
+                  />
+                  {cityNeighborhoods.map((neighborhood) => (
+                    <Chip
+                      key={neighborhood.id}
+                      label={neighborhood.name}
+                      icon="place"
+                      selected={selectedNeighborhood === neighborhood.id}
+                      onClick={() => setSelectedNeighborhood(neighborhood.id)}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="md:col-span-1">
