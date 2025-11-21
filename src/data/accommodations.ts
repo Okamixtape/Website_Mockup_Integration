@@ -6,6 +6,7 @@ export interface Accommodation {
   region: string
   country: string
   location: string
+  neighborhoodId: string // Identifiant du quartier pour lier aux activités
   description: string
   price: number
   rating: number
@@ -58,16 +59,17 @@ export const accommodations: Accommodation[] = [
     region: 'Provence-Alpes-Côte d\'Azur',
     country: 'France',
     location: 'Vieux-Port, Marseille',
+    neighborhoodId: 'vieux-port',
     description: 'Auberge conviviale au cœur du Vieux-Port avec vue sur la mer',
     price: 25,
     rating: 4.0,
     reviewCount: 789,
-    image: 'https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?w=400&h=300&fit=crop',
+    image: '/images/hebergements/4_small/emile-guillemot-Bj_rcSC5XfE-unsplash.jpg',
     images: [
-      'https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1560448204-603b3fc33ddc?w=800&h=600&fit=crop'
+      '/images/hebergements/3_medium/emile-guillemot-Bj_rcSC5XfE-unsplash.jpg',
+      '/images/hebergements/2_large/emile-guillemot-Bj_rcSC5XfE-unsplash.jpg',
+      '/images/hebergements/1_xlarge/emile-guillemot-Bj_rcSC5XfE-unsplash.jpg',
+      '/images/hebergements/4_small/emile-guillemot-Bj_rcSC5XfE-unsplash.jpg'
     ],
     amenities: ['Wifi', 'Breakfast', 'Parking'],
     capacity: 4,
@@ -83,16 +85,17 @@ export const accommodations: Accommodation[] = [
     region: 'Provence-Alpes-Côte d\'Azur',
     country: 'France',
     location: 'Plage du Prado, Marseille',
+    neighborhoodId: 'prado',
     description: 'Hôtel moderne avec accès direct à la plage et piscine',
     price: 128,
     rating: 4.8,
     reviewCount: 1234,
-    image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop',
+    image: '/images/hebergements/4_small/annie-spratt-Eg1qcIitAuA-unsplash.jpg',
     images: [
-      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop'
+      '/images/hebergements/3_medium/annie-spratt-Eg1qcIitAuA-unsplash.jpg',
+      '/images/hebergements/2_large/annie-spratt-Eg1qcIitAuA-unsplash.jpg',
+      '/images/hebergements/1_xlarge/annie-spratt-Eg1qcIitAuA-unsplash.jpg',
+      '/images/hebergements/4_small/annie-spratt-Eg1qcIitAuA-unsplash.jpg'
     ],
     amenities: ['Wifi', 'Pool', 'Beach', 'Spa', 'Restaurant', 'Fitness'],
     capacity: 2,
@@ -108,16 +111,17 @@ export const accommodations: Accommodation[] = [
     region: 'Provence-Alpes-Côte d\'Azur',
     country: 'France',
     location: 'La Joliette, Marseille',
+    neighborhoodId: 'joliette',
     description: 'Appartement moderne avec terrasse panoramique sur le port',
     price: 95,
     rating: 4.6,
     reviewCount: 567,
-    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=300&fit=crop',
+    image: '/images/hebergements/4_small/aw-creative-VGs8z60yT2c-unsplash.jpg',
     images: [
-      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=800&h=600&fit=crop'
+      '/images/hebergements/3_medium/aw-creative-VGs8z60yT2c-unsplash.jpg',
+      '/images/hebergements/2_large/aw-creative-VGs8z60yT2c-unsplash.jpg',
+      '/images/hebergements/1_xlarge/aw-creative-VGs8z60yT2c-unsplash.jpg',
+      '/images/hebergements/4_small/aw-creative-VGs8z60yT2c-unsplash.jpg'
     ],
     amenities: ['Wifi', 'Kitchen', 'Parking', 'Terrace', 'AirConditioning'],
     capacity: 4,
@@ -135,16 +139,17 @@ export const accommodations: Accommodation[] = [
     region: 'Île-de-France',
     country: 'France',
     location: 'Montmartre, Paris',
+    neighborhoodId: 'montmartre',
     description: 'Charmant hôtel au pied du Sacré-Cœur avec vue sur tout Paris',
     price: 156,
     rating: 4.7,
     reviewCount: 2341,
-    image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&h=300&fit=crop',
+    image: '/images/hebergements/4_small/marcus-loke-WQJvWU_HZFo-unsplash.jpg',
     images: [
-      'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800&h=600&fit=crop'
+      '/images/hebergements/3_medium/marcus-loke-WQJvWU_HZFo-unsplash.jpg',
+      '/images/hebergements/2_large/marcus-loke-WQJvWU_HZFo-unsplash.jpg',
+      '/images/hebergements/1_xlarge/marcus-loke-WQJvWU_HZFo-unsplash.jpg',
+      '/images/hebergements/4_small/marcus-loke-WQJvWU_HZFo-unsplash.jpg'
     ],
     amenities: ['Wifi', 'Breakfast', 'Bar', 'CityView', 'Concierge'],
     capacity: 2,
@@ -160,16 +165,17 @@ export const accommodations: Accommodation[] = [
     region: 'Île-de-France',
     country: 'France',
     location: 'Champs-Élysées, Paris',
+    neighborhoodId: 'champs-elysees',
     description: 'Studio élégant à deux pas des Champs-Élysées',
     price: 185,
     rating: 4.5,
     reviewCount: 892,
-    image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop',
+    image: '/images/hebergements/4_small/nicate-lee-kT-ZyaiwBe0-unsplash.jpg',
     images: [
-      'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=800&h=600&fit=crop'
+      '/images/hebergements/3_medium/nicate-lee-kT-ZyaiwBe0-unsplash.jpg',
+      '/images/hebergements/2_large/nicate-lee-kT-ZyaiwBe0-unsplash.jpg',
+      '/images/hebergements/1_xlarge/nicate-lee-kT-ZyaiwBe0-unsplash.jpg',
+      '/images/hebergements/4_small/nicate-lee-kT-ZyaiwBe0-unsplash.jpg'
     ],
     amenities: ['Wifi', 'Kitchen', 'AirConditioning', 'Washer'],
     capacity: 2,
@@ -187,16 +193,17 @@ export const accommodations: Accommodation[] = [
     region: 'Provence-Alpes-Côte d\'Azur',
     country: 'France',
     location: 'Promenade des Anglais, Nice',
+    neighborhoodId: 'promenade-anglais',
     description: 'Hôtel luxueux face à la Baie des Anges',
     price: 245,
     rating: 4.9,
     reviewCount: 1567,
-    image: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=400&h=300&fit=crop',
+    image: '/images/hebergements/4_small/reisetopia-B8WIgxA_PFU-unsplash.jpg',
     images: [
-      'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?w=800&h=600&fit=crop'
+      '/images/hebergements/3_medium/reisetopia-B8WIgxA_PFU-unsplash.jpg',
+      '/images/hebergements/2_large/reisetopia-B8WIgxA_PFU-unsplash.jpg',
+      '/images/hebergements/1_xlarge/reisetopia-B8WIgxA_PFU-unsplash.jpg',
+      '/images/hebergements/4_small/reisetopia-B8WIgxA_PFU-unsplash.jpg'
     ],
     amenities: ['Wifi', 'Pool', 'Beach', 'Spa', 'Restaurant', 'Bar', 'Fitness'],
     capacity: 2,
@@ -214,16 +221,17 @@ export const accommodations: Accommodation[] = [
     region: 'Auvergne-Rhône-Alpes',
     country: 'France',
     location: 'Vieux Lyon',
+    neighborhoodId: 'vieux-lyon',
     description: 'Hôtel traditionnel au cœur du vieux Lyon',
     price: 89,
     rating: 4.4,
     reviewCount: 678,
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop',
+    image: '/images/hebergements/4_small/fred-kleber-gTbaxaVLvsg-unsplash.jpg',
     images: [
-      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800&h=600&fit=crop'
+      '/images/hebergements/3_medium/fred-kleber-gTbaxaVLvsg-unsplash.jpg',
+      '/images/hebergements/2_large/fred-kleber-gTbaxaVLvsg-unsplash.jpg',
+      '/images/hebergements/1_xlarge/fred-kleber-gTbaxaVLvsg-unsplash.jpg',
+      '/images/hebergements/4_small/fred-kleber-gTbaxaVLvsg-unsplash.jpg'
     ],
     amenities: ['Wifi', 'Breakfast', 'Restaurant'],
     capacity: 3,
@@ -241,16 +249,17 @@ export const accommodations: Accommodation[] = [
     region: 'Nouvelle-Aquitaine',
     country: 'France',
     location: 'Saint-Pierre, Bordeaux',
+    neighborhoodId: 'saint-pierre',
     description: 'Appartement de charme dans le quartier historique',
     price: 112,
     rating: 4.6,
     reviewCount: 432,
-    image: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=400&h=300&fit=crop',
+    image: '/images/hebergements/4_small/febrian-zakaria-M6S1WvfW68A-unsplash.jpg',
     images: [
-      'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop'
+      '/images/hebergements/3_medium/febrian-zakaria-M6S1WvfW68A-unsplash.jpg',
+      '/images/hebergements/2_large/febrian-zakaria-M6S1WvfW68A-unsplash.jpg',
+      '/images/hebergements/1_xlarge/febrian-zakaria-M6S1WvfW68A-unsplash.jpg',
+      '/images/hebergements/4_small/febrian-zakaria-M6S1WvfW68A-unsplash.jpg'
     ],
     amenities: ['Wifi', 'Kitchen', 'Parking', 'Terrace'],
     capacity: 4,
@@ -268,16 +277,17 @@ export const accommodations: Accommodation[] = [
     region: 'Auvergne-Rhône-Alpes',
     country: 'France',
     location: 'Bord du lac, Annecy',
+    neighborhoodId: 'lac',
     description: 'Resort 5 étoiles avec vue imprenable sur le lac',
     price: 289,
     rating: 4.9,
     reviewCount: 1890,
-    image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&h=300&fit=crop',
+    image: '/images/hebergements/4_small/febrian-zakaria-sjvU0THccQA-unsplash.jpg',
     images: [
-      'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?w=800&h=600&fit=crop'
+      '/images/hebergements/3_medium/febrian-zakaria-sjvU0THccQA-unsplash.jpg',
+      '/images/hebergements/2_large/febrian-zakaria-sjvU0THccQA-unsplash.jpg',
+      '/images/hebergements/1_xlarge/febrian-zakaria-sjvU0THccQA-unsplash.jpg',
+      '/images/hebergements/4_small/febrian-zakaria-sjvU0THccQA-unsplash.jpg'
     ],
     amenities: ['Wifi', 'Pool', 'Spa', 'Restaurant', 'Bar', 'Fitness', 'LakeView', 'PrivateBeach'],
     capacity: 2,
@@ -295,6 +305,7 @@ export const accommodations: Accommodation[] = [
     region: 'Nouvelle-Aquitaine',
     country: 'France',
     location: 'Grande Plage, Biarritz',
+    neighborhoodId: 'grande-plage',
     description: 'Appartement surfer-friendly à 50m de la plage',
     price: 135,
     rating: 4.7,
