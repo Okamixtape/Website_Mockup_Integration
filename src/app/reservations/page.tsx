@@ -6,6 +6,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/Button'
 
+// Note: Les métadonnées ne peuvent pas être exportées depuis un client component
+// Elles devraient être dans un layout parent ou une page wrapper
+
 interface Reservation {
   id: string
   accommodationId: number

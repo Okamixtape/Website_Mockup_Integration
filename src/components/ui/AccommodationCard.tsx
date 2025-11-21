@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -8,6 +7,7 @@ import { cn } from '@/lib/utils'
 import { Accommodation, amenityIcons } from '@/data/accommodations'
 import { Button } from './Button'
 import { useI18n } from '@/lib/i18n/context'
+import { useFavoriteItem } from '@/hooks/useFavorites'
 
 interface AccommodationCardProps {
   accommodation: Accommodation
@@ -17,7 +17,7 @@ interface AccommodationCardProps {
 export function AccommodationCard({ accommodation, className }: AccommodationCardProps) {
   const router = useRouter()
   const { t } = useI18n()
-  const [isFavorite, setIsFavorite] = useState(false)
+  const { isFavorite, toggleFavorite } = useFavoriteItem(accommodation.id, 'accommodation')
 
   const {
     name,
@@ -67,8 +67,7 @@ export function AccommodationCard({ accommodation, className }: AccommodationCar
 
   const handleFavoriteClick = (e: React.MouseEvent) => {
     e.preventDefault()
-    setIsFavorite(!isFavorite)
-    // TODO: Persist to localStorage or API
+    toggleFavorite()
   }
 
   return (
@@ -78,10 +77,13 @@ export function AccommodationCard({ accommodation, className }: AccommodationCar
       <div className="relative">
         {/* Image Container */}
         <div className="relative aspect-[4/3] overflow-hidden">
-          <img
+          <Image
             src={image}
             alt={`${type} ${name} à ${location}`}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading="lazy"
           />
           
           {/* Badges */}
@@ -101,14 +103,16 @@ export function AccommodationCard({ accommodation, className }: AccommodationCar
 
           {/* Favorite Button */}
           <button
-            onClick={(e) => {
-              e.preventDefault()
-              setIsFavorite(!isFavorite)
-            }}
+            onClick={handleFavoriteClick}
             className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md hover:bg-white transition-colors"
             aria-label={isFavorite ? "Retirer des favoris" : "Ajouter aux favoris"}
           >
-            <span className={`material-symbols-outlined ${isFavorite ? 'text-red-500 filled' : 'text-gray-600'}`}>
+            <span
+              className={cn('material-symbols-outlined transition-all duration-300',
+                isFavorite ? 'text-red-500' : 'text-gray-600'
+              )}
+              style={{ fontVariationSettings: isFavorite ? "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48" : "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48" }}
+            >
               favorite
             </span>
           </button>

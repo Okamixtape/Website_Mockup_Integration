@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { AnimatedBox } from './AnimatedBox'
@@ -8,6 +7,7 @@ import { cn } from '@/lib/utils'
 import { Activity } from '@/data/activities'
 import { useI18n } from '@/lib/i18n/context'
 import { Button } from './Button'
+import { useFavoriteItem } from '@/hooks/useFavorites'
 
 interface ActivityCardProps {
   activity: Activity
@@ -17,12 +17,12 @@ interface ActivityCardProps {
 export function ActivityCard({ activity, className }: ActivityCardProps) {
   const { t } = useI18n()
   const router = useRouter()
-  const [isFavorite, setIsFavorite] = useState(false)
+  const { isFavorite, toggleFavorite } = useFavoriteItem(activity.id, 'activity')
 
   const handleFavoriteClick = (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    setIsFavorite(!isFavorite)
+    toggleFavorite()
   }
 
   const renderStars = (rating: number) => {
