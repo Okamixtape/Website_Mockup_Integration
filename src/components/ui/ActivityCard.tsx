@@ -74,7 +74,7 @@ export function ActivityCard({ activity, className }: ActivityCardProps) {
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
           src={activity.image}
-          alt={`${activity.name} - ${activity.description.slice(0, 80)} à ${activity.city}`}
+          alt={`${activity.name} à ${activity.city}`}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

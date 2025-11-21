@@ -72,15 +72,15 @@ export function AccommodationCard({ accommodation, className }: AccommodationCar
   }
 
   return (
-    <article 
-      className="bg-surface rounded-xl overflow-hidden shadow-md"
+    <article
+      className="bg-surface rounded-2xl overflow-hidden shadow-md"
     >
       <div className="relative">
         {/* Image Container */}
         <div className="relative aspect-[4/3] overflow-hidden">
           <img
             src={image}
-            alt={`${type} ${name} à ${location} - ${description.slice(0, 80)}`}
+            alt={`${type} ${name} à ${location}`}
             className="w-full h-full object-cover"
           />
           

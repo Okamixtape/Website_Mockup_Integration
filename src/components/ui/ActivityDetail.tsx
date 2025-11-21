@@ -35,10 +35,10 @@ export function ActivityDetail({ activity }: ActivityDetailProps) {
           <div className="lg:col-span-2 space-y-8">
             <AnimatedBox animation="fadeIn">
               <div className="space-y-4">
-                <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                   <Image
                     src={images[selectedImage]}
-                    alt={activity.name}
+                    alt={`${activity.name} à ${activity.city}`}
                     fill
                     className="object-cover"
                     priority
@@ -55,7 +55,7 @@ export function ActivityDetail({ activity }: ActivityDetailProps) {
                       key={index}
                       onClick={() => setSelectedImage(index)}
                       className={cn(
-                        "relative aspect-[4/3] overflow-hidden rounded-lg transition-all",
+                        "relative aspect-[4/3] overflow-hidden rounded-2xl transition-all",
                         selectedImage === index ? "ring-2 ring-primary" : "opacity-70 hover:opacity-100"
                       )}
                     >

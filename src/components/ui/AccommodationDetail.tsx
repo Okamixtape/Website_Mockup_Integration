@@ -88,10 +88,10 @@ export function AccommodationDetail({ accommodation }: AccommodationDetailProps)
             <AnimatedBox animation="fadeIn">
               <div className="space-y-4">
                 {/* Image principale */}
-                <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                   <Image
                     src={images[selectedImage]}
-                    alt={`${accommodation.type} ${accommodation.name} - Vue ${selectedImage + 1} - ${accommodation.description}`}
+                    alt={`${accommodation.name} - ${accommodation.location}`}
                     fill
                     className="object-cover"
                     priority
@@ -110,7 +110,7 @@ export function AccommodationDetail({ accommodation }: AccommodationDetailProps)
                       key={index}
                       onClick={() => setSelectedImage(index)}
                       className={cn(
-                        "relative aspect-[4/3] overflow-hidden rounded-lg transition-all",
+                        "relative aspect-[4/3] overflow-hidden rounded-2xl transition-all",
                         selectedImage === index ? "ring-2 ring-primary" : "opacity-70 hover:opacity-100"
                       )}
                     >
