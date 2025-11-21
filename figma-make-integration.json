@@ -1,0 +1,854 @@
+{
+  "project": {
+    "name": "Reservia - Golden Standard",
+    "version": "2.0.0",
+    "description": "Professional accommodation and activity booking platform with geographic contextual discovery",
+    "framework": "Next.js 14 + TypeScript + Tailwind CSS",
+    "designSystem": "Material Design 3"
+  },
+
+  "designTokens": {
+    "colors": {
+      "primary": {
+        "main": "#0065FC",
+        "description": "Brand blue - primary actions, CTAs, links"
+      },
+      "onPrimary": {
+        "main": "#FFFFFF",
+        "description": "Text on primary color backgrounds"
+      },
+      "secondary": {
+        "main": "#F2F2F2",
+        "description": "Secondary backgrounds, hover states"
+      },
+      "tertiary": {
+        "main": "#DEEBFF",
+        "description": "Tertiary container for badges"
+      },
+      "surface": {
+        "main": "#FFFFFF",
+        "description": "Card backgrounds"
+      },
+      "surfaceContainer": {
+        "main": "#F7F7F7",
+        "description": "Container backgrounds, input fields"
+      },
+      "surfaceContainerHigh": {
+        "main": "#EEEEEE",
+        "description": "Elevated containers, hover states"
+      },
+      "onSurface": {
+        "main": "#000000",
+        "description": "Primary text on surface backgrounds"
+      },
+      "onSurfaceVariant": {
+        "main": "#666666",
+        "description": "Secondary text, labels, descriptions"
+      },
+      "outline": {
+        "main": "#D9D9D9",
+        "description": "Default borders"
+      },
+      "outlineVariant": {
+        "main": "#EEEEEE",
+        "description": "Subtle borders, dividers"
+      },
+      "scrim": {
+        "main": "#000000",
+        "description": "Overlay backgrounds with opacity"
+      },
+      "background": {
+        "main": "#FFFFFF",
+        "description": "Page background"
+      },
+      "error": {
+        "main": "#FF0000",
+        "description": "Error states, destructive actions"
+      },
+      "warning": {
+        "main": "#FFA500",
+        "description": "Warning states, alerts"
+      },
+      "success": {
+        "main": "#00C853",
+        "description": "Success states, confirmations"
+      },
+      "rating": {
+        "main": "#FFD700",
+        "description": "Star ratings, popularity indicators"
+      }
+    },
+
+    "typography": {
+      "fontFamily": {
+        "body": "system-ui, -apple-system, sans-serif",
+        "headings": "system-ui, -apple-system, sans-serif"
+      },
+      "scale": {
+        "display": {
+          "size": "3.5rem",
+          "lineHeight": "1.2",
+          "weight": "800",
+          "usage": "Hero headlines"
+        },
+        "h1": {
+          "size": "2.5rem",
+          "lineHeight": "1.2",
+          "weight": "700",
+          "usage": "Page titles"
+        },
+        "h2": {
+          "size": "2rem",
+          "lineHeight": "1.3",
+          "weight": "700",
+          "usage": "Section titles"
+        },
+        "h3": {
+          "size": "1.5rem",
+          "lineHeight": "1.4",
+          "weight": "600",
+          "usage": "Card titles, subsections"
+        },
+        "h4": {
+          "size": "1.25rem",
+          "lineHeight": "1.4",
+          "weight": "600",
+          "usage": "Small headings"
+        },
+        "bodyLarge": {
+          "size": "1.125rem",
+          "lineHeight": "1.6",
+          "weight": "400",
+          "usage": "Large body text, descriptions"
+        },
+        "body": {
+          "size": "1rem",
+          "lineHeight": "1.5",
+          "weight": "400",
+          "usage": "Default body text"
+        },
+        "bodySmall": {
+          "size": "0.875rem",
+          "lineHeight": "1.5",
+          "weight": "400",
+          "usage": "Small text, captions"
+        },
+        "caption": {
+          "size": "0.75rem",
+          "lineHeight": "1.4",
+          "weight": "400",
+          "usage": "Tiny labels, legal text"
+        }
+      }
+    },
+
+    "spacing": {
+      "scale": {
+        "0": "0px",
+        "1": "0.25rem (4px)",
+        "2": "0.5rem (8px)",
+        "3": "0.75rem (12px)",
+        "4": "1rem (16px)",
+        "5": "1.25rem (20px)",
+        "6": "1.5rem (24px)",
+        "8": "2rem (32px)",
+        "10": "2.5rem (40px)",
+        "12": "3rem (48px)",
+        "16": "4rem (64px)",
+        "20": "5rem (80px)",
+        "24": "6rem (96px)"
+      },
+      "usagePrimary": {
+        "cardPadding": "1.25rem (20px)",
+        "gridGap": "1.5rem (24px)",
+        "sectionPadding": "4rem (64px) vertical, 1rem (16px) horizontal",
+        "containerMaxWidth": "1280px"
+      }
+    },
+
+    "borderRadius": {
+      "scale": {
+        "none": "0px",
+        "sm": "0.25rem (4px)",
+        "md": "0.5rem (8px)",
+        "lg": "1rem (16px)",
+        "xl": "1.5rem (24px)",
+        "2xl": "2rem (32px)",
+        "full": "9999px"
+      },
+      "usage": {
+        "cards": "2xl (32px) - Main accommodation/activity cards",
+        "images": "2xl (32px) - Main images and thumbnails",
+        "buttons": "full (9999px) - Primary and secondary buttons",
+        "badges": "full (9999px) - Status badges, pills",
+        "inputs": "lg (16px) - Form inputs, selects"
+      }
+    },
+
+    "aspectRatios": {
+      "cards": "4/3",
+      "description": "Standardized 4:3 aspect ratio for all accommodation and activity images",
+      "usage": "Ensures consistent visual rhythm across all card grids"
+    },
+
+    "shadows": {
+      "sm": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+      "md": "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+      "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+      "xl": "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
+      "usage": {
+        "cards": "lg - Accommodation and activity cards",
+        "reservationPanel": "lg - Sticky reservation sidebar",
+        "modals": "xl - Confirmation dialogs",
+        "buttons": "md - Elevated button states"
+      }
+    },
+
+    "icons": {
+      "library": "Material Symbols Outlined",
+      "size": {
+        "small": "16px",
+        "medium": "24px",
+        "large": "48px"
+      },
+      "usage": "Consistent icon system from Google Material Symbols"
+    }
+  },
+
+  "components": {
+    "AccommodationCard": {
+      "type": "Card",
+      "layout": "Vertical",
+      "structure": [
+        {
+          "section": "image",
+          "aspectRatio": "4/3",
+          "borderRadius": "2xl top",
+          "overlays": [
+            "favorite button (top-right)",
+            "popular badge (top-left, conditional)",
+            "price badge (bottom-left)"
+          ]
+        },
+        {
+          "section": "content",
+          "padding": "5",
+          "elements": [
+            "title (h3, bold, line-clamp-1)",
+            "location (icon + text, small)",
+            "rating (stars + score)",
+            "price (large, bold) + /nuit",
+            "CTA button (filled, full-width)"
+          ]
+        }
+      ],
+      "interactions": {
+        "hover": "lift animation + image scale 1.05",
+        "click": "navigate to detail page"
+      }
+    },
+
+    "ActivityCard": {
+      "type": "Card",
+      "layout": "Vertical",
+      "structure": [
+        {
+          "section": "image",
+          "aspectRatio": "4/3",
+          "borderRadius": "2xl top",
+          "overlays": [
+            "favorite button (top-right)",
+            "badges (top-left): popular, must-see",
+            "price badge (bottom-left): free or €XX"
+          ],
+          "gradient": "bottom overlay from-black/50"
+        },
+        {
+          "section": "content",
+          "padding": "5",
+          "elements": [
+            "title (h3, bold, line-clamp-1)",
+            "location (icon + city)",
+            "rating (stars + score + review count)",
+            "CTA button (filled, full-width)"
+          ]
+        }
+      ],
+      "interactions": {
+        "hover": "lift animation + image scale 1.05",
+        "click": "navigate to activity detail"
+      }
+    },
+
+    "Button": {
+      "variants": {
+        "filled": {
+          "background": "primary",
+          "text": "on-primary",
+          "padding": "12px 24px",
+          "borderRadius": "full",
+          "fontWeight": "600"
+        },
+        "tonal": {
+          "background": "surface-container-high",
+          "text": "on-surface",
+          "padding": "12px 24px",
+          "borderRadius": "full",
+          "fontWeight": "500"
+        },
+        "outlined": {
+          "background": "transparent",
+          "border": "1px solid outline-variant",
+          "text": "on-surface",
+          "padding": "12px 24px",
+          "borderRadius": "full"
+        }
+      },
+      "sizes": {
+        "small": "height: 36px, padding: 8px 16px, text: 0.875rem",
+        "medium": "height: 44px, padding: 12px 24px, text: 1rem",
+        "large": "height: 52px, padding: 16px 32px, text: 1.125rem"
+      },
+      "states": {
+        "hover": "shadow-lg + scale 1.02",
+        "active": "scale 0.98",
+        "disabled": "opacity 0.5 + cursor not-allowed"
+      }
+    },
+
+    "Chip": {
+      "type": "Filter Chip",
+      "structure": {
+        "default": {
+          "background": "surface-container",
+          "text": "on-surface-variant",
+          "border": "1px solid outline-variant",
+          "borderRadius": "full",
+          "padding": "8px 16px"
+        },
+        "selected": {
+          "background": "primary",
+          "text": "on-primary",
+          "border": "none"
+        }
+      },
+      "icon": "Material Symbol (16px, left-aligned)",
+      "interactions": {
+        "hover": "scale 1.05",
+        "click": "toggle selected state"
+      }
+    },
+
+    "Badge": {
+      "variants": {
+        "popular": {
+          "background": "primary",
+          "text": "on-primary",
+          "icon": "local_fire_department"
+        },
+        "mustSee": {
+          "background": "tertiary-container",
+          "text": "on-tertiary-container",
+          "icon": "tour"
+        },
+        "nearby": {
+          "background": "tertiary-container",
+          "text": "on-tertiary-container",
+          "icon": "near_me"
+        }
+      },
+      "structure": {
+        "borderRadius": "full",
+        "padding": "4px 12px",
+        "fontSize": "0.75rem",
+        "fontWeight": "700",
+        "display": "inline-flex with icon + text"
+      }
+    },
+
+    "ReservationCalendar": {
+      "type": "Interactive Widget",
+      "layout": "Stacked inputs",
+      "structure": [
+        "Check-in date input",
+        "Check-out date input",
+        "Guest counter (- / number / +)",
+        "Price breakdown (conditional)",
+        "CTA button (reserve)",
+        "Disclaimer text"
+      ],
+      "styling": {
+        "container": "bg-surface-container, rounded-2xl, padding-6, shadow-lg",
+        "stickyPosition": "top-24"
+      }
+    },
+
+    "NearbyActivities": {
+      "type": "Smart Section",
+      "logic": "Filter by neighborhoodId, fallback to city",
+      "structure": [
+        {
+          "section": "header",
+          "elements": [
+            "title (dynamic: neighborhood or city)",
+            "badge (conditional: '10min à pied')",
+            "subtitle"
+          ]
+        },
+        {
+          "section": "grid",
+          "layout": "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
+          "gap": "6",
+          "items": "ActivityCard[] (max 4)"
+        },
+        {
+          "section": "cta",
+          "conditional": "if more activities available",
+          "element": "Link to activities page filtered by city"
+        }
+      ]
+    },
+
+    "GlobalFilters": {
+      "type": "Search Bar",
+      "layout": "Horizontal form",
+      "fields": [
+        {
+          "name": "destination",
+          "type": "combobox",
+          "icon": "location_on",
+          "width": "flex-1"
+        },
+        {
+          "name": "dates",
+          "type": "date range",
+          "icon": "calendar_today",
+          "width": "flex-1"
+        },
+        {
+          "name": "guests",
+          "type": "number",
+          "icon": "person",
+          "width": "120px"
+        },
+        {
+          "name": "submit",
+          "type": "button",
+          "variant": "filled",
+          "icon": "search"
+        }
+      ],
+      "styling": {
+        "container": "bg-white, rounded-full, shadow-xl, padding-2",
+        "responsive": "stack vertically on mobile"
+      }
+    }
+  },
+
+  "screens": {
+    "homepage": {
+      "path": "/",
+      "sections": [
+        {
+          "name": "Hero",
+          "components": ["Heading", "GlobalFilters"]
+        },
+        {
+          "name": "Accommodations",
+          "components": ["SectionHeading", "AccommodationCard[]"],
+          "layout": "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+          "gap": "6"
+        },
+        {
+          "name": "Activities",
+          "components": [
+            "SectionHeading",
+            "Filters (CategoryChips, Switch, Select, NeighborhoodChips)",
+            "ActivityCard[]"
+          ],
+          "layout": "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
+          "gap": "6"
+        }
+      ]
+    },
+
+    "accommodationDetail": {
+      "path": "/accommodation/[id]",
+      "layout": "2-column (2/3 content + 1/3 sidebar)",
+      "sections": [
+        {
+          "name": "Gallery",
+          "components": ["MainImage", "ThumbnailGrid"],
+          "aspectRatio": "4/3"
+        },
+        {
+          "name": "Information",
+          "components": ["Title", "Location", "Rating", "Description", "Amenities", "HouseRules"]
+        },
+        {
+          "name": "ReservationPanel",
+          "components": ["ReservationCalendar"],
+          "position": "sticky sidebar"
+        },
+        {
+          "name": "NearbyActivities",
+          "components": ["SectionHeading", "ActivityCard[]"],
+          "layout": "grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+        }
+      ]
+    },
+
+    "activityDetail": {
+      "path": "/activity/[id]",
+      "layout": "2-column (2/3 content + 1/3 sidebar)",
+      "sections": [
+        {
+          "name": "Gallery",
+          "components": ["MainImage", "ThumbnailGrid"],
+          "aspectRatio": "4/3"
+        },
+        {
+          "name": "Information",
+          "components": ["Title", "Location", "Rating", "Description", "Highlights", "Duration", "Price"]
+        },
+        {
+          "name": "BookingPanel",
+          "components": ["DatePicker", "GuestCounter", "CTAButton"],
+          "position": "sticky sidebar"
+        }
+      ]
+    },
+
+    "reservationsPage": {
+      "path": "/reservations",
+      "sections": [
+        {
+          "name": "Header",
+          "components": ["PageTitle", "Subtitle"]
+        },
+        {
+          "name": "ReservationsList",
+          "components": ["ReservationCard[]"],
+          "emptyState": "NoReservationsMessage"
+        }
+      ]
+    }
+  },
+
+  "userFlows": {
+    "accommodationBooking": {
+      "steps": [
+        {
+          "step": 1,
+          "screen": "homepage",
+          "action": "User sets destination via GlobalFilters",
+          "trigger": "destination select + search click",
+          "dataFlow": "localStorage.setItem('selectedDestination') + custom event dispatch"
+        },
+        {
+          "step": 2,
+          "screen": "homepage",
+          "action": "Accommodations grid filters by selected city",
+          "trigger": "automatic (useEffect listens to event)",
+          "dataFlow": "filteredAccommodations based on city match"
+        },
+        {
+          "step": 3,
+          "screen": "homepage",
+          "action": "User clicks AccommodationCard",
+          "trigger": "card click",
+          "navigation": "/accommodation/[id]"
+        },
+        {
+          "step": 4,
+          "screen": "accommodationDetail",
+          "action": "User browses gallery and reviews details",
+          "interactions": ["thumbnail clicks", "scroll through amenities"]
+        },
+        {
+          "step": 5,
+          "screen": "accommodationDetail",
+          "action": "User selects dates and guest count",
+          "component": "ReservationCalendar",
+          "validation": "dates required before reservation"
+        },
+        {
+          "step": 6,
+          "screen": "accommodationDetail",
+          "action": "User clicks 'Réserver' button",
+          "trigger": "button click",
+          "dataFlow": "localStorage.setItem('reservations')",
+          "result": "ReservationConfirmation modal opens"
+        },
+        {
+          "step": 7,
+          "screen": "modal",
+          "action": "User sees confirmation with booking summary",
+          "component": "ReservationConfirmation",
+          "options": ["Close modal", "Navigate to reservations page"]
+        }
+      ]
+    },
+
+    "activityDiscovery": {
+      "steps": [
+        {
+          "step": 1,
+          "screen": "homepage",
+          "action": "User scrolls to Activities section",
+          "trigger": "scroll or anchor link click"
+        },
+        {
+          "step": 2,
+          "screen": "homepage",
+          "action": "User applies filters",
+          "filters": ["category chips", "free only toggle", "neighborhood chips", "price range slider", "sort dropdown"],
+          "dataFlow": "filteredActivities computed in real-time"
+        },
+        {
+          "step": 3,
+          "screen": "homepage",
+          "action": "User clicks ActivityCard",
+          "trigger": "card click",
+          "navigation": "/activity/[id]"
+        },
+        {
+          "step": 4,
+          "screen": "activityDetail",
+          "action": "User reviews activity details and books",
+          "interactions": ["gallery browse", "read highlights", "select date", "book"]
+        }
+      ]
+    },
+
+    "contextualDiscovery": {
+      "description": "NEW FEATURE - Geographic proximity-based recommendations",
+      "steps": [
+        {
+          "step": 1,
+          "screen": "accommodationDetail",
+          "action": "User views accommodation details",
+          "automatic": "NearbyActivities component auto-loads"
+        },
+        {
+          "step": 2,
+          "screen": "accommodationDetail",
+          "action": "System filters activities by neighborhoodId",
+          "logic": "activity.neighborhoodId === accommodation.neighborhoodId",
+          "fallback": "if 0 results, show city-wide activities",
+          "dataFlow": "activities.filter() based on geographic taxonomy"
+        },
+        {
+          "step": 3,
+          "screen": "accommodationDetail",
+          "action": "User sees curated nearby activities",
+          "visual": "Badge shows '10min à pied' for neighborhood matches",
+          "display": "max 4 activities in grid"
+        },
+        {
+          "step": 4,
+          "screen": "accommodationDetail",
+          "action": "User clicks activity card or 'View all' CTA",
+          "navigation": "activity detail or activities page with city filter"
+        }
+      ]
+    },
+
+    "neighborhoodNavigation": {
+      "description": "Geographic filtering across the platform",
+      "dataModel": {
+        "structure": "City → Neighborhoods → [Accommodations, Activities]",
+        "implementation": "neighborhoods.ts exports taxonomy",
+        "linking": "both data types have neighborhoodId field"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "screen": "homepage",
+          "action": "User selects city via GlobalFilters",
+          "result": "selectedDestination state updates"
+        },
+        {
+          "step": 2,
+          "screen": "homepage",
+          "action": "Activities section displays neighborhood chips",
+          "logic": "getCityNeighborhoods(selectedDestination)",
+          "conditional": "only if city has defined neighborhoods"
+        },
+        {
+          "step": 3,
+          "screen": "homepage",
+          "action": "User clicks neighborhood chip",
+          "result": "activities filter by neighborhoodId",
+          "visual": "chip highlights with primary color"
+        },
+        {
+          "step": 4,
+          "screen": "homepage",
+          "action": "User sees activities in selected neighborhood",
+          "count": "displayed in real-time",
+          "emptyState": "message if no activities match"
+        }
+      ]
+    }
+  },
+
+  "animations": {
+    "pageTransitions": {
+      "type": "none",
+      "description": "Next.js default navigation"
+    },
+    "componentAnimations": {
+      "fadeIn": {
+        "trigger": "on mount",
+        "duration": "300ms",
+        "easing": "ease-out",
+        "usage": "Section headings, empty states"
+      },
+      "slideUp": {
+        "trigger": "on mount",
+        "duration": "400ms",
+        "easing": "ease-out",
+        "transform": "translateY(20px) → translateY(0)",
+        "usage": "Cards in grids (with staggered delay)"
+      },
+      "slideLeft": {
+        "trigger": "on mount",
+        "duration": "400ms",
+        "easing": "ease-out",
+        "transform": "translateX(20px) → translateX(0)",
+        "usage": "Sidebar panels"
+      },
+      "lift": {
+        "trigger": "on hover",
+        "duration": "200ms",
+        "easing": "ease-out",
+        "transform": "translateY(-4px) + shadow-xl",
+        "usage": "Interactive cards"
+      },
+      "scale": {
+        "trigger": "on hover",
+        "duration": "300ms",
+        "easing": "ease-in-out",
+        "transform": "scale(1.05)",
+        "usage": "Images inside cards"
+      },
+      "shake": {
+        "trigger": "on validation error",
+        "duration": "500ms",
+        "keyframes": "translateX: 0 → -10px → 10px → 0",
+        "usage": "Calendar when dates not selected"
+      }
+    },
+    "staggering": {
+      "grids": "50-100ms delay per item",
+      "lists": "100ms delay per item",
+      "implementation": "delay prop on AnimatedBox"
+    }
+  },
+
+  "responsiveBreakpoints": {
+    "sm": "640px",
+    "md": "768px",
+    "lg": "1024px",
+    "xl": "1280px",
+    "2xl": "1536px",
+    "usage": {
+      "mobile": "< 768px: single column grids, stacked filters",
+      "tablet": "768px - 1024px: 2-column grids",
+      "desktop": "≥ 1024px: 3-4 column grids, sticky sidebars"
+    }
+  },
+
+  "accessibility": {
+    "images": {
+      "altTags": "< 125 characters, descriptive format: [name] à [location]",
+      "loading": "lazy for below-fold images, priority for hero images"
+    },
+    "buttons": {
+      "ariaLabels": "all icon-only buttons have aria-label",
+      "focusStates": "visible focus rings with outline-primary"
+    },
+    "semanticHTML": {
+      "cards": "article tags",
+      "navigation": "nav tags",
+      "sections": "section tags with IDs for anchor links"
+    },
+    "icons": {
+      "decorative": "Material Symbols used with adjacent text",
+      "interactive": "icon-only buttons have labels"
+    }
+  },
+
+  "dataArchitecture": {
+    "geographicTaxonomy": {
+      "file": "src/data/neighborhoods.ts",
+      "structure": {
+        "cities": 7,
+        "neighborhoods": 20,
+        "accommodations": 10,
+        "activities": 17
+      },
+      "linking": {
+        "field": "neighborhoodId",
+        "type": "string",
+        "purpose": "Links accommodations to activities within same geographic area"
+      },
+      "helpers": {
+        "getCityNeighborhoods": "Returns Neighborhood[] for a city",
+        "getNeighborhood": "Returns single Neighborhood by city + ID",
+        "getNeighborhoodName": "Returns string name for display"
+      }
+    },
+    "stateManagement": {
+      "global": {
+        "destination": "localStorage + custom events",
+        "reservations": "localStorage (array of booking objects)"
+      },
+      "local": {
+        "filters": "useState in component scope",
+        "uiState": "useState for modals, selected items"
+      },
+      "sync": {
+        "method": "window.dispatchEvent(new CustomEvent('destinationUpdated'))",
+        "listeners": "useEffect hooks with cleanup"
+      }
+    }
+  },
+
+  "keyDifferentiators": {
+    "professionalDesign": [
+      "Consistent 4:3 aspect ratios across all media",
+      "Standardized 32px border radius for premium feel",
+      "Material Design 3 color system with proper contrast",
+      "Smooth animations with staggered delays",
+      "Real shadows (not excessive) for depth perception"
+    ],
+    "technicalExcellence": [
+      "TypeScript strict mode throughout",
+      "Next.js 14 App Router with SSG",
+      "Optimized images with responsive srcsets",
+      "Clean component architecture with single responsibility",
+      "Proper semantic HTML and accessibility"
+    ],
+    "uniqueFeatures": [
+      "Geographic proximity recommendations (NearbyActivities)",
+      "Neighborhood-based filtering system",
+      "Intelligent fallback logic (neighborhood → city)",
+      "Cross-component state sync via custom events",
+      "Real-time filter computation with useMemo"
+    ]
+  },
+
+  "figmaMappingInstructions": {
+    "colorStyles": "Create color styles from designTokens.colors with exact hex values",
+    "textStyles": "Create text styles from designTokens.typography.scale",
+    "effectStyles": "Create shadow effects from designTokens.shadows",
+    "componentLibrary": "Build components as Figma components with variants matching the components section",
+    "autoLayout": "Use auto-layout with gap values from designTokens.spacing",
+    "cornerRadius": "Set corner radius variables from designTokens.borderRadius",
+    "aspectRatios": "Use frame constraints with 4:3 aspect ratio lock",
+    "responsiveFrames": "Create desktop (1280px), tablet (768px), mobile (375px) frames for each screen",
+    "prototyping": "Link screens following userFlows definitions with 'Smart Animate' transitions"
+  }
+}
